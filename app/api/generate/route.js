@@ -1,3 +1,6 @@
+// Garante que esse código só rode no servidor
+export const dynamic = "force-dynamic";
+
 import OpenAI from "openai";
 
 const client = new OpenAI({
@@ -8,7 +11,6 @@ export async function POST(req) {
   try {
     const { tema, idade, tipo, adaptacao } = await req.json();
 
-    // Prompt com foco pedagógico, BNCC e inclusão
     const prompt = `
     Você é um professor especialista em educação infantil, BNCC e adaptações neurodivergentes.
     Crie uma atividade sobre o tema "${tema}" para uma criança de ${idade} anos.
@@ -19,22 +21,26 @@ export async function POST(req) {
     Sempre alinhe à BNCC de acordo com a faixa etária.
     `;
 
+    // Faz a chamada à API da OpenAI
     const completion = await client.responses.create({
       model: "gpt-4o-mini",
       input: prompt,
     });
 
-    const resultado = completion.output[0].content[0].text;
+    // Extrai o texto da resposta
+    const resultado = completion.output[0]?.content[0]?.text || "Não foi possível gerar a atividade.";
 
     return new Response(JSON.stringify({ resultado }), {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
+
   } catch (erro) {
-    console.error("Erro:", erro);
+    console.error("Erro ao gerar atividade:", erro);
     return new Response(JSON.stringify({ erro: "Erro ao gerar atividade." }), {
       status: 500,
       headers: { "Content-Type": "application/json" },
     });
   }
 }
+
