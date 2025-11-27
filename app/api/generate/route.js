@@ -1,41 +1,23 @@
-import { NextResponse } from "next/server";
-
 export async function POST(req) {
   try {
-    // pega o prompt enviado pelo frontend
-    const { prompt } = await req.json();
+    const { tema } = await req.json();
 
-    const response = await fetch("https://api.openai.com/v1/chat/completions", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: "gpt-4o-mini",
-        messages: [
-          {
-            role: "system",
-            content:
-              "Você é um gerador de atividades pedagógicas para crianças.",
-          },
-          {
-            role: "user",
-            content: prompt,
-          },
-        ],
-      }),
+    // Aqui vai um gerador de texto fictício de teste.
+    // Depois trocamos para o modelo real da OpenAI.
+    const resultado = `Atividade sobre "${tema}": 
+1. Desenhe algo relacionado a ${tema}.
+2. Escreva uma frase sobre o que você desenhou.
+3. Pinte com suas cores favoritas!`;
+
+    return new Response(JSON.stringify({ resultado }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
     });
-
-    const data = await response.json();
-
-    return NextResponse.json(data);
-  } catch (error) {
-    console.error("Erro na rota /api/generate:", error);
-    return NextResponse.json(
-      { error: "Erro ao gerar atividade." },
-      { status: 500 }
-    );
+  } catch (erro) {
+    return new Response(JSON.stringify({ erro: "Erro ao gerar atividade." }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
   }
 }
 
