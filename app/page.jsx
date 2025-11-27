@@ -1,3 +1,5 @@
+"use client";
+
 export default function Home() {
   async function gerarAtividade(e) {
     e.preventDefault();
@@ -14,21 +16,21 @@ export default function Home() {
   }
 
   return (
-    <div style={{
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
-      minHeight: "100vh",
-      fontFamily: "sans-serif",
-      backgroundColor: "#fafafa",
-    }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        height: "100vh",
+      }}
+    >
       <h1>Gerador de Atividades Infantis</h1>
-      <form onSubmit={gerarAtividade} style={{ display: "flex", flexDirection: "column", gap: "10px", width: "300px" }}>
-        <label htmlFor="tema">Tema da Atividade:</label>
-        <input type="text" id="tema" name="tema" placeholder="Ex: animais, cores, natureza..." required />
-        <button type="submit">Gerar Atividade</button>
+      <form onSubmit={gerarAtividade}>
+        <input name="tema" placeholder="Digite um tema" />
+        <button type="submit">Gerar</button>
       </form>
     </div>
   );
 }
+
