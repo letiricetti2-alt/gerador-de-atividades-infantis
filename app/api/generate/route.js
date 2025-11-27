@@ -2,19 +2,40 @@ import { NextResponse } from "next/server";
 
 export async function POST(req) {
   try {
+    // pega o prompt enviado pelo frontend
     const { prompt } = await req.json();
 
-    // aqui vai sua lógica principal (exemplo)
-    const resposta = `Você enviou o prompt: ${prompt}`;
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        messages: [
+          {
+            role: "system",
+            content:
+              "Você é um gerador de atividades pedagógicas para crianças.",
+          },
+          {
+            role: "user",
+            content: prompt,
+          },
+        ],
+      }),
+    });
 
-    return NextResponse.json({ success: true, data: resposta });
+    const data = await response.json();
+
+    return NextResponse.json(data);
   } catch (error) {
-    console.error("Erro na rota /generate:", error);
-    return NextResponse.json({ success: false, error: error.message }, { status: 500 });
+    console.error("Erro na rota /api/generate:", error);
+    return NextResponse.json(
+      { error: "Erro ao gerar atividade." },
+      { status: 500 }
+    );
   }
 }
 
-    console.error(error);
-    return NextResponse.json({ error: "Erro ao gerar atividade." }, { status: 500 });
-  }
-}
