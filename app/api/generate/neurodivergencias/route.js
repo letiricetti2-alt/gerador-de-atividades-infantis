@@ -1,4 +1,4 @@
-import { supabase } from "/lib/supabaseClient";
+import { supabase } from "../../../lib/supabaseClient";
 
 export const dynamic = "force-dynamic";
 
@@ -16,9 +16,12 @@ export async function GET() {
     });
   } catch (error) {
     console.error("Erro ao buscar neurodivergências:", error);
-    return new Response(JSON.stringify({ error: "Erro ao buscar dados" }), {
-      status: 500,
-      headers: { "Content-Type": "application/json" },
-    });
+    return new Response(
+      JSON.stringify({ error: "Erro ao buscar dados" }),
+      {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      }
+    );
   }
 }
