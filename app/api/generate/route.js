@@ -1,4 +1,4 @@
-import { supabase } from '@/lib/supabaseClient'
+import { supabase } from "../../lib/supabaseClient";
 // Garante que esse código só rode no servidor
 export const dynamic = "force-dynamic";
 
@@ -28,38 +28,4 @@ Sempre alinhe à BNCC de acordo com a faixa etária.
       input: prompt,
     });
 
-    const resultado = completion.output_text;
-
-    // Salva a atividade na tabela "Atividades"
-    const { data, error } = await supabase
-      .from("Atividades")
-      .insert([
-        {
-          tema,
-          idade,
-          tipo,
-          resultado,
-          is_publica: true,
-          autor_id: null, // por enquanto sem login
-        },
-      ]);
-
-    if (error) {
-      console.error("Erro ao salvar na Supabase:", error);
-      return new Response(
-        JSON.stringify({ error: "Erro ao salvar no banco de dados" }),
-        { status: 500 }
-      );
-    }
-
-    return new Response(JSON.stringify({ resultado }), { status: 200 });
-  } catch (error) {
-    console.error("Erro geral:", error);
-    return new Response(
-      JSON.stringify({ error: "Erro ao gerar a atividade" }),
-      { status: 500 }
-    );
-  }
-}
-
-
+    const resultado
