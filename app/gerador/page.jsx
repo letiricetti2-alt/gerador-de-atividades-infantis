@@ -13,6 +13,10 @@ export default function GeradorDeAtividades() {
   const [resultado, setResultado] = useState("");
   const [erro, setErro] = useState("");
 
+  // 🔹 Filtros
+  const [nivelSuporte, setNivelSuporte] = useState("");
+  const [tipoAtividade, setTipoAtividade] = useState("");
+
   // 🔹 Função principal
   async function gerarAtividadeAdaptada() {
     try {
@@ -20,23 +24,25 @@ export default function GeradorDeAtividades() {
       setErro("");
       setResultado("");
 
-      // 🔹 Busca todas as atividades da view
-      const { data, error } = await supabase
-        .from("atividades_completas") // ← view criada na Supabase
-        .select("*");
+      let query = supabase.from("atividades_completas").select("*");
+
+      // 🔹 Aplica os filtros, se houver
+      if (nivelSuporte) query = query.eq("nivel_suporte", Number(nivelSuporte));
+      if (tipoAtividade) query = query.ilike("tipo", `%${tipoAtividade}%`);
+
+      const { data, error } = await query;
 
       if (error) throw error;
-
       if (!data || data.length === 0) {
-        setErro("Nenhuma atividade encontrada.");
+        setErro("Nenhuma atividade encontrada com esses filtros.");
         return;
       }
 
-      // 🔹 Escolhe uma atividade aleatória
+      // 🔹 Escolhe uma aleatória
       const randomIndex = Math.floor(Math.random() * data.length);
       const atividade = data[randomIndex];
 
-      // 🔹 Monta o texto de resultado
+      // 🔹 Monta o texto do resultado
       setResultado(
         `🧒 Aluno: ${atividade.aluno}
 🧠 Neurodivergência: ${atividade.neurodivergencia}
@@ -68,10 +74,54 @@ export default function GeradorDeAtividades() {
         🧠 <strong>Gerador de Atividades Adaptadas</strong>
       </h1>
       <p>
-        Aqui você poderá gerar atividades personalizadas de acordo com o nível
-        de suporte e tipo de neurodivergência.
+        Gere atividades personalizadas filtrando por nível de suporte e tipo de
+        atividade, ou deixe em branco para gerar aleatoriamente.
       </p>
 
+      {/* 🔹 Select: Nível de suporte */}
+      <div style={{ marginTop: "2rem" }}>
+        <label style={{ fontWeight: "bold", marginRight: "0.5rem" }}>
+          Nível de Suporte:
+        </label>
+        <select
+          value={nivelSuporte}
+          onChange={(e) => setNivelSuporte(e.target.value)}
+          style={{
+            padding: "8px",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+          }}
+        >
+          <option value="">Todos</option>
+          <option value="1">Nível 1</option>
+          <option value="2">Nível 2</option>
+          <option value="3">Nível 3</option>
+        </select>
+      </div>
+
+      {/* 🔹 Select: Tipo de atividade */}
+      <div style={{ marginTop: "1rem" }}>
+        <label style={{ fontWeight: "bold", marginRight: "0.5rem" }}>
+          Tipo de Atividade:
+        </label>
+        <select
+          value={tipoAtividade}
+          onChange={(e) => setTipoAtividade(e.target.value)}
+          style={{
+            padding: "8px",
+            borderRadius: "8px",
+            border: "1px solid #ccc",
+          }}
+        >
+          <option value="">Todas</option>
+          <option value="sensorial">Sensorial</option>
+          <option value="motora">Motora</option>
+          <option value="cognitiva">Cognitiva</option>
+          <option value="social">Social</option>
+        </select>
+      </div>
+
+      {/* 🔹 Botão principal */}
       <button
         onClick={gerarAtividadeAdaptada}
         disabled={loading}
@@ -128,6 +178,3 @@ export default function GeradorDeAtividades() {
     </div>
   );
 }
-
-
-
