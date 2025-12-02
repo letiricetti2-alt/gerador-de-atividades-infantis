@@ -28,4 +28,18 @@ Sempre alinhe à BNCC de acordo com a faixa etária.
       input: prompt,
     });
 
-    const resultado
+    const resultado = completion.output[0].content[0].text;
+
+    // Retorna o resultado como JSON
+    return new Response(JSON.stringify({ resultado }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (error) {
+    console.error("Erro ao gerar atividade:", error);
+    return new Response(JSON.stringify({ erro: "Erro ao gerar atividade" }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}
