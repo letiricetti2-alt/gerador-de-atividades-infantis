@@ -12,21 +12,21 @@ export default function GeradorDeAtividades() {
   const [loading, setLoading] = useState(false);
   const [resultado, setResultado] = useState("");
   const [erro, setErro] = useState("");
-
-  // 🔹 Filtros
   const [nivelSuporte, setNivelSuporte] = useState("");
   const [tipoAtividade, setTipoAtividade] = useState("");
+  const [corCard, setCorCard] = useState("#f3e8ff");
+  const [nivelTitulo, setNivelTitulo] = useState(null);
 
-  // 🔹 Função principal
   async function gerarAtividadeAdaptada() {
     try {
       setLoading(true);
       setErro("");
       setResultado("");
+      setCorCard("#f3e8ff");
+      setNivelTitulo(null);
 
       let query = supabase.from("atividades_completas").select("*");
 
-      // 🔹 Aplica os filtros, se houver
       if (nivelSuporte) query = query.eq("nivel_suporte", Number(nivelSuporte));
       if (tipoAtividade) query = query.ilike("tipo", `%${tipoAtividade}%`);
 
@@ -38,11 +38,18 @@ export default function GeradorDeAtividades() {
         return;
       }
 
-      // 🔹 Escolhe uma aleatória
       const randomIndex = Math.floor(Math.random() * data.length);
       const atividade = data[randomIndex];
 
-      // 🔹 Monta o texto do resultado
+      // 🔹 Define a cor e o nível do card
+      const coresPorNivel = {
+        1: "#bfdbfe", // azul-claro
+        2: "#ddd6fe", // lilás suave
+        3: "#fbcfe8", // rosa-claro
+      };
+      setCorCard(coresPorNivel[atividade.nivel_suporte] || "#f3e8ff");
+      setNivelTitulo(atividade.nivel_suporte);
+
       setResultado(
         `🧒 Aluno: ${atividade.aluno}
 🧠 Neurodivergência: ${atividade.neurodivergencia}
@@ -67,7 +74,6 @@ export default function GeradorDeAtividades() {
     }
   }
 
-  // 🔹 Layout
   return (
     <div style={{ textAlign: "center", marginTop: "3rem" }}>
       <h1>
@@ -78,7 +84,7 @@ export default function GeradorDeAtividades() {
         atividade, ou deixe em branco para gerar aleatoriamente.
       </p>
 
-      {/* 🔹 Select: Nível de suporte */}
+      {/* 🔹 Filtros */}
       <div style={{ marginTop: "2rem" }}>
         <label style={{ fontWeight: "bold", marginRight: "0.5rem" }}>
           Nível de Suporte:
@@ -99,7 +105,6 @@ export default function GeradorDeAtividades() {
         </select>
       </div>
 
-      {/* 🔹 Select: Tipo de atividade */}
       <div style={{ marginTop: "1rem" }}>
         <label style={{ fontWeight: "bold", marginRight: "0.5rem" }}>
           Tipo de Atividade:
@@ -121,7 +126,7 @@ export default function GeradorDeAtividades() {
         </select>
       </div>
 
-      {/* 🔹 Botão principal */}
+      {/* 🔹 Botão */}
       <button
         onClick={gerarAtividadeAdaptada}
         disabled={loading}
@@ -129,52 +134,5 @@ export default function GeradorDeAtividades() {
           backgroundColor: "#6b21a8",
           color: "white",
           border: "none",
-          padding: "12px 24px",
-          borderRadius: "10px",
-          marginTop: "2rem",
-          cursor: loading ? "not-allowed" : "pointer",
-          fontWeight: "bold",
-          fontSize: "16px",
-        }}
-      >
-        {loading ? "Gerando..." : "✨ Gerar Atividade Adaptada"}
-      </button>
+          p
 
-      {erro && <p style={{ color: "red", marginTop: "1rem" }}>⚠️ {erro}</p>}
-
-      {resultado && (
-        <div
-          style={{
-            textAlign: "left",
-            maxWidth: "600px",
-            margin: "2rem auto",
-            backgroundColor: "#f3e8ff",
-            padding: "1.5rem",
-            borderRadius: "10px",
-            whiteSpace: "pre-wrap",
-            boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-          }}
-        >
-          <h3>Atividade Gerada:</h3>
-          <p>{resultado}</p>
-        </div>
-      )}
-
-      <div style={{ marginTop: "3rem" }}>
-        <Link
-          href="/"
-          style={{
-            backgroundColor: "#6b21a8",
-            color: "white",
-            padding: "10px 20px",
-            borderRadius: "10px",
-            textDecoration: "none",
-            fontWeight: "bold",
-          }}
-        >
-          ← Voltar para o Início
-        </Link>
-      </div>
-    </div>
-  );
-}
