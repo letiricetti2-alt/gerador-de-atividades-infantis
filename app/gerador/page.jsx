@@ -1,42 +1,56 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
+import { createClient } from "@supabase/supabase-js";
+
+// 🔹 Inicializa o cliente Supabase
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default function GeradorDeAtividades() {
   const [loading, setLoading] = useState(false);
   const [resultado, setResultado] = useState("");
   const [erro, setErro] = useState("");
 
-  // 🔹 Função que vai buscar dados simulados da Supabase (por enquanto mock)
+  // 🔹 Função principal
   async function gerarAtividadeAdaptada() {
     try {
       setLoading(true);
       setErro("");
       setResultado("");
 
-      // Aqui futuramente entra o fetch real da Supabase 👇
-      // const res = await fetch("/api/atividades");
-      // const data = await res.json();
+      // 🔹 Busca dados reais da Supabase
+      const { data, error } = await supabase
+        .from("atividades_completas") // ← view criada na Supabase
+        .select("*")
+        .order("id", { ascending: false })
+        .limit(1); // pega a mais recente (podemos randomizar depois)
 
-      // Simulando o retorno de exemplo:
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      const mock = {
-        aluno: "João da Silva",
-        neurodivergencia: "Transtorno do Espectro Autista (TEA)",
-        nivel_suporte: 2,
-        estrategia: [
-          "Usar recursos visuais e estrutura de rotina",
-          "Dar reforço positivo e pausas sensoriais",
-          "Evitar sobrecarga auditiva e visual"
-        ],
-      };
+      if (error) throw error;
 
+      const atividade = data?.[0];
+      if (!atividade) {
+        setErro("Nenhuma atividade encontrada.");
+        return;
+      }
+
+      // 🔹 Monta o texto de resultado
       setResultado(
-        `🧒 Aluno: ${mock.aluno}
-🧠 Neurodivergência: ${mock.neurodivergencia}
-🎯 Nível de Suporte: ${mock.nivel_suporte}
-📋 Estratégias Recomendadas:
-- ${mock.estrategia.join("\n- ")}`
+        `🧒 Aluno: ${atividade.aluno}
+🧠 Neurodivergência: ${atividade.neurodivergencia}
+🎯 Nível de Suporte: ${atividade.nivel_suporte}
+📚 Tema: ${atividade.tema}
+🧩 Tipo: ${atividade.tipo}
+
+📋 Estratégias Gerais:
+- ${atividade.adaptacao_geral}
+
+💡 Estratégias por Nível:
+- ${atividade.estrategias_nivel}
+
+🎓 Estratégias por Neurodivergência:
+- ${atividade.estrategias_neurodivergencia}`
       );
     } catch (error) {
       console.error(error);
@@ -46,6 +60,7 @@ export default function GeradorDeAtividades() {
     }
   }
 
+  // 🔹 Layout
   return (
     <div style={{ textAlign: "center", marginTop: "3rem" }}>
       <h1>
@@ -74,11 +89,7 @@ export default function GeradorDeAtividades() {
         {loading ? "Gerando..." : "✨ Gerar Atividade Adaptada"}
       </button>
 
-      {erro && (
-        <p style={{ color: "red", marginTop: "1rem" }}>
-          ⚠️ {erro}
-        </p>
-      )}
+      {erro && <p style={{ color: "red", marginTop: "1rem" }}>⚠️ {erro}</p>}
 
       {resultado && (
         <div
