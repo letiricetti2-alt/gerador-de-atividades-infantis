@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-
+import Link from "next/link";
 export default function Home() {
   const [tema, setTema] = useState("");
   const [idade, setIdade] = useState("");
@@ -127,6 +127,22 @@ export default function Home() {
           <p>{resultado}</p>
         </div>
       )}
-    </div>
-  );
+<div style={{ textAlign: "center", marginTop: "3rem" }}>
+  <Link
+    href="/gerador"
+    style={{
+      backgroundColor: "#6b21a8",
+      color: "white",
+      padding: "12px 20px",
+      borderRadius: "10px",
+      textDecoration: "none",
+      fontWeight: "bold",
+      transition: "0.3s",
+    }}
+  >
+    🧠 Gerar Atividade Adaptada
+    </Link>
+  </div>
+</div>
+);
 }
