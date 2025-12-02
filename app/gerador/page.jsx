@@ -20,20 +20,21 @@ export default function GeradorDeAtividades() {
       setErro("");
       setResultado("");
 
-      // 🔹 Busca dados reais da Supabase
+      // 🔹 Busca todas as atividades da view
       const { data, error } = await supabase
         .from("atividades_completas") // ← view criada na Supabase
-        .select("*")
-        .order("id", { ascending: false })
-        .limit(1); // pega a mais recente (podemos randomizar depois)
+        .select("*");
 
       if (error) throw error;
 
-      const atividade = data?.[0];
-      if (!atividade) {
+      if (!data || data.length === 0) {
         setErro("Nenhuma atividade encontrada.");
         return;
       }
+
+      // 🔹 Escolhe uma atividade aleatória
+      const randomIndex = Math.floor(Math.random() * data.length);
+      const atividade = data[randomIndex];
 
       // 🔹 Monta o texto de resultado
       setResultado(
@@ -127,5 +128,6 @@ export default function GeradorDeAtividades() {
     </div>
   );
 }
+
 
 
