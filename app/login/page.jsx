@@ -13,7 +13,7 @@ export default function LoginPage() {
 
   const [modo, setModo] = useState("login"); // "login" ou "cadastro"
   const [nome, setNome] = useState("");
-  const [tipoUsuario, setTipoUsuario] = useState("professor"); // padrão
+  const [tipoUsuario, setTipoUsuario] = useState("professor");
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const [loading, setLoading] = useState(false);
@@ -51,8 +51,8 @@ export default function LoginPage() {
         if (erroPerfil) throw erroPerfil;
 
         setMensagem("Conta criada com sucesso! Redirecionando...");
-        // 3️⃣ Redireciona para o gerador
-        setTimeout(() => router.push("/gerador"), 1200);
+        // 3️⃣ Redireciona para a página inicial
+        setTimeout(() => router.push("/"), 1200);
       } else {
         // Modo LOGIN
         const { data, error } = await supabase.auth.signInWithPassword({
@@ -63,7 +63,8 @@ export default function LoginPage() {
         if (error) throw error;
 
         setMensagem("Login realizado com sucesso! Redirecionando...");
-        setTimeout(() => router.push("/gerador"), 1200);
+        // 👉 Agora redireciona para a página inicial
+        setTimeout(() => router.push("/"), 1200);
       }
     } catch (err) {
       console.error(err);
@@ -100,8 +101,8 @@ export default function LoginPage() {
 
         <p style={{ textAlign: "center", marginBottom: "1.5rem" }}>
           {modo === "login"
-            ? "Acesse para gerar atividades adaptadas."
-            : "Crie sua conta para gerar atividades personalizadas para crianças neurodivergentes."}
+            ? "Acesse para gerar atividades personalizadas."
+            : "Crie sua conta para gerar atividades adaptadas e personalizadas."}
         </p>
 
         {/* Toggle de modo */}
