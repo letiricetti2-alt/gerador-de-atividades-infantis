@@ -11,6 +11,8 @@
     "next": "14.0.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "@supabase/supabase-js": "^2.44.3",
+    "openai": "^4.25.0",
     "framer-motion": "^11.0.0"
   }
 }
