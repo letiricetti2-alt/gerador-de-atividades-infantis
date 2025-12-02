@@ -41,7 +41,6 @@ export default function GeradorDeAtividades() {
       const randomIndex = Math.floor(Math.random() * data.length);
       const atividade = data[randomIndex];
 
-      // 🔹 Define a cor e o nível do card
       const coresPorNivel = {
         1: "#bfdbfe", // azul-claro
         2: "#ddd6fe", // lilás suave
@@ -134,5 +133,78 @@ export default function GeradorDeAtividades() {
           backgroundColor: "#6b21a8",
           color: "white",
           border: "none",
-          p
+          padding: "12px 24px",
+          borderRadius: "10px",
+          marginTop: "2rem",
+          cursor: loading ? "not-allowed" : "pointer",
+          fontWeight: "bold",
+          fontSize: "16px",
+        }}
+      >
+        {loading ? "Gerando..." : "✨ Gerar Atividade Adaptada"}
+      </button>
+
+      {erro && <p style={{ color: "red", marginTop: "1rem" }}>⚠️ {erro}</p>}
+
+      {/* 🔹 Resultado */}
+      {resultado && (
+        <div
+          style={{
+            textAlign: "left",
+            maxWidth: "600px",
+            margin: "2rem auto",
+            backgroundColor: corCard,
+            padding: "0",
+            borderRadius: "12px",
+            overflow: "hidden",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+            transition: "background-color 0.3s ease",
+          }}
+        >
+          {nivelTitulo && (
+            <div
+              style={{
+                backgroundColor:
+                  nivelTitulo === 1
+                    ? "#93c5fd"
+                    : nivelTitulo === 2
+                    ? "#c4b5fd"
+                    : "#f9a8d4",
+                color: "#1f2937",
+                fontWeight: "bold",
+                textAlign: "center",
+                padding: "0.6rem",
+                fontSize: "15px",
+              }}
+            >
+              🌟 Nível de Suporte {nivelTitulo}
+            </div>
+          )}
+
+          <div style={{ padding: "1.5rem", whiteSpace: "pre-wrap" }}>
+            <h3>Atividade Gerada:</h3>
+            <p>{resultado}</p>
+          </div>
+        </div>
+      )}
+
+      <div style={{ marginTop: "3rem" }}>
+        <Link
+          href="/"
+          style={{
+            backgroundColor: "#6b21a8",
+            color: "white",
+            padding: "10px 20px",
+            borderRadius: "10px",
+            textDecoration: "none",
+            fontWeight: "bold",
+          }}
+        >
+          ← Voltar para o Início
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 
