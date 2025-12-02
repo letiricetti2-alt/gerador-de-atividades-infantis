@@ -1,148 +1,128 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Link from "next/link";
+import LogoutButton from "./components/LogoutButton";
+import { motion } from "framer-motion"; // animações suaves
+
 export default function Home() {
-  const [tema, setTema] = useState("");
-  const [idade, setIdade] = useState("");
-  const [tipo, setTipo] = useState("");
-  const [adaptacao, setAdaptacao] = useState("");
-  const [isNeurodivergente, setIsNeurodivergente] = useState(false);
-  const [neurodivergencias, setNeurodivergencias] = useState([]);
-  const [neurodivergenciaSelecionada, setNeurodivergenciaSelecionada] = useState("");
-  const [resultado, setResultado] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  // Busca as neurodivergências da Supabase (via API pública)
-  useEffect(() => {
-    async function fetchNeurodivergencias() {
-      try {
-        const res = await fetch("/api/neurodivergencias");
-        const data = await res.json();
-        setNeurodivergencias(data);
-      } catch (error) {
-        console.error("Erro ao carregar neurodivergências:", error);
-      }
-    }
-    fetchNeurodivergencias();
-  }, []);
-
-  const gerarAtividade = async () => {
-    setLoading(true);
-    setResultado("");
-
-    const body = {
-      tema,
-      idade,
-      tipo,
-      adaptacao,
-      neurodivergencia: isNeurodivergente ? neurodivergenciaSelecionada : null,
-    };
-
-    try {
-      const response = await fetch("/api/generate", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-      });
-
-      const data = await response.json();
-      setResultado(data.resultado);
-    } catch (error) {
-      console.error(error);
-      setResultado("Erro ao gerar atividade. Tente novamente.");
-    } finally {
-      setLoading(false);
-    }
-  };
-
   return (
-    <div style={{ maxWidth: "600px", margin: "2rem auto", textAlign: "center" }}>
-      <h1>Gerador de Atividades Infantis</h1>
+    <div
+      style={{
+        minHeight: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        justifyContent: "center",
+        backgroundColor: "#faf5ff",
+        textAlign: "center",
+        padding: "2rem",
+      }}
+    >
+      {/* Animação no título */}
+      <motion.h1
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+        style={{
+          fontSize: "2.2rem",
+          fontWeight: "bold",
+          color: "#4b0082",
+          marginBottom: "1rem",
+        }}
+      >
+        🧠 Bem-vindo(a) ao Gerador de Atividades Infantis
+      </motion.h1>
 
-      <input
-        type="text"
-        placeholder="Tema da atividade"
-        value={tema}
-        onChange={(e) => setTema(e.target.value)}
-      />
-      <br />
-      <input
-        type="text"
-        placeholder="Idade da criança"
-        value={idade}
-        onChange={(e) => setIdade(e.target.value)}
-      />
-      <br />
-      <input
-        type="text"
-        placeholder="Tipo de atividade"
-        value={tipo}
-        onChange={(e) => setTipo(e.target.value)}
-      />
-      <br />
-      <input
-        type="text"
-        placeholder="Adaptação (se necessário)"
-        value={adaptacao}
-        onChange={(e) => setAdaptacao(e.target.value)}
-      />
-      <br />
+      <motion.p
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 0.3, duration: 0.8 }}
+        style={{
+          fontSize: "1.1rem",
+          maxWidth: "500px",
+          color: "#4b5563",
+          marginBottom: "2.5rem",
+        }}
+      >
+        Escolha uma das opções abaixo para começar:
+      </motion.p>
 
-      <div style={{ marginTop: "1rem" }}>
-        <label>
-          <input
-            type="checkbox"
-            checked={isNeurodivergente}
-            onChange={() => setIsNeurodivergente(!isNeurodivergente)}
-          />
-          {" "}Atividade adaptada para neurodivergência
-        </label>
-      </div>
+      {/* Animação dos botões */}
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5, duration: 0.8 }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          gap: "1rem",
+          width: "100%",
+          maxWidth: "350px",
+        }}
+      >
+        <Link
+          href="/gerador"
+          style={{
+            backgroundColor: "#6b21a8",
+            color: "white",
+            padding: "14px 24px",
+            borderRadius: "12px",
+            textDecoration: "none",
+            fontWeight: "bold",
+            fontSize: "16px",
+            transition: "transform 0.2s, background-color 0.2s",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#7e22ce")}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#6b21a8")}
+        >
+          🧩 Gerar Atividade Adaptada
+        </Link>
 
-      {isNeurodivergente && (
-        <div style={{ marginTop: "1rem" }}>
-          <select
-            value={neurodivergenciaSelecionada}
-            onChange={(e) => setNeurodivergenciaSelecionada(e.target.value)}
-          >
-            <option value="">Selecione uma neurodivergência</option>
-            {neurodivergencias.map((n) => (
-              <option key={n.id} value={n.nome}>
-                {n.nome}
-              </option>
-            ))}
-          </select>
-        </div>
-      )}
+        <Link
+          href="#"
+          style={{
+            backgroundColor: "#8b5cf6",
+            color: "white",
+            padding: "14px 24px",
+            borderRadius: "12px",
+            textDecoration: "none",
+            fontWeight: "bold",
+            fontSize: "16px",
+            transition: "transform 0.2s, background-color 0.2s",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#7c3aed")}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#8b5cf6")}
+        >
+          🎨 Gerar Atividade Comum
+        </Link>
 
-      <br />
-      <button onClick={gerarAtividade} disabled={loading}>
-        {loading ? "Gerando..." : "Gerar atividade"}
-      </button>
+        <Link
+          href="#"
+          style={{
+            backgroundColor: "#a78bfa",
+            color: "white",
+            padding: "14px 24px",
+            borderRadius: "12px",
+            textDecoration: "none",
+            fontWeight: "bold",
+            fontSize: "16px",
+            transition: "transform 0.2s, background-color 0.2s",
+          }}
+          onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#9061f9")}
+          onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#a78bfa")}
+        >
+          👤 Meu Perfil
+        </Link>
 
-      {resultado && (
-        <div style={{ marginTop: "2rem", textAlign: "left" }}>
-          <h3>Atividade Gerada:</h3>
-          <p>{resultado}</p>
-        </div>
-      )}
-<div style={{ textAlign: "center", marginTop: "3rem" }}>
-  <Link
-    href="/gerador"
-    style={{
-      backgroundColor: "#6b21a8",
-      color: "white",
-      padding: "12px 20px",
-      borderRadius: "10px",
-      textDecoration: "none",
-      fontWeight: "bold",
-      transition: "0.3s",
-    }}
-  >
-    🧠 Gerar Atividade Adaptada
-    </Link>
-  </div>
-</div>
-);
+        {/* Botão de logout com leve fade-in */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1, duration: 0.8 }}
+        >
+          <LogoutButton />
+        </motion.div>
+      </motion.div>
+    </div>
+  );
 }
