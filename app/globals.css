@@ -2,61 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Fontes Baloo 2 (títulos/botões) e Poppins (texto) */
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600&display=swap');
-
-:root {
-  --font-title: 'Baloo 2', cursive;
-  --font-body: 'Poppins', sans-serif;
-
-  --yellow-bg: #FDD835;
-  --card-cream: #FFE9A9;
-
-  --btn-purple: #262152;
-  --btn-pink: #FA7293;
-  --btn-blue: #2F8BEF;
-}
-
-/* Fundo geral + fonte padrão */
-html,
 body {
-  height: 100%;
+  font-family: "Fredoka", sans-serif;
+  background-color: #FFD733;
+  color: #242238;
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  background-color: var(--yellow-bg);
-  font-family: var(--font-body);
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
+
+h1 {
+  font-family: "Fredoka", sans-serif;
+  font-weight: 800;
 }
 
-/* Classe pra usar Baloo 2 */
-.font-title {
-  font-family: var(--font-title);
+button {
+  font-family: "Fredoka", sans-serif;
+  transition: transform 0.15s ease;
 }
 
-/* Sombra do título tipo “recorte” */
-.text-shadow-title {
-  text-shadow: 4px 4px 0 #F9C535;
-}
-
-/* Botão em formato de pílula */
-.btn-pill {
-  @apply w-full py-4 font-title text-lg font-bold text-white rounded-full shadow-lg flex items-center justify-center gap-3;
-  transition: transform 0.15s ease-out, box-shadow 0.15s ease-out, opacity 0.15s ease-out;
-}
-
-.btn-pill:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 18px 0 rgba(0, 0, 0, 0.15);
-  opacity: 0.98;
-}
-
-.btn-pill:active {
-  transform: translateY(1px);
-  box-shadow: 0 10px 0 rgba(0, 0, 0, 0.12);
-}
-
-* {
-  box-sizing: border-box;
+button:active {
+  transform: translateY(4px);
+  box-shadow: none;
 }
