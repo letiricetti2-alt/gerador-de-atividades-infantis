@@ -2,14 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 🎨 Fontes Globais */
+:root {
+  --font-title: var(--font-baloo);
+  --font-body: var(--font-poppins);
+}
+
+/* 🧠 Configuração base */
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-body), sans-serif;
   background-color: #FDD835;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
+  color: #1a1a1a;
+}
+
+/* ✨ Títulos e destaques */
+h1, h2, h3, h4, h5, h6,
+button {
+  font-family: var(--font-title), cursive;
 }
 
 /* Sombras personalizadas */
@@ -19,4 +33,19 @@ body {
 
 .character-name-shadow {
   text-shadow: 0 3px 0 #ffe4b5;
+}
+
+/* ✨ Animações sutis */
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+button:active {
+  transform: scale(0.97);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
