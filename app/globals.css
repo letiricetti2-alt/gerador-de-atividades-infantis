@@ -1,51 +1,138 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Poppins:wght@400;600&display=swap");
 
-/* 🎨 Fontes Globais */
+/* 🔹 FONTES PRINCIPAIS */
 :root {
-  --font-title: var(--font-baloo);
-  --font-body: var(--font-poppins);
+  --font-title: "Baloo 2", cursive;
+  --font-body: "Poppins", sans-serif;
 }
 
-/* 🧠 Configuração base */
-body {
-  font-family: var(--font-body), sans-serif;
-  background-color: #FDD835;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+/* 🔹 RESET BÁSICO */
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 🔹 ESTILO GERAL DO SITE */
+html,
+body {
+  height: 100%;
+  background-color: #fffbe6;
+  font-family: var(--font-body);
   color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* ✨ Títulos e destaques */
-h1, h2, h3, h4, h5, h6,
-button {
-  font-family: var(--font-title), cursive;
+/* 🔹 CONTAINERS GERAIS */
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
 }
 
-/* Sombras personalizadas */
+/* 🔹 TITULOS */
+h1,
+h2,
+h3 {
+  font-family: var(--font-title);
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+/* 🔹 SOMBREAMENTOS ESPECIAIS */
 .title-shadow {
-  text-shadow: 0 6px 0 #ffd86f;
+  text-shadow: 3px 3px 0 #ffd54f;
 }
 
 .character-name-shadow {
-  text-shadow: 0 3px 0 #ffe4b5;
+  text-shadow: 2px 2px 0 #ffd54f;
 }
 
-/* ✨ Animações sutis */
+/* 🔹 BOTÕES PADRÃO */
 button {
-  transition: all 0.2s ease-in-out;
+  font-family: var(--font-title);
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  transition: all 0.2s ease;
 }
 
 button:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  transform: scale(1.03);
 }
 
 button:active {
   transform: scale(0.97);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔹 LINKS */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 🔹 CARDS */
+.card {
+  background: #fff;
+  border-radius: 30px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border: 4px solid #ffe58f;
+  transition: all 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* 🔹 IMAGENS DOS PERSONAGENS */
+.character {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.2));
+}
+
+/* 🔹 ANIMAÇÕES SUAVES */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* 🔹 SCROLLBAR */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #fdd835;
+  border-radius: 10px;
+}
+
+/* 🔹 RESPONSIVIDADE */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.8rem;
+  }
+  .card {
+    padding: 1.2rem;
+  }
+  .character {
+    width: 70px;
+    height: 70px;
+  }
 }
