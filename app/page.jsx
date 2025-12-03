@@ -5,12 +5,12 @@ export default function Home() {
   return (
     <div className="min-h-screen flex justify-center items-center bg-[#FFD733]">
       <div className="bg-[#FFF3D1] rounded-[35px] shadow-2xl px-10 py-10 text-center w-[420px] relative">
-        {/* Tina (azul) com balão */}
+        {/* Personagem Azul com balão */}
         <div className="flex justify-center items-start relative mb-6">
           <div className="relative">
             <Image
-              src="/personagens/tina.svg"
-              alt="Tina"
+              src="/personagens/personagem-azul.png"
+              alt="Personagem Azul"
               width={140}
               height={140}
               className="drop-shadow-[4px_4px_0px_#2E266F]"
@@ -30,43 +30,39 @@ export default function Home() {
         <div className="flex justify-center gap-5 mb-10 flex-wrap">
           <div className="flex flex-col items-center">
             <Image
-              src="/personagens/luno.svg"
-              alt="Luno"
+              src="/personagens/personagem-amarelo.png"
+              alt="Personagem Amarelo"
               width={90}
               height={90}
               className="drop-shadow-[3px_3px_0px_#FFD233]"
             />
-            <span className="text-sm font-medium text-[#242238] mt-1">Luno</span>
           </div>
           <div className="flex flex-col items-center">
             <Image
-              src="/personagens/malu.svg"
-              alt="Malu"
+              src="/personagens/personagem-roxo.png"
+              alt="Personagem Roxo"
               width={90}
               height={90}
               className="drop-shadow-[3px_3px_0px_#FFD233]"
             />
-            <span className="text-sm font-medium text-[#242238] mt-1">Malu</span>
           </div>
           <div className="flex flex-col items-center">
             <Image
-              src="/personagens/theo.svg"
-              alt="Theo"
+              src="/personagens/personagem-verde.png"
+              alt="Personagem Verde"
               width={90}
               height={90}
               className="drop-shadow-[3px_3px_0px_#FFD233]"
             />
-            <span className="text-sm font-medium text-[#242238] mt-1">Theo</span>
           </div>
           <div className="flex flex-col items-center">
             <Image
-              src="/personagens/nilo.svg"
-              alt="Nilo"
+              src="/personagens/personagem-rosa.png"
+              alt="Personagem Rosa"
               width={90}
               height={90}
               className="drop-shadow-[3px_3px_0px_#FFD233]"
             />
-            <span className="text-sm font-medium text-[#242238] mt-1">Nilo</span>
           </div>
         </div>
 
