@@ -7,7 +7,6 @@
   --color-pink: #EF5DA8;
   --color-blue: #4FC3F7;
   --color-purple: #2D2671;
-  --color-orange: #F9B233;
   --color-cream: #FFF4C3;
 }
 
@@ -19,12 +18,8 @@ html, body {
   font-family: var(--font-body);
 }
 
-h1, h2 {
+h1 {
   font-family: var(--font-title);
-}
-
-.shadow-card {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .text-shadow {
@@ -41,5 +36,5 @@ button:hover {
 }
 
 button:active {
-  transform: scale(0.95);
+  transform: scale(0.96);
 }
