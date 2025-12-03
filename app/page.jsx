@@ -1,64 +1,63 @@
 "use client";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function Home() {
-  const router = useRouter();
-
   return (
-    <div className="min-h-screen bg-[#FFE060] flex flex-col items-center justify-center p-6 text-center font-poppins">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.5 }}
-        className="max-w-md w-full bg-white/60 backdrop-blur-lg p-8 rounded-3xl shadow-lg"
-      >
-        {/* MASCOTES E TÍTULO */}
-        <div className="flex flex-col items-center mb-6">
-          <h1 className="text-4xl font-extrabold text-black drop-shadow-[2px_2px_0px_#FFFFFF] mb-3">
-            Gerador de Atividades Infantis
-          </h1>
-
-          {/* MASCOTES */}
-          <div className="flex justify-center gap-4 mt-2">
-            <span className="text-[#FF6B6B] text-5xl">🌸</span>
-            <span className="text-[#4CD7D0] text-5xl">💚</span>
-            <span className="text-[#F6B93B] text-5xl">🧡</span>
-            <span className="text-[#6C63FF] text-5xl">💙</span>
+    <main className="flex flex-col items-center justify-center min-h-screen bg-yellow-300 font-sans p-6">
+      {/* Container principal */}
+      <div className="relative bg-yellow-200 rounded-3xl shadow-xl p-10 max-w-md w-full text-center">
+        
+        {/* PERSONAGEM AZUL COM BALÃO */}
+        <div className="absolute -top-32 -left-20 flex flex-col items-center">
+          <Image
+            src="/mascote-azul.png"
+            alt="Mascote Azul"
+            width={180}
+            height={180}
+            className="drop-shadow-md"
+          />
+          <div className="bg-yellow-100 text-gray-800 font-bold rounded-2xl px-6 py-3 shadow-md -mt-4">
+            Olá e bem-vindo(a)!
           </div>
         </div>
 
-        {/* BOTÕES */}
-        <div className="flex flex-col gap-4 mt-6">
-          <button
-            onClick={() => router.push("/atividades-adaptadas")}
-            className="bg-[#8E7DFF] hover:bg-[#7A6EE0] text-white font-bold py-3 rounded-2xl shadow-md"
-          >
-            🧩 Gerar Atividade Adaptada
-          </button>
+        {/* TÍTULO */}
+        <h1 className="text-4xl font-extrabold text-gray-900 drop-shadow-[3px_3px_0px_#f9f3d5] leading-tight mb-8">
+          Gerador de <br />
+          <span className="text-gray-900">Atividades Infantis</span>
+        </h1>
 
-          <button
-            onClick={() => router.push("/atividades-comuns")}
-            className="bg-[#F67280] hover:bg-[#EB5A68] text-white font-bold py-3 rounded-2xl shadow-md"
-          >
-            🎨 Gerar Atividade Comum
-          </button>
-
-          <button
-            onClick={() => router.push("/perfil")}
-            className="bg-[#4CD7D0] hover:bg-[#34BDB5] text-white font-bold py-3 rounded-2xl shadow-md"
-          >
-            👤 Meu Perfil
-          </button>
-
-          <button
-            onClick={() => alert('Você saiu do app!')}
-            className="bg-[#FFB84C] hover:bg-[#F3A229] text-black font-bold py-3 rounded-2xl shadow-md"
-          >
-            🚪 Sair
-          </button>
+        {/* PERSONAGENS INFERIORES */}
+        <div className="flex justify-center gap-3 mb-6">
+          <Image src="/personagem1.png" alt="Personagem 1" width={60} height={60} />
+          <Image src="/personagem2.png" alt="Personagem 2" width={60} height={60} />
+          <Image src="/personagem3.png" alt="Personagem 3" width={60} height={60} />
+          <Image src="/personagem4.png" alt="Personagem 4" width={60} height={60} />
         </div>
-      </motion.div>
-    </div>
+
+        {/* BOTÕES */}
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          className="w-full bg-indigo-900 text-white font-semibold text-lg py-4 rounded-full shadow-md mb-4"
+        >
+          Gerar Atividade Adaptada
+        </motion.button>
+
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          className="w-full bg-pink-400 text-white font-semibold text-lg py-4 rounded-full shadow-md mb-4"
+        >
+          Gerar Atividade Comum
+        </motion.button>
+
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          className="w-full bg-blue-500 text-white font-semibold text-lg py-4 rounded-full shadow-md"
+        >
+          Meu Perfil
+        </motion.button>
+      </div>
+    </main>
   );
 }
