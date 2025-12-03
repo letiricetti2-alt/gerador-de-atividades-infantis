@@ -9,31 +9,36 @@ export default function Home() {
 
         {/* Personagem Tina com fala */}
         <div className="relative w-full flex items-start">
-          <Image
-            src="/personagens/tina.png"
-            alt="Tina"
-            width={130}
-            height={130}
-            className="absolute -top-10 left-0"
-          />
-          <div className="ml-24 mt-4 bg-[#FFF3C7] text-[#1C1C1C] font-semibold rounded-2xl px-5 py-2 shadow-md text-sm leading-tight">
-            Olá e<br />bem-vindo(a)!
+          <div className="absolute -top-10 left-0 flex items-start">
+            <Image
+              src="/personagens/tina.png"
+              alt="Tina"
+              width={130}
+              height={130}
+              className="drop-shadow-md"
+            />
+            {/* Balão de fala */}
+            <div className="ml-4 mt-6 bg-[#FFF3C7] text-[#1C1C1C] font-semibold rounded-2xl px-5 py-3 shadow-[3px_3px_0px_#E5B93D] text-sm leading-tight relative">
+              Olá e<br />bem-vindo(a)!
+              <span className="absolute left-[-10px] top-[20px] w-0 h-0 border-t-[10px] border-t-transparent border-r-[10px] border-r-[#FFF3C7] border-b-[10px] border-b-transparent"></span>
+            </div>
           </div>
         </div>
 
         {/* Título */}
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#1C1C1C] drop-shadow-[3px_3px_0px_#FFCA28] mt-20 leading-tight">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#1C1C1C] drop-shadow-[3px_3px_0px_#FFCA28] mt-24 leading-tight">
           Gerador de<br />Atividades Infantis
         </h1>
 
         {/* Personagens */}
-        <div className="flex flex-wrap justify-center gap-8 mt-10">
+        <div className="grid grid-cols-2 gap-8 mt-10">
           <div className="flex flex-col items-center">
             <Image
               src="/personagens/luno.png"
               alt="Luno"
               width={90}
               height={90}
+              className="rounded-none"
             />
             <span className="mt-2 font-medium text-[#1C1C1C] text-sm">Luno</span>
           </div>
@@ -44,6 +49,7 @@ export default function Home() {
               alt="Malu"
               width={90}
               height={90}
+              className="rounded-none"
             />
             <span className="mt-2 font-medium text-[#1C1C1C] text-sm">Malu</span>
           </div>
@@ -54,6 +60,7 @@ export default function Home() {
               alt="Theo"
               width={90}
               height={90}
+              className="rounded-none"
             />
             <span className="mt-2 font-medium text-[#1C1C1C] text-sm">Theo</span>
           </div>
@@ -64,6 +71,7 @@ export default function Home() {
               alt="Nilo"
               width={90}
               height={90}
+              className="rounded-none"
             />
             <span className="mt-2 font-medium text-[#1C1C1C] text-sm">Nilo</span>
           </div>
