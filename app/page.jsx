@@ -1,103 +1,63 @@
 "use client";
-
 import Image from "next/image";
-import Link from "next/link";
-import { FaPuzzlePiece, FaPalette, FaUser } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-[var(--yellow-bg)] px-4 py-8">
-      {/* CARD CENTRAL */}
-      <div className="bg-[var(--card-cream)] rounded-[40px] shadow-[0_18px_0_rgba(0,0,0,0.18)] max-w-[470px] w-full px-8 pt-8 pb-10 flex flex-col items-center relative overflow-visible">
-
-        {/* TINA + BALÃO */}
-        <div className="w-full flex items-start gap-4 mb-6">
+    <div className="min-h-screen flex justify-center items-center bg-[#FFD733]">
+      <div className="bg-[#FFF3D1] rounded-[30px] shadow-2xl px-10 py-8 text-center w-[420px]">
+        {/* Tina (azul) com balão */}
+        <div className="flex items-start justify-center mb-4">
           <div className="relative">
             <Image
-              src="/tina.svg"
+              src="/personagens/tina.svg"
               alt="Tina"
-              width={140}
-              height={140}
-              className="drop-shadow-md"
+              width={120}
+              height={120}
             />
-          </div>
-
-          <div className="flex-1">
-            <div className="bg-[var(--card-cream)] rounded-[26px] px-5 py-3 shadow-md">
-              <p className="font-title text-xl leading-snug text-[#222]">
-                Olá e<br />bem-vindo(a)!
-              </p>
+            <div className="absolute top-4 left-[90px] bg-[#FFF3D1] text-[#242238] text-lg font-bold px-5 py-3 rounded-2xl shadow-md">
+              Olá e bem-vindo(a)!
             </div>
           </div>
         </div>
 
-        {/* TÍTULO */}
-        <div className="mt-2 mb-8 text-center">
-          <h1 className="font-title text-4xl sm:text-5xl font-extrabold leading-tight text-[#1E144F] text-shadow-title">
-            Gerador de
-            <br />
-            Atividades
-            <br />
-            Infantis
-          </h1>
+        {/* Título */}
+        <h1 className="text-[#242238] text-4xl font-extrabold leading-tight drop-shadow-[4px_4px_0px_#FFD233] mb-8">
+          Gerador de<br />Atividades Infantis
+        </h1>
+
+        {/* Personagens */}
+        <div className="flex justify-center gap-5 mb-10 flex-wrap">
+          <div className="flex flex-col items-center">
+            <Image src="/personagens/luno.svg" alt="Luno" width={80} height={80} />
+            <span className="text-sm font-medium text-[#242238] mt-1">Luno</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <Image src="/personagens/malu.svg" alt="Malu" width={80} height={80} />
+            <span className="text-sm font-medium text-[#242238] mt-1">Malu</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <Image src="/personagens/theo.svg" alt="Theo" width={80} height={80} />
+            <span className="text-sm font-medium text-[#242238] mt-1">Theo</span>
+          </div>
+          <div className="flex flex-col items-center">
+            <Image src="/personagens/nilo.svg" alt="Nilo" width={80} height={80} />
+            <span className="text-sm font-medium text-[#242238] mt-1">Nilo</span>
+          </div>
         </div>
 
-        {/* PERSONAGENS */}
-        <div className="flex justify-center gap-6 mb-10 flex-wrap">
-          {[
-            { name: "Luno", file: "luno.svg" },
-            { name: "Malu", file: "malu.svg" },
-            { name: "Theo", file: "theo.svg" },
-            { name: "Nilo", file: "nilo.svg" },
-          ].map((char) => (
-            <div key={char.name} className="flex flex-col items-center">
-              <Image
-                src={`/${char.file}`}
-                alt={char.name}
-                width={88}
-                height={88}
-                className="drop-shadow-md"
-              />
-              <span className="mt-2 font-title text-base text-[#2b1b46]">
-                {char.name}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        {/* BOTÕES */}
-        <div className="w-full flex flex-col gap-5">
-          <Link href="/atividades-adaptadas">
-            <button
-              className="btn-pill bg-[var(--btn-purple)]"
-              type="button"
-            >
-              <FaPuzzlePiece />
-              <span>Gerar Atividade Adaptada</span>
-            </button>
-          </Link>
-
-          <Link href="/atividades-comuns">
-            <button
-              className="btn-pill bg-[var(--btn-pink)]"
-              type="button"
-            >
-              <FaPalette />
-              <span>Gerar Atividade Comum</span>
-            </button>
-          </Link>
-
-          <Link href="/perfil">
-            <button
-              className="btn-pill bg-[var(--btn-blue)]"
-              type="button"
-            >
-              <FaUser />
-              <span>Meu Perfil</span>
-            </button>
-          </Link>
+        {/* Botões */}
+        <div className="flex flex-col gap-4">
+          <button className="w-full bg-[#2E266F] hover:bg-[#3A3191] text-white font-bold py-4 rounded-[40px] text-lg shadow-[0_8px_0_#1C1844] transition-all">
+            Gerar Atividade Adaptada
+          </button>
+          <button className="w-full bg-[#F66C8C] hover:bg-[#FF7C9B] text-white font-bold py-4 rounded-[40px] text-lg shadow-[0_8px_0_#C34C68] transition-all">
+            Gerar Atividade Comum
+          </button>
+          <button className="w-full bg-[#49A3FF] hover:bg-[#5AB0FF] text-white font-bold py-4 rounded-[40px] text-lg shadow-[0_8px_0_#2E77CC] transition-all">
+            Meu Perfil
+          </button>
         </div>
       </div>
-    </main>
+    </div>
   );
 }
