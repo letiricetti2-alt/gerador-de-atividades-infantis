@@ -3,11 +3,20 @@
 @tailwind utilities;
 
 body {
-  font-family: "Fredoka", sans-serif;
-  background-color: #fde047;
+  font-family: 'Poppins', sans-serif;
+  background-color: #FDD835;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   margin: 0;
+}
+
+/* Sombras personalizadas */
+.title-shadow {
+  text-shadow: 0 6px 0 #ffd86f;
+}
+
+.character-name-shadow {
+  text-shadow: 0 3px 0 #ffe4b5;
 }
