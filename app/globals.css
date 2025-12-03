@@ -3,24 +3,12 @@
 @tailwind utilities;
 
 body {
-  font-family: "Fredoka", sans-serif;
+  font-family: "Fredoka", "Poppins", sans-serif;
   background-color: #FFD733;
-  color: #242238;
+  margin: 0;
+  padding: 0;
 }
-
-@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&display=swap');
 
 h1 {
-  font-family: "Fredoka", sans-serif;
-  font-weight: 800;
-}
-
-button {
-  font-family: "Fredoka", sans-serif;
-  transition: transform 0.15s ease;
-}
-
-button:active {
-  transform: translateY(4px);
-  box-shadow: none;
+  text-shadow: 5px 5px 0 #FFD733;
 }
