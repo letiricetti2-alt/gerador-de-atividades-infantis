@@ -7,53 +7,47 @@ import { FaPuzzlePiece, FaPalette, FaUser, FaSignOutAlt } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-[#FDD835] p-6">
-      {/* CARD PRINCIPAL */}
+    <main className="min-h-screen flex flex-col items-center justify-center bg-[#FDD835] p-6">
       <div className="bg-[#FFF4C3] shadow-2xl rounded-[30px] p-10 max-w-md w-full text-center border-4 border-[#FFE58F]">
-        {/* TÍTULO */}
+        {/* Título */}
         <motion.h1
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-extrabold text-[#1A1A1A] mb-6 font-[var(--font-title)] [text-shadow:_3px_3px_0_#FFD54F]"
+          className="text-4xl font-extrabold text-[#1A1A1A] mb-8 font-[var(--font-title)] [text-shadow:_3px_3px_0_#FFD54F]"
         >
           Gerador de
           <br />
           Atividades Infantis
         </motion.h1>
 
-        {/* PERSONAGENS */}
+        {/* Personagens — formato da imagem 2 */}
         <motion.div
-          className="grid grid-cols-3 gap-6 justify-items-center mb-10"
+          className="flex flex-wrap justify-center gap-6 mb-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
         >
           {[
-            { name: "Luno", color: "#FFC107", file: "luno.svg" },
-            { name: "Tina", color: "#3DC4FF", file: "tina.svg" },
-            { name: "Malu", color: "#B388EB", file: "malu.svg" },
-            { name: "Theo", color: "#6DD48C", file: "theo.svg" },
-            { name: "Nilo", color: "#FF8A47", file: "nilo.svg" },
+            { name: "Luno", file: "luno.svg" },
+            { name: "Tina", file: "tina.svg" },
+            { name: "Malu", file: "malu.svg" },
+            { name: "Theo", file: "theo.svg" },
+            { name: "Nilo", file: "nilo.svg" },
           ].map((char, i) => (
             <motion.div
               key={i}
-              whileHover={{ scale: 1.1 }}
+              whileHover={{ scale: 1.08 }}
               transition={{ type: "spring", stiffness: 300 }}
               className="flex flex-col items-center"
             >
-              <div
-                className="w-20 h-20 flex items-center justify-center rounded-full shadow-md"
-                style={{ backgroundColor: char.color }}
-              >
-                <Image
-                  src={`/${char.file}`}
-                  alt={char.name}
-                  width={60}
-                  height={60}
-                  className="object-contain drop-shadow-md"
-                />
-              </div>
+              <Image
+                src={`/${char.file}`}
+                alt={char.name}
+                width={80}
+                height={80}
+                className="object-contain drop-shadow-md"
+              />
               <p className="mt-2 font-semibold text-[#1A1A1A] text-sm font-[var(--font-body)] [text-shadow:_1px_1px_0_#FFD54F]">
                 {char.name}
               </p>
@@ -61,7 +55,7 @@ export default function Home() {
           ))}
         </motion.div>
 
-        {/* BOTÕES */}
+        {/* Botões — centralizados e iguais à arte */}
         <motion.div
           className="flex flex-col gap-5"
           initial={{ opacity: 0, y: 20 }}
