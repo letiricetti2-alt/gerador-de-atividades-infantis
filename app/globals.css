@@ -19,11 +19,7 @@ html, body {
   font-family: var(--font-body);
 }
 
-h1, h2, h3 {
-  font-family: var(--font-title);
-}
-
-button {
+h1, h2 {
   font-family: var(--font-title);
 }
 
@@ -32,16 +28,16 @@ button {
 }
 
 .text-shadow {
-  text-shadow: 3px 3px 0 #FFD54F;
+  text-shadow: 4px 4px 0 #FFD54F;
 }
 
-.text-shadow-small {
-  text-shadow: 1px 1px 0 #FFD54F;
+button {
+  font-family: var(--font-title);
+  transition: all 0.2s ease-in-out;
 }
 
 button:hover {
   transform: scale(1.03);
-  transition: 0.2s ease-in-out;
 }
 
 button:active {
