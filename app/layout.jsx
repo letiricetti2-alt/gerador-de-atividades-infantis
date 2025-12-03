@@ -1,3 +1,5 @@
+import "./globals.css";
+
 export const metadata = {
   title: "Gerador de Atividades Infantis",
   description: "Aplicativo para gerar atividades personalizadas para crianças",
@@ -6,23 +8,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <head />
-      <body
-        style={{
-          margin: 0,
-          padding: 0,
-          backgroundColor: "#fafafa",
-          fontFamily: "sans-serif",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          minHeight: "100vh",
-        }}
-      >
+      <body className="flex flex-col items-center justify-center min-h-screen bg-yellow-300 font-poppins text-gray-800">
         {children}
       </body>
     </html>
   );
 }
-
