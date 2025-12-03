@@ -3,87 +3,87 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex justify-center items-center bg-[#FFD733]">
-      <div className="bg-[#FFF3D1] rounded-[40px] shadow-[10px_10px_0_#E6BE29] px-10 py-10 text-center w-[430px] relative">
+    <main className="flex justify-center items-center min-h-screen bg-[#FFD93B]">
+      {/* Container central */}
+      <div className="bg-[#FFF3C7] rounded-3xl shadow-[8px_8px_0px_#E5B93D] p-6 sm:p-10 w-[90%] max-w-md flex flex-col items-center text-center">
 
-        {/* Tina com balão de fala */}
-        <div className="flex justify-center items-start relative mb-8">
-          <div className="relative">
-            <Image
-              src="/personagens/tina.png"
-              alt="Tina"
-              width={150}
-              height={150}
-              className="drop-shadow-[5px_5px_0px_#2E266F]"
-            />
-            <div className="absolute top-8 left-[120px] bg-[#FFF3D1] text-[#1D1B40] text-base font-semibold px-5 py-3 rounded-2xl shadow-[2px_2px_6px_rgba(0,0,0,0.15)] w-[180px] leading-tight">
-              Olá e<br />bem-vindo(a)!
-            </div>
+        {/* Personagem Tina com fala */}
+        <div className="relative w-full flex items-start">
+          <Image
+            src="/personagens/tina.png"
+            alt="Tina"
+            width={130}
+            height={130}
+            className="absolute -top-10 left-0"
+          />
+          <div className="ml-24 mt-4 bg-[#FFF3C7] text-[#1C1C1C] font-semibold rounded-2xl px-5 py-2 shadow-md text-sm leading-tight">
+            Olá e<br />bem-vindo(a)!
           </div>
         </div>
 
-        {/* Título principal */}
-        <h1 className="text-[#1D1B40] text-4xl font-extrabold leading-tight drop-shadow-[6px_6px_0px_#FFD733] mb-10 tracking-tight">
+        {/* Título */}
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#1C1C1C] drop-shadow-[3px_3px_0px_#FFCA28] mt-20 leading-tight">
           Gerador de<br />Atividades Infantis
         </h1>
 
         {/* Personagens */}
-        <div className="flex justify-center gap-4 mb-10 flex-wrap">
+        <div className="flex flex-wrap justify-center gap-8 mt-10">
           <div className="flex flex-col items-center">
             <Image
               src="/personagens/luno.png"
               alt="Luno"
               width={90}
               height={90}
-              className="drop-shadow-[3px_3px_0px_#FFD733]"
             />
-            <span className="text-sm font-semibold text-[#1D1B40] mt-2">Luno</span>
+            <span className="mt-2 font-medium text-[#1C1C1C] text-sm">Luno</span>
           </div>
+
           <div className="flex flex-col items-center">
             <Image
               src="/personagens/malu.png"
               alt="Malu"
               width={90}
               height={90}
-              className="drop-shadow-[3px_3px_0px_#FFD733]"
             />
-            <span className="text-sm font-semibold text-[#1D1B40] mt-2">Malu</span>
+            <span className="mt-2 font-medium text-[#1C1C1C] text-sm">Malu</span>
           </div>
+
           <div className="flex flex-col items-center">
             <Image
               src="/personagens/theo.png"
               alt="Theo"
               width={90}
               height={90}
-              className="drop-shadow-[3px_3px_0px_#FFD733]"
             />
-            <span className="text-sm font-semibold text-[#1D1B40] mt-2">Theo</span>
+            <span className="mt-2 font-medium text-[#1C1C1C] text-sm">Theo</span>
           </div>
+
           <div className="flex flex-col items-center">
             <Image
               src="/personagens/nilo.png"
               alt="Nilo"
               width={90}
               height={90}
-              className="drop-shadow-[3px_3px_0px_#FFD733]"
             />
-            <span className="text-sm font-semibold text-[#1D1B40] mt-2">Nilo</span>
+            <span className="mt-2 font-medium text-[#1C1C1C] text-sm">Nilo</span>
           </div>
         </div>
 
-        {/* Botões principais */}
-        <div className="flex flex-col gap-5">
-          <button className="w-full bg-[#2E266F] hover:bg-[#3B3191] text-white font-bold py-4 rounded-[45px] text-lg shadow-[0_8px_0_#1A163E] transition-all">
-            Gerar Atividade Adaptada
+        {/* Botões */}
+        <div className="flex flex-col gap-5 mt-12 w-full">
+          <button className="bg-[#2E236C] hover:bg-[#241b5a] text-white font-bold text-base py-3 rounded-full shadow-[0px_6px_0px_#1C1450] transition">
+            🧩 Gerar Atividade Adaptada
           </button>
-          <button className="w-full bg-[#F66C8C] hover:bg-[#FF7C9B] text-white font-bold py-4 rounded-[45px] text-lg shadow-[0_8px_0_#C34C68] transition-all">
-            Gerar Atividade Comum
+
+          <button className="bg-[#F57BA2] hover:bg-[#e96a90] text-white font-bold text-base py-3 rounded-full shadow-[0px_6px_0px_#c85c80] transition">
+            🎨 Gerar Atividade Comum
           </button>
-          <button className="w-full bg-[#49A3FF] hover:bg-[#5AB0FF] text-white font-bold py-4 rounded-[45px] text-lg shadow-[0_8px_0_#2E77CC] transition-all">
-            Meu Perfil
+
+          <button className="bg-[#4AA8F7] hover:bg-[#3798e8] text-white font-bold text-base py-3 rounded-full shadow-[0px_6px_0px_#2e7ec2] transition">
+            👤 Meu Perfil
           </button>
         </div>
       </div>
-    </div>
+    </main>
   );
 }
