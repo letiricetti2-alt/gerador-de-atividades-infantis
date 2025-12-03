@@ -8,22 +8,24 @@ import { FaPuzzlePiece, FaPalette, FaUser, FaSignOutAlt } from "react-icons/fa";
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-[#FDD835] p-6">
+      {/* Card Principal */}
       <div className="bg-[#FFF4C3] shadow-2xl rounded-[30px] p-10 max-w-md w-full text-center border-4 border-[#FFE58F]">
+        
         {/* Título */}
         <motion.h1
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-4xl font-extrabold text-[#1A1A1A] mb-8 font-[var(--font-title)] [text-shadow:_3px_3px_0_#FFD54F]"
+          className="text-4xl font-extrabold text-[#1A1A1A] mb-10 font-[var(--font-title)] [text-shadow:_3px_3px_0_#FFD54F]"
         >
           Gerador de
           <br />
           Atividades Infantis
         </motion.h1>
 
-        {/* Personagens — formato da imagem 2 */}
+        {/* Personagens (3 em cima, 2 embaixo) */}
         <motion.div
-          className="flex flex-wrap justify-center gap-6 mb-10"
+          className="grid grid-cols-3 gap-6 justify-items-center mb-10"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -55,7 +57,7 @@ export default function Home() {
           ))}
         </motion.div>
 
-        {/* Botões — centralizados e iguais à arte */}
+        {/* Botões */}
         <motion.div
           className="flex flex-col gap-5"
           initial={{ opacity: 0, y: 20 }}
