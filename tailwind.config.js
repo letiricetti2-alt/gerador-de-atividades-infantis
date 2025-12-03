@@ -2,15 +2,10 @@
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
-    "./components/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        poppins: ["Poppins", "sans-serif"],
-        baloo: ["'Baloo 2'", "cursive"],
-      },
-    },
+    extend: {},
   },
   plugins: [],
 };
