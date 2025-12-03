@@ -4,16 +4,16 @@ import Image from "next/image";
 
 export default function Home() {
   const personagens = [
-    { nome: "Luno", cor: "amarelo", img: "/personagens/personagem-amarelo.png" },
-    { nome: "Tina", cor: "azul", img: "/personagens/personagem-azul.png" },
-    { nome: "Malu", cor: "roxo", img: "/personagens/personagem-roxo.png" },
-    { nome: "Theo", cor: "verde", img: "/personagens/personagem-verde.png" },
-    { nome: "Nilo", cor: "laranja", img: "/personagens/personagem-laranja.png" },
+    { nome: "Luno", img: "/personagens/luno.png" },
+    { nome: "Tina", img: "/personagens/tina.png" },
+    { nome: "Malu", img: "/personagens/malu.png" },
+    { nome: "Theo", img: "/personagens/theo.png" },
+    { nome: "Nilo", img: "/personagens/nilo.png" },
   ];
 
   return (
     <div className="flex justify-center items-center min-h-screen bg-yellow-400">
-      <div className="bg-[#fff4cc] rounded-3xl shadow-xl p-8 w-[400px] flex flex-col items-center">
+      <div className="bg-[#fff4cc] rounded-3xl shadow-xl p-8 w-[420px] flex flex-col items-center">
         <h1 className="text-3xl font-extrabold text-center text-black mb-8 leading-tight">
           Gerador de <br /> Atividades Infantis
         </h1>
@@ -24,13 +24,13 @@ export default function Home() {
               key={index}
               className="flex flex-col items-center transition-transform duration-200 hover:scale-110"
             >
-              <div className="w-16 h-16 flex items-center justify-center">
+              <div className="w-16 h-16 flex items-center justify-center bg-white rounded-xl shadow-md overflow-hidden">
                 <Image
                   src={p.img}
                   alt={p.nome}
                   width={64}
                   height={64}
-                  className="drop-shadow-md"
+                  className="object-contain"
                 />
               </div>
               <p className="text-sm text-gray-800 font-semibold mt-1">{p.nome}</p>
