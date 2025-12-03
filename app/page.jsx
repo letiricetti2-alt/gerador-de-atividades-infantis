@@ -1,82 +1,76 @@
 "use client";
 
-import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import {
-  FaPuzzlePiece,
-  FaPalette,
-  FaUser,
-  FaSignOutAlt,
-} from "react-icons/fa";
+import { FaPuzzlePiece, FaPalette, FaUser, FaSignOutAlt } from "react-icons/fa";
 
 export default function Home() {
   const personagens = [
-    { nome: "Luno", imagem: "/personagens/personagem-amarelo.png" },
-    { nome: "Tina", imagem: "/personagens/personagem-azul.png" },
-    { nome: "Malu", imagem: "/personagens/personagem-roxo.png" },
-    { nome: "Theo", imagem: "/personagens/personagem-verde.png" },
-    { nome: "Nilo", imagem: "/personagens/personagem-laranja.png" },
+    { nome: "Luno", img: "/luno.png" },
+    { nome: "Tina", img: "/tina.png" },
+    { nome: "Malu", img: "/malu.png" },
+    { nome: "Theo", img: "/theo.png" },
+    { nome: "Nilo", img: "/nilo.png" },
   ];
 
   return (
-    <main className="flex items-center justify-center min-h-screen bg-[#FDD835]">
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        className="bg-[#FFF3C4] p-10 rounded-3xl shadow-2xl text-center max-w-md w-full"
-      >
-        <h1 className="text-4xl md:text-5xl font-extrabold text-slate-900 text-center title-shadow mb-8">
-          Gerador de Atividades Infantis
+    <main className="min-h-screen flex items-center justify-center bg-[#FDD835] font-sans p-6">
+      <div className="bg-[#FEF5DA] shadow-2xl rounded-[30px] p-10 max-w-md w-full text-center border-4 border-[#FFE58F]">
+        {/* 🧠 Título */}
+        <h1 className="text-4xl font-extrabold mb-8 text-[#1A1A1A] title-shadow leading-tight font-[var(--font-title)]">
+          Gerador de
+          <br />
+          Atividades Infantis
         </h1>
 
-        <div className="flex justify-center space-x-4 mb-10">
+        {/* 💛 Personagens */}
+        <div className="flex justify-center items-center gap-6 mb-8 flex-wrap">
           {personagens.map((p) => (
-            <motion.div
-              key={p.nome}
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.95 }}
-              className="text-center"
-            >
-              <Image
-                src={p.imagem}
-                alt={p.nome}
-                width={70}
-                height={70}
-                className="mx-auto"
-              />
-              <p className="mt-2 text-sm font-semibold text-slate-800 character-name-shadow">
+            <div key={p.nome} className="flex flex-col items-center">
+              <div className="w-16 h-16 relative">
+                <Image
+                  src={p.img}
+                  alt={p.nome}
+                  fill
+                  className="object-contain drop-shadow-md"
+                />
+              </div>
+              <p className="mt-2 text-sm font-semibold text-[#1A1A1A] character-name-shadow font-[var(--font-body)]">
                 {p.nome}
               </p>
-            </motion.div>
+            </div>
           ))}
         </div>
 
-        <div className="space-y-4">
+        {/* 🎨 Botões */}
+        <div className="space-y-5 mt-6">
           <Link href="/atividades-adaptadas">
-            <button className="w-full bg-[#2D2671] hover:bg-[#241e5d] text-white font-bold py-3 px-6 rounded-2xl shadow-md flex items-center justify-center space-x-2">
-              <FaPuzzlePiece /> <span>Gerar Atividade Adaptada</span>
+            <button className="w-full bg-[#2D2671] hover:bg-[#241e5d] text-white font-bold py-4 rounded-[30px] shadow-lg flex items-center justify-center gap-3 transition-transform duration-150 hover:scale-[1.02] active:scale-95 font-[var(--font-title)]">
+              <FaPuzzlePiece className="text-lg" />
+              <span>Gerar Atividade Adaptada</span>
             </button>
           </Link>
 
           <Link href="/atividades-comuns">
-            <button className="w-full bg-[#F26D7D] hover:bg-[#d65c6b] text-white font-bold py-3 px-6 rounded-2xl shadow-md flex items-center justify-center space-x-2">
-              <FaPalette /> <span>Gerar Atividade Comum</span>
+            <button className="w-full bg-[#F26D7D] hover:bg-[#d65c6b] text-white font-bold py-4 rounded-[30px] shadow-lg flex items-center justify-center gap-3 transition-transform duration-150 hover:scale-[1.02] active:scale-95 font-[var(--font-title)]">
+              <FaPalette className="text-lg" />
+              <span>Gerar Atividade Comum</span>
             </button>
           </Link>
 
           <Link href="/login">
-            <button className="w-full bg-[#3FA9F5] hover:bg-[#2f95e1] text-white font-bold py-3 px-6 rounded-2xl shadow-md flex items-center justify-center space-x-2">
-              <FaUser /> <span>Meu Perfil</span>
+            <button className="w-full bg-[#3FA9F5] hover:bg-[#2f95e1] text-white font-bold py-4 rounded-[30px] shadow-lg flex items-center justify-center gap-3 transition-transform duration-150 hover:scale-[1.02] active:scale-95 font-[var(--font-title)]">
+              <FaUser className="text-lg" />
+              <span>Meu Perfil</span>
             </button>
           </Link>
 
-          <button className="w-full bg-[#F9B233] hover:bg-[#e1a02c] text-white font-bold py-3 px-6 rounded-2xl shadow-md flex items-center justify-center space-x-2">
-            <FaSignOutAlt /> <span>Sair</span>
+          <button className="w-full bg-[#F9B233] hover:bg-[#e1a02c] text-white font-bold py-4 rounded-[30px] shadow-lg flex items-center justify-center gap-3 transition-transform duration-150 hover:scale-[1.02] active:scale-95 font-[var(--font-title)]">
+            <FaSignOutAlt className="text-lg" />
+            <span>Sair</span>
           </button>
         </div>
-      </motion.div>
+      </div>
     </main>
   );
 }
