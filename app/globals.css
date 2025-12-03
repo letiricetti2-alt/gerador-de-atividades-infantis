@@ -2,10 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== Estilos Globais ===== */
 body {
   font-family: "Fredoka", sans-serif;
-  background-color: #fde047; /* amarelo suave */
+  background-color: #fde047;
   display: flex;
   justify-content: center;
   align-items: center;
