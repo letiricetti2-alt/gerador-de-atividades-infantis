@@ -8,10 +8,9 @@ import { FaPuzzlePiece, FaPalette, FaUser, FaSignOutAlt } from "react-icons/fa";
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-[#FDD835] p-6">
-      {/* Card Principal */}
+      {/* CARD PRINCIPAL */}
       <div className="bg-[#FFF4C3] shadow-2xl rounded-[30px] p-10 max-w-md w-full text-center border-4 border-[#FFE58F]">
-        
-        {/* Título */}
+        {/* TÍTULO */}
         <motion.h1
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -23,9 +22,9 @@ export default function Home() {
           Atividades Infantis
         </motion.h1>
 
-        {/* Personagens (3 em cima, 2 embaixo) */}
+        {/* PERSONAGENS — 3 em cima e 2 embaixo */}
         <motion.div
-          className="grid grid-cols-3 gap-6 justify-items-center mb-10"
+          className="grid grid-cols-3 gap-6 justify-items-center mb-10 mx-auto max-w-[280px]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.8 }}
@@ -57,7 +56,7 @@ export default function Home() {
           ))}
         </motion.div>
 
-        {/* Botões */}
+        {/* BOTÕES */}
         <motion.div
           className="flex flex-col gap-5"
           initial={{ opacity: 0, y: 20 }}
