@@ -1,138 +1,49 @@
-@import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&family=Poppins:wght@400;600&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600;700&family=Poppins:wght@400;600&display=swap');
 
-/* 🔹 FONTES PRINCIPAIS */
 :root {
-  --font-title: "Baloo 2", cursive;
-  --font-body: "Poppins", sans-serif;
+  --font-title: 'Baloo 2', cursive;
+  --font-body: 'Poppins', sans-serif;
+  --color-yellow: #FDD835;
+  --color-pink: #EF5DA8;
+  --color-blue: #4FC3F7;
+  --color-purple: #2D2671;
+  --color-orange: #F9B233;
+  --color-cream: #FFF4C3;
 }
 
-/* 🔹 RESET BÁSICO */
-* {
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-
-/* 🔹 ESTILO GERAL DO SITE */
-html,
-body {
-  height: 100%;
-  background-color: #fffbe6;
+  background-color: var(--color-yellow);
   font-family: var(--font-body);
-  color: #1a1a1a;
-  -webkit-font-smoothing: antialiased;
 }
 
-/* 🔹 CONTAINERS GERAIS */
-main {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
-
-/* 🔹 TITULOS */
-h1,
-h2,
-h3 {
+h1, h2, h3 {
   font-family: var(--font-title);
-  font-weight: 700;
-  color: #1a1a1a;
-  letter-spacing: 0.5px;
-  text-align: center;
 }
 
-/* 🔹 SOMBREAMENTOS ESPECIAIS */
-.title-shadow {
-  text-shadow: 3px 3px 0 #ffd54f;
-}
-
-.character-name-shadow {
-  text-shadow: 2px 2px 0 #ffd54f;
-}
-
-/* 🔹 BOTÕES PADRÃO */
 button {
   font-family: var(--font-title);
-  font-weight: 600;
-  cursor: pointer;
-  border: none;
-  transition: all 0.2s ease;
+}
+
+.shadow-card {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.text-shadow {
+  text-shadow: 3px 3px 0 #FFD54F;
+}
+
+.text-shadow-small {
+  text-shadow: 1px 1px 0 #FFD54F;
 }
 
 button:hover {
   transform: scale(1.03);
+  transition: 0.2s ease-in-out;
 }
 
 button:active {
-  transform: scale(0.97);
-}
-
-/* 🔹 LINKS */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* 🔹 CARDS */
-.card {
-  background: #fff;
-  border-radius: 30px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  padding: 1.5rem;
-  border: 4px solid #ffe58f;
-  transition: all 0.2s ease;
-}
-
-.card:hover {
-  transform: scale(1.02);
-}
-
-/* 🔹 IMAGENS DOS PERSONAGENS */
-.character {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.2));
-}
-
-/* 🔹 ANIMAÇÕES SUAVES */
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-6px);
-  }
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* 🔹 SCROLLBAR */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #fdd835;
-  border-radius: 10px;
-}
-
-/* 🔹 RESPONSIVIDADE */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.8rem;
-  }
-  .card {
-    padding: 1.2rem;
-  }
-  .character {
-    width: 70px;
-    height: 70px;
-  }
+  transform: scale(0.95);
 }
