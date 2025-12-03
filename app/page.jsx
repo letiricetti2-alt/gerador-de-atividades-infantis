@@ -1,87 +1,90 @@
 "use client";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { FaUser, FaSignOutAlt, FaPuzzlePiece, FaPalette } from "react-icons/fa";
+import { motion } from "framer-motion";
+import { FaPuzzlePiece, FaPalette, FaUser, FaSignOutAlt } from "react-icons/fa";
 
 export default function Home() {
-  const router = useRouter();
-
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#FDD835]">
-      <div className="bg-[#FFF3C4] p-10 rounded-3xl shadow-2xl text-center w-[90%] max-w-md">
-        <h1 className="text-4xl font-black text-[#1A1A1A] mb-6 leading-tight font-[ComicSansMS]">
+    <div className="flex justify-center items-center min-h-screen bg-yellow-400">
+      <motion.div
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="bg-[#fff4cc] rounded-3xl shadow-xl p-8 w-[380px] flex flex-col items-center"
+      >
+        {/* Título */}
+        <h1 className="text-3xl font-extrabold text-center text-black mb-6 leading-tight">
           Gerador de <br /> Atividades Infantis
         </h1>
 
-        <div className="flex justify-center gap-6 mb-8">
-          <div className="flex flex-col items-center">
-            <Image
+        {/* Personagens */}
+        <div className="grid grid-cols-4 gap-3 mb-6 text-center">
+          <div>
+            <img
               src="/personagens/personagem-amarelo.png"
               alt="Personagem amarelo"
-              width={70}
-              height={70}
+              className="w-16 h-16 mx-auto drop-shadow-md"
             />
-            <p className="text-xs mt-1">Amarelo</p>
+            <p className="text-sm text-gray-800 font-medium mt-1">Amarelo</p>
           </div>
-          <div className="flex flex-col items-center">
-            <Image
+          <div>
+            <img
               src="/personagens/personagem-rosa.png"
               alt="Personagem rosa"
-              width={70}
-              height={70}
+              className="w-16 h-16 mx-auto drop-shadow-md"
             />
-            <p className="text-xs mt-1">Rosa</p>
+            <p className="text-sm text-gray-800 font-medium mt-1">Rosa</p>
           </div>
-          <div className="flex flex-col items-center">
-            <Image
+          <div>
+            <img
               src="/personagens/personagem-verde.png"
               alt="Personagem verde"
-              width={70}
-              height={70}
+              className="w-16 h-16 mx-auto drop-shadow-md"
             />
-            <p className="text-xs mt-1">Verde</p>
+            <p className="text-sm text-gray-800 font-medium mt-1">Verde</p>
           </div>
-          <div className="flex flex-col items-center">
-            <Image
+          <div>
+            <img
               src="/personagens/personagem-roxo.png"
               alt="Personagem roxo"
-              width={70}
-              height={70}
+              className="w-16 h-16 mx-auto drop-shadow-md"
             />
-            <p className="text-xs mt-1">Roxo</p>
+            <p className="text-sm text-gray-800 font-medium mt-1">Roxo</p>
           </div>
         </div>
 
-        <div className="space-y-5">
-          <button
-            onClick={() => router.push("/atividades-adaptadas")}
-            className="w-full flex items-center justify-center gap-2 bg-[#5B51E8] text-white font-bold py-3 rounded-2xl shadow-md hover:scale-105 transition-transform"
-          >
-            <FaPuzzlePiece /> Gerar Atividade Adaptada
-          </button>
+        {/* Botões */}
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          className="bg-indigo-700 hover:bg-indigo-800 text-white font-semibold py-3 px-6 rounded-2xl shadow-md w-full mb-3 flex items-center justify-center gap-2"
+        >
+          <FaPuzzlePiece /> Gerar Atividade Adaptada
+        </motion.button>
 
-          <button
-            onClick={() => router.push("/atividades-comuns")}
-            className="w-full flex items-center justify-center gap-2 bg-[#F87171] text-white font-bold py-3 rounded-2xl shadow-md hover:scale-105 transition-transform"
-          >
-            <FaPalette /> Gerar Atividade Comum
-          </button>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          className="bg-rose-500 hover:bg-rose-600 text-white font-semibold py-3 px-6 rounded-2xl shadow-md w-full mb-3 flex items-center justify-center gap-2"
+        >
+          <FaPalette /> Gerar Atividade Comum
+        </motion.button>
 
-          <button
-            onClick={() => router.push("/perfil")}
-            className="w-full flex items-center justify-center gap-2 bg-[#4DD0E1] text-white font-bold py-3 rounded-2xl shadow-md hover:scale-105 transition-transform"
-          >
-            <FaUser /> Meu Perfil
-          </button>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          className="bg-sky-400 hover:bg-sky-500 text-white font-semibold py-3 px-6 rounded-2xl shadow-md w-full mb-3 flex items-center justify-center gap-2"
+        >
+          <FaUser /> Meu Perfil
+        </motion.button>
 
-          <button
-            onClick={() => alert("Saindo...")}
-            className="w-full flex items-center justify-center gap-2 bg-[#FBB03B] text-[#1A1A1A] font-bold py-3 rounded-2xl shadow-md hover:scale-105 transition-transform"
-          >
-            <FaSignOutAlt /> Sair
-          </button>
-        </div>
-      </div>
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          className="bg-amber-400 hover:bg-amber-500 text-white font-semibold py-3 px-6 rounded-2xl shadow-md w-full flex items-center justify-center gap-2"
+        >
+          <FaSignOutAlt /> Sair
+        </motion.button>
+      </motion.div>
     </div>
   );
 }
