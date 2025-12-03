@@ -1,106 +1,62 @@
 "use client";
-
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
-import Link from "next/link";
-import LogoutButton from "./components/LogoutButton";
 
 export default function Home() {
+  const router = useRouter();
+
   return (
-    <div
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        background: "linear-gradient(180deg, #f9f7ff 0%, #f0eaff 100%)",
-        fontFamily: "Arial, sans-serif",
-        textAlign: "center",
-      }}
-    >
-      <motion.h1
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7 }}
-        style={{
-          fontSize: "2rem",
-          fontWeight: "bold",
-          color: "#4a148c",
-          marginBottom: "2rem",
-        }}
-      >
-        🧠 Bem-vindo(a) ao Gerador de Atividades Infantis
-      </motion.h1>
-
+    <div className="min-h-screen bg-[#FFE060] flex flex-col items-center justify-center p-6 text-center font-poppins">
       <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem",
-          alignItems: "center",
-        }}
+        initial={{ opacity: 0, scale: 0.95 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-md w-full bg-white/60 backdrop-blur-lg p-8 rounded-3xl shadow-lg"
       >
-        <Link href="/gerador">
-          <button
-            style={{
-              backgroundColor: "#6b21a8",
-              color: "white",
-              padding: "12px 22px",
-              border: "none",
-              borderRadius: "10px",
-              fontSize: "1rem",
-              cursor: "pointer",
-              fontWeight: "bold",
-              transition: "0.3s",
-              width: "220px",
-            }}
-          >
-            ✨ Gerar Atividade Adaptada
-          </button>
-        </Link>
+        {/* MASCOTES E TÍTULO */}
+        <div className="flex flex-col items-center mb-6">
+          <h1 className="text-4xl font-extrabold text-black drop-shadow-[2px_2px_0px_#FFFFFF] mb-3">
+            Gerador de Atividades Infantis
+          </h1>
 
-        <Link href="/atividades-comuns">
+          {/* MASCOTES */}
+          <div className="flex justify-center gap-4 mt-2">
+            <span className="text-[#FF6B6B] text-5xl">🌸</span>
+            <span className="text-[#4CD7D0] text-5xl">💚</span>
+            <span className="text-[#F6B93B] text-5xl">🧡</span>
+            <span className="text-[#6C63FF] text-5xl">💙</span>
+          </div>
+        </div>
+
+        {/* BOTÕES */}
+        <div className="flex flex-col gap-4 mt-6">
           <button
-            style={{
-              backgroundColor: "#9333ea",
-              color: "white",
-              padding: "12px 22px",
-              border: "none",
-              borderRadius: "10px",
-              fontSize: "1rem",
-              cursor: "pointer",
-              fontWeight: "bold",
-              transition: "0.3s",
-              width: "220px",
-            }}
+            onClick={() => router.push("/atividades-adaptadas")}
+            className="bg-[#8E7DFF] hover:bg-[#7A6EE0] text-white font-bold py-3 rounded-2xl shadow-md"
+          >
+            🧩 Gerar Atividade Adaptada
+          </button>
+
+          <button
+            onClick={() => router.push("/atividades-comuns")}
+            className="bg-[#F67280] hover:bg-[#EB5A68] text-white font-bold py-3 rounded-2xl shadow-md"
           >
             🎨 Gerar Atividade Comum
           </button>
-        </Link>
 
-        <Link href="/perfil">
           <button
-            style={{
-              backgroundColor: "#7e22ce",
-              color: "white",
-              padding: "12px 22px",
-              border: "none",
-              borderRadius: "10px",
-              fontSize: "1rem",
-              cursor: "pointer",
-              fontWeight: "bold",
-              width: "220px",
-            }}
+            onClick={() => router.push("/perfil")}
+            className="bg-[#4CD7D0] hover:bg-[#34BDB5] text-white font-bold py-3 rounded-2xl shadow-md"
           >
             👤 Meu Perfil
           </button>
-        </Link>
 
-        <div style={{ marginTop: "1.5rem" }}>
-          <LogoutButton />
+          <button
+            onClick={() => alert('Você saiu do app!')}
+            className="bg-[#FFB84C] hover:bg-[#F3A229] text-black font-bold py-3 rounded-2xl shadow-md"
+          >
+            🚪 Sair
+          </button>
         </div>
       </motion.div>
     </div>
