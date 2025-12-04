@@ -1,9 +1,9 @@
 import "./globals.css";
-import { Fredoka } from "next/font/google";
+import { Baloo_2 } from "next/font/google";
 
-const fredoka = Fredoka({
+const baloo2 = Baloo_2({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["400", "600", "700", "800"],
 });
 
 export const metadata = {
@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <body className={fredoka.className}>
+      <body className={`${baloo2.className} bg-[#FFD83A] text-[#1E1464]`}>
         {children}
       </body>
     </html>
