@@ -1,4 +1,4 @@
-import "./globals.css";
+import "@/app/globals.css";
 import { Baloo_2 } from "next/font/google";
 
 const baloo = Baloo_2({
