@@ -3,94 +3,63 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="flex justify-center items-center min-h-screen bg-[#FFD93B]">
-      {/* Container central */}
-      <div className="bg-[#FFF3C7] rounded-3xl shadow-[8px_8px_0px_#E5B93D] p-6 sm:p-10 w-[90%] max-w-md flex flex-col items-center text-center">
-
-        {/* Personagem Tina com fala */}
-        <div className="relative w-full flex items-start">
-          <div className="absolute -top-10 left-0 flex items-start">
+    <main className="min-h-screen bg-[#FFD83A] flex items-center justify-center p-6">
+      <div className="bg-[#FFF4C2] rounded-[2rem] shadow-[8px_8px_0px_#E6BE32] p-8 w-[380px] text-center flex flex-col items-center">
+        
+        {/* Cabeçalho com personagem e balão */}
+        <div className="flex items-start w-full mb-4 relative">
+          <div className="w-[90px]">
             <Image
               src="/personagens/tina.png"
-              alt="Tina"
-              width={130}
-              height={130}
-              className="drop-shadow-md"
+              alt="Tina personagem"
+              width={90}
+              height={90}
+              className="object-contain"
             />
-            {/* Balão de fala */}
-            <div className="ml-4 mt-6 bg-[#FFF3C7] text-[#1C1C1C] font-semibold rounded-2xl px-5 py-3 shadow-[3px_3px_0px_#E5B93D] text-sm leading-tight relative">
-              Olá e<br />bem-vindo(a)!
-              <span className="absolute left-[-10px] top-[20px] w-0 h-0 border-t-[10px] border-t-transparent border-r-[10px] border-r-[#FFF3C7] border-b-[10px] border-b-transparent"></span>
-            </div>
+          </div>
+          <div className="bg-[#FFF4C2] border-[2px] border-[#FFD83A] shadow-[2px_2px_0px_#E6BE32] rounded-[0.8rem] px-3 py-1 ml-[-10px] text-[#1E1464] font-semibold text-[14px] leading-tight">
+            Olá e<br />bem-vindo(a)!
           </div>
         </div>
 
         {/* Título */}
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#1C1C1C] drop-shadow-[3px_3px_0px_#FFCA28] mt-24 leading-tight">
-          Gerador de<br />Atividades Infantis
+        <h1 className="text-[#1E1464] font-black text-[36px] leading-tight drop-shadow-[3px_3px_0px_#FFD83A] mb-6">
+          Gerador de<br />Atividades<br />Infantis
         </h1>
 
         {/* Personagens */}
-        <div className="grid grid-cols-2 gap-8 mt-10">
+        <div className="grid grid-cols-2 gap-6 mb-6">
           <div className="flex flex-col items-center">
-            <Image
-              src="/personagens/luno.png"
-              alt="Luno"
-              width={90}
-              height={90}
-              className="rounded-none"
-            />
-            <span className="mt-2 font-medium text-[#1C1C1C] text-sm">Luno</span>
+            <Image src="/personagens/luno.png" alt="Luno" width={75} height={75} />
+            <p className="text-[#1E1464] font-medium mt-1">Luno</p>
           </div>
-
           <div className="flex flex-col items-center">
-            <Image
-              src="/personagens/malu.png"
-              alt="Malu"
-              width={90}
-              height={90}
-              className="rounded-none"
-            />
-            <span className="mt-2 font-medium text-[#1C1C1C] text-sm">Malu</span>
+            <Image src="/personagens/malu.png" alt="Malu" width={75} height={75} />
+            <p className="text-[#1E1464] font-medium mt-1">Malu</p>
           </div>
-
           <div className="flex flex-col items-center">
-            <Image
-              src="/personagens/theo.png"
-              alt="Theo"
-              width={90}
-              height={90}
-              className="rounded-none"
-            />
-            <span className="mt-2 font-medium text-[#1C1C1C] text-sm">Theo</span>
+            <Image src="/personagens/theo.png" alt="Theo" width={75} height={75} />
+            <p className="text-[#1E1464] font-medium mt-1">Theo</p>
           </div>
-
           <div className="flex flex-col items-center">
-            <Image
-              src="/personagens/nilo.png"
-              alt="Nilo"
-              width={90}
-              height={90}
-              className="rounded-none"
-            />
-            <span className="mt-2 font-medium text-[#1C1C1C] text-sm">Nilo</span>
+            <Image src="/personagens/nilo.png" alt="Nilo" width={75} height={75} />
+            <p className="text-[#1E1464] font-medium mt-1">Nilo</p>
           </div>
         </div>
 
         {/* Botões */}
-        <div className="flex flex-col gap-5 mt-12 w-full">
-          <button className="bg-[#2E236C] hover:bg-[#241b5a] text-white font-bold text-base py-3 rounded-full shadow-[0px_6px_0px_#1C1450] transition">
-            🧩 Gerar Atividade Adaptada
-          </button>
+        <button className="w-full bg-[#1E1464] text-[#FFF4C2] font-bold py-3 rounded-[1.5rem] mb-4 shadow-[4px_4px_0px_#E6BE32] hover:translate-y-[2px] transition-all">
+          ✳️ Gerar Atividade Adaptada
+        </button>
 
-          <button className="bg-[#F57BA2] hover:bg-[#e96a90] text-white font-bold text-base py-3 rounded-full shadow-[0px_6px_0px_#c85c80] transition">
-            🎨 Gerar Atividade Comum
-          </button>
+        <button className="w-full bg-[#F77DA6] text-[#FFF4C2] font-bold py-3 rounded-[1.5rem] mb-4 shadow-[4px_4px_0px_#E6BE32] hover:translate-y-[2px] transition-all">
+          🍭 Gerar Atividade Comum
+        </button>
 
-          <button className="bg-[#4AA8F7] hover:bg-[#3798e8] text-white font-bold text-base py-3 rounded-full shadow-[0px_6px_0px_#2e7ec2] transition">
-            👤 Meu Perfil
-          </button>
-        </div>
+        <button className="w-full bg-[#4DA7FF] text-[#1E1464] font-bold py-3 rounded-[1.5rem] shadow-[4px_4px_0px_#E6BE32] hover:translate-y-[2px] transition-all">
+          👤 Meu Perfil
+        </button>
+
       </div>
     </main>
   );
