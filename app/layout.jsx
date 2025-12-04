@@ -4,7 +4,6 @@ import { Fredoka } from "next/font/google";
 const fredoka = Fredoka({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-fredoka",
 });
 
 export const metadata = {
@@ -15,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <body className={`${fredoka.variable} bg-[#FFD83A] text-[#1E1464]`}>
+      <body className={fredoka.className}>
         {children}
       </body>
     </html>
