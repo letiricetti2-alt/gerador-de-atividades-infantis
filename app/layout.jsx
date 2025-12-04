@@ -1,30 +1,21 @@
 import "./globals.css";
-import { Baloo_2, Poppins } from "next/font/google";
+import { Fredoka } from "next/font/google";
 
-const baloo = Baloo_2({
+const fredoka = Fredoka({
   subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-baloo",
-});
-
-const poppins = Poppins({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-poppins",
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-fredoka",
 });
 
 export const metadata = {
   title: "Gerador de Atividades Infantis",
-  description:
-    "App inclusivo e educativo para criação de atividades adaptadas e comuns, com personagens representando diversidade e neurodivergências.",
+  description: "App de atividades adaptadas e inclusivas para crianças",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
-      <body
-        className={`${baloo.variable} ${poppins.variable} font-sans bg-[#FDD835] text-slate-900`}
-      >
+      <body className={`${fredoka.variable} bg-[#FFD83A] text-[#1E1464]`}>
         {children}
       </body>
     </html>
