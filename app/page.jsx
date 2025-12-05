@@ -23,7 +23,7 @@ export default function Home() {
       </div>
 
       {/* Cartão principal */}
-      <div className="bg-[#FFF3B0] rounded-[40px] shadow-[5px_5px_0_#C6972E] w-full max-w-[420px] pt-24 pb-10 px-8 text-center mt-[50px]">
+      <div className="bg-[#FFF3B0] rounded-[40px] shadow-[6px_6px_0_#C6972E] w-full max-w-[420px] pt-24 pb-10 px-8 text-center mt-[50px]">
         {/* Título */}
         <h1 className="text-[#1E1464] font-extrabold text-4xl leading-tight mb-8 drop-shadow-[3px_3px_0_#FFD84D]">
           Gerador de<br />Atividades<br />Infantis
@@ -54,4 +54,14 @@ export default function Home() {
           <button className="w-full bg-[#1E1464] text-white font-semibold py-3 rounded-full shadow-[0_6px_0_#C6972E] text-[15px]">
             Gerar Atividade Adaptada
           </button>
-          <button className="w-full bg-[#F875AA] text-white font-semibold py-3 rounded-full shadow-[0_6px_0_#C_]()
+          <button className="w-full bg-[#F875AA] text-white font-semibold py-3 rounded-full shadow-[0_6px_0_#C6972E] text-[15px]">
+            Gerar Atividade Comum
+          </button>
+          <button className="w-full bg-[#38A3FF] text-white font-semibold py-3 rounded-full shadow-[0_6px_0_#C6972E] text-[15px]">
+            Meu Perfil
+          </button>
+        </div>
+      </div>
+    </main>
+  );
+}
