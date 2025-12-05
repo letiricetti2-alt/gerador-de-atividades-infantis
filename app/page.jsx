@@ -38,8 +38,8 @@ export default function Home() {
               <Image
                 src={char.src}
                 alt={char.name}
-                width={140}
-                height={140}
+                width={150}
+                height={180}
                 className="personagem-img"
               />
               <p className="personagem-nome">{char.name}</p>
