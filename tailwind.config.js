@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        baloo: ["'Baloo 2'", "cursive"],
+        baloo: ['"Baloo 2"', "cursive"],
       },
     },
   },
