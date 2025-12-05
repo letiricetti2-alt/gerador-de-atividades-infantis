@@ -10,21 +10,21 @@ const characters = [
 export default function Home() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-[#FFD53A] font-baloo">
-      <section className="bg-[#FFF1B8] rounded-[40px] shadow-[18px_18px_0_0_#E0A52B] px-10 pt-20 pb-16 max-w-[520px] w-full text-center relative">
+      <section className="bg-[#FFF1B8] rounded-[40px] shadow-[18px_18px_0_0_#E0A52B] px-10 pt-24 pb-16 max-w-[540px] w-full text-center relative">
 
         {/* PERSONAGEM AZUL */}
-        <div className="-mt-24 mb-4 flex justify-center">
+        <div className="-mt-28 mb-6 flex justify-center">
           <Image
             src="/personagens/boasvindas.png"
             alt="Personagem de boas-vindas"
-            width={200}
-            height={200}
+            width={220}
+            height={220}
           />
         </div>
 
         {/* TÍTULO */}
-        <header className="text-center text-[#1E1464] drop-shadow-[0_6px_0_#F8B62D] mb-4">
-          <h1 className="leading-tight tracking-tight">
+        <header className="text-center text-[#1E1464] drop-shadow-[0_6px_0_#F8B62D]">
+          <h1>
             <span className="block">Gerador de</span>
             <span className="block">Atividades</span>
             <span className="block">Infantis</span>
@@ -38,8 +38,8 @@ export default function Home() {
               <Image
                 src={char.src}
                 alt={char.name}
-                width={125}
-                height={125}
+                width={140}
+                height={140}
                 className="personagem-img"
               />
               <p className="personagem-nome">{char.name}</p>
