@@ -12,12 +12,12 @@ body {
 /* ===== TÍTULO ===== */
 h1 {
   font-family: "Baloo 2", cursive !important;
-  font-size: 56px !important;
+  font-size: 60px !important;
   line-height: 1.05 !important;
   text-align: center;
   font-weight: 700;
   color: #1e1464;
-  text-shadow: 0 4px 0 #f8b62d; /* sombra mais leve */
+  text-shadow: 0 4px 0 #f8b62d; /* sombra leve */
   margin-bottom: 1.5rem;
 }
 
@@ -26,8 +26,8 @@ h1 {
   display: flex;
   justify-content: space-around;
   align-items: flex-end;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
 }
 
 .personagem-bloco {
@@ -37,8 +37,8 @@ h1 {
 }
 
 .personagem-img {
-  width: 140px;
-  height: auto;
+  width: 150px;   /* proporcional à imagem original */
+  height: 180px;  /* aumenta para destacar os personagens */
 }
 
 .personagem-nome {
