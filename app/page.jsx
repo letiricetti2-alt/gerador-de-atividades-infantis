@@ -2,9 +2,23 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-[#FDBA3A] py-10 px-4 relative">
+    <main className="min-h-screen flex flex-col items-center justify-center bg-[#FDBA3A] py-10 px-4">
       {/* Cartão principal */}
-      <div className="relative bg-[#FFF3B0] rounded-[40px] shadow-[6px_6px_0_#C6972E] w-full max-w-[420px] pt-28 pb-10 px-8 text-center z-10 mt-[30px]">
+      <div className="relative bg-[#FFF3B0] rounded-[40px] shadow-[6px_6px_0_#C6972E] w-full max-w-[420px] pt-24 pb-10 px-8 text-center mt-[60px]">
+        {/* Personagem e balão (dentro do cartão) */}
+        <div className="absolute -top-28 left-1/2 transform -translate-x-1/2 flex items-start">
+          <Image
+            src="/personagens/tina.png"
+            alt="Tina"
+            width={160}
+            height={160}
+            priority
+          />
+          <div className="ml-3 mt-3 bg-[#FFF3B0] text-[#1E1464] px-4 py-2 rounded-xl shadow-md font-semibold text-sm">
+            Olá e bem-vindo(a)!
+          </div>
+        </div>
+
         {/* Título */}
         <h1 className="text-[#1E1464] font-extrabold text-4xl leading-tight mb-8 drop-shadow-[3px_3px_0_#FFD84D]">
           Gerador de<br />Atividades<br />Infantis
@@ -41,20 +55,6 @@ export default function Home() {
           <button className="w-full bg-[#38A3FF] text-white font-semibold py-3 rounded-full shadow-[0_6px_0_#C6972E] text-[15px]">
             Meu Perfil
           </button>
-        </div>
-      </div>
-
-      {/* Personagem e balão (por cima do cartão) */}
-      <div className="absolute top-[5%] left-[calc(50%-160px)] z-20 flex items-start">
-        <Image
-          src="/personagens/tina.png"
-          alt="Tina"
-          width={160}
-          height={160}
-          priority
-        />
-        <div className="ml-3 mt-2 bg-[#FFF3B0] text-[#1E1464] px-4 py-2 rounded-xl shadow-md font-semibold text-sm">
-          Olá e bem-vindo(a)!
         </div>
       </div>
     </main>
