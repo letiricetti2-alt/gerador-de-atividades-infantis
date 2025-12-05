@@ -2,12 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ==== PERSONAGENS ==== */
+/* ===== PERSONAGENS ===== */
+
 .personagens-linha {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: flex-end;
-  margin-top: 1rem;
+  margin-top: 2rem;
 }
 
 .personagem-bloco {
@@ -17,7 +18,7 @@
 }
 
 .personagem-img {
-  width: 115px;
+  width: 110px;
   height: auto;
 }
 
@@ -30,13 +31,14 @@
   font-size: 0.95rem;
 }
 
-/* ==== BOTÕES ==== */
+/* ===== BOTÕES ===== */
+
 .botao-principal {
   width: 100%;
   border-radius: 9999px;
   padding: 1rem 1.2rem;
   font-family: "Baloo 2", cursive;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: #ffffff;
   box-shadow: 0 10px 0 #f8b62d;
