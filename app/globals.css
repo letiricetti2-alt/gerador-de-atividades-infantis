@@ -3,13 +3,31 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ===== PERSONAGENS ===== */
+/* ===== BODY ===== */
+body {
+  font-family: "Baloo 2", cursive;
+  background-color: #FFD53A;
+}
 
+/* ===== TÍTULO ===== */
+h1 {
+  font-family: "Baloo 2", cursive !important;
+  font-size: 56px !important; /* maior */
+  line-height: 1.05 !important;
+  text-align: center;
+  font-weight: 700;
+  color: #1e1464;
+  text-shadow: 0 7px 0 #f8b62d;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== PERSONAGENS ===== */
 .personagens-linha {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: flex-end;
-  margin-top: 2.5rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .personagem-bloco {
@@ -19,32 +37,19 @@
 }
 
 .personagem-img {
-  width: 125px;
+  width: 140px; /* ligeiramente maior */
   height: auto;
 }
 
 .personagem-nome {
-  margin-top: 0.6rem;
-  font-family: "Baloo 2", cursive;
+  margin-top: 0.5rem;
   font-weight: 700;
   color: #1e1464;
   text-align: center;
-  font-size: 1rem;
-}
-
-/* ===== TÍTULO ===== */
-h1 {
-  font-family: "Baloo 2", cursive !important;
-  font-size: 48px !important;
-  line-height: 1.1 !important;
-  text-align: center;
-  font-weight: 700;
-  color: #1e1464;
-  text-shadow: 0 6px 0 #f8b62d;
+  font-size: 1.05rem;
 }
 
 /* ===== BOTÕES ===== */
-
 .botao-principal {
   width: 100%;
   border-radius: 9999px;
@@ -54,11 +59,4 @@ h1 {
   font-weight: 700;
   color: #ffffff;
   box-shadow: 0 10px 0 #f8b62d;
-}
-
-/* ===== BODY ===== */
-
-body {
-  font-family: "Baloo 2", cursive;
-  background-color: #FFD53A;
 }
