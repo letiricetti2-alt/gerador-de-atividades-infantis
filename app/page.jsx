@@ -6,7 +6,7 @@ export default function Home() {
       {/* Personagem e balão */}
       <div className="relative w-full max-w-[420px] flex justify-start">
         {/* Personagem */}
-        <div className="absolute -top-16 left-8 z-10">
+        <div className="absolute -top-14 left-8 z-10">
           <Image
             src="/personagens/tina.png"
             alt="Tina"
@@ -17,13 +17,13 @@ export default function Home() {
         </div>
 
         {/* Balão */}
-        <div className="absolute top-[10px] left-[175px] bg-[#FFF3B0] text-[#1E1464] px-4 py-2 rounded-xl shadow-md font-semibold text-sm">
+        <div className="absolute top-[20px] left-[175px] bg-[#FFF3B0] text-[#1E1464] px-4 py-2 rounded-xl shadow-md font-semibold text-sm">
           Olá e bem-vindo(a)!
         </div>
       </div>
 
       {/* Cartão principal */}
-      <div className="bg-[#FFF3B0] rounded-[40px] shadow-[6px_6px_0_#C6972E] w-full max-w-[420px] pt-24 pb-10 px-8 text-center mt-[50px]">
+      <div className="bg-[#FFF3B0] rounded-[40px] shadow-[6px_6px_0_#C6972E] w-full max-w-[420px] pt-24 pb-10 px-8 text-center mt-[42px]">
         {/* Título */}
         <h1 className="text-[#1E1464] font-extrabold text-4xl leading-tight mb-8 drop-shadow-[3px_3px_0_#FFD84D]">
           Gerador de<br />Atividades<br />Infantis
