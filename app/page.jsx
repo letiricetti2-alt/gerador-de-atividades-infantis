@@ -1,6 +1,4 @@
-// app/page.jsx
 "use client";
-
 import Image from "next/image";
 
 export default function HomePage() {
@@ -12,67 +10,58 @@ export default function HomePage() {
   ];
 
   return (
-    <main className="w-full flex justify-center py-10">
-      <div className="relative w-full max-w-[520px]">
-        {/* CARD PRINCIPAL */}
-        <div className="main-card bg-[#FFEFB5] rounded-[40px] pt-32 pb-16 px-10 relative overflow-visible">
-          {/* PERSONAGEM AZUL + BALÃO DE FALA */}
-          <div className="absolute -top-32 left-1/2 -translate-x-[55%]">
-            <div className="relative">
-              <Image
-                src="/personagens/tina.png"
-                alt="Personagem de boas-vindas"
-                width={220}
-                height={220}
-                priority
-              />
-
-              {/* Balãozinho */}
-              <div className="absolute top-6 left-[64%] -translate-x-1/2 bg-[#FFEFB5] rounded-[24px] px-5 py-3 main-card">
-                <p className="text-sm font-semibold text-[#1E1464] whitespace-nowrap">
-                  Olá e bem-vindo(a)!
-                </p>
-              </div>
+    <main className="w-full flex justify-center items-start py-10 bg-[#FFD83A] overflow-visible">
+      <div className="relative w-full max-w-[640px] flex flex-col items-center">
+        {/* TINA E BALÃO */}
+        <div className="absolute -top-[180px] left-1/2 -translate-x-1/2 flex flex-col items-center">
+          <div className="relative">
+            <Image
+              src="/personagens/tina.png"
+              alt="Tina"
+              width={280}
+              height={280}
+              className="relative z-10"
+            />
+            <div className="absolute -right-[150px] top-[40px] bg-[#FFF4BF] px-6 py-4 rounded-2xl shadow-[5px_5px_0_#E3B333]">
+              <p className="text-[#1E1464] text-lg font-bold leading-tight text-center">
+                Olá e<br />bem-vindo(a)!
+              </p>
             </div>
           </div>
+        </div>
 
+        {/* CARD PRINCIPAL */}
+        <div className="bg-[#FFF4BF] rounded-[50px] shadow-[15px_15px_0_#E3B333] w-full text-center pt-[200px] pb-14 px-10">
           {/* TÍTULO */}
-          <h1 className="title-shadow text-[#1E1464] text-center font-extrabold text-[44px] leading-tight mt-4 mb-12">
-            <span className="block">Gerador de</span>
-            <span className="block">Atividades</span>
-            <span className="block">Infantis</span>
+          <h1 className="text-[#1E1464] text-[56px] leading-[60px] font-extrabold mb-14 drop-shadow-[6px_6px_0_#FFD84D]">
+            Gerador de<br />Atividades<br />Infantis
           </h1>
 
           {/* PERSONAGENS */}
-          <div className="grid grid-cols-4 gap-4 mb-12">
-            {personagens.map((char) => (
-              <div
-                key={char.name}
-                className="flex flex-col items-center justify-start gap-3"
-              >
+          <div className="grid grid-cols-4 gap-6 justify-items-center mb-14">
+            {personagens.map((p) => (
+              <div key={p.name} className="flex flex-col items-center">
                 <Image
-                  src={char.src}
-                  alt={char.name}
-                  width={96}
-                  height={96}
-                  className="object-contain"
+                  src={p.src}
+                  alt={p.name}
+                  width={115}
+                  height={115}
+                  className="mb-3"
                 />
-                <p className="text-base font-semibold">{char.name}</p>
+                <p className="text-[#1E1464] font-bold text-lg">{p.name}</p>
               </div>
             ))}
           </div>
 
           {/* BOTÕES */}
-          <div className="space-y-7">
-            <button className="w-full rounded-full bg-[#191A63] btn-shadow text-white text-lg font-semibold py-4">
+          <div className="flex flex-col gap-8">
+            <button className="w-full bg-[#191A63] text-white text-[22px] font-bold py-5 rounded-full shadow-[0_10px_0_#E3B333]">
               Gerar Atividade Adaptada
             </button>
-
-            <button className="w-full rounded-full bg-[#F875AA] btn-shadow text-white text-lg font-semibold py-4">
+            <button className="w-full bg-[#F875AA] text-white text-[22px] font-bold py-5 rounded-full shadow-[0_10px_0_#E3B333]">
               Gerar Atividade Comum
             </button>
-
-            <button className="w-full rounded-full bg-[#1F88FF] btn-shadow text-white text-lg font-semibold py-4">
+            <button className="w-full bg-[#1F88FF] text-white text-[22px] font-bold py-5 rounded-full shadow-[0_10px_0_#E3B333]">
               Meu Perfil
             </button>
           </div>
