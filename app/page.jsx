@@ -11,6 +11,15 @@ export default function Home() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-[#FFD53A]">
       <section className="relative bg-[#FFF1B8] rounded-[40px] shadow-[18px_18px_0_0_#E0A52B] px-10 pt-20 pb-16 max-w-[520px] w-full">
+        <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
+          <Image
+            src="/personagens/boasvindas.png"
+            alt="Personagem de boas-vindas"
+            width={180}
+            height={180}
+          />
+        </div>
+
         <header className="text-center text-[#1E1464] drop-shadow-[0_6px_0_#F8B62D]">
           <h1 className="font-baloo text-[40px] leading-none tracking-tight">
             <span className="block">Gerador de</span>
@@ -25,8 +34,8 @@ export default function Home() {
               <Image
                 src={char.src}
                 alt={char.name}
-                width={200}
-                height={200}
+                width={110}
+                height={110}
                 className="personagem-img"
                 priority
               />
@@ -44,9 +53,7 @@ export default function Home() {
             Gerar Atividade Comum
           </button>
 
-          <button className="botao-principal bg-[#2F9BFF]">
-            Meu Perfil
-          </button>
+          <button className="botao-principal bg-[#2F9BFF]">Meu Perfil</button>
         </section>
       </section>
     </main>
