@@ -12,12 +12,12 @@ body {
 /* ===== TÍTULO ===== */
 h1 {
   font-family: "Baloo 2", cursive !important;
-  font-size: 56px !important; /* maior */
+  font-size: 56px !important;
   line-height: 1.05 !important;
   text-align: center;
   font-weight: 700;
   color: #1e1464;
-  text-shadow: 0 7px 0 #f8b62d;
+  text-shadow: 0 4px 0 #f8b62d; /* sombra mais leve */
   margin-bottom: 1.5rem;
 }
 
@@ -37,7 +37,7 @@ h1 {
 }
 
 .personagem-img {
-  width: 140px; /* ligeiramente maior */
+  width: 140px;
   height: auto;
 }
 
