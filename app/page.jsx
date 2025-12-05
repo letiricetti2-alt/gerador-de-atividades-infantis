@@ -1,61 +1,81 @@
+// app/page.jsx
+"use client";
+
 import Image from "next/image";
 
-export default function Home() {
+export default function HomePage() {
+  const personagens = [
+    { name: "Luno", src: "/personagens/luno.png" },
+    { name: "Malu", src: "/personagens/malu.png" },
+    { name: "Theo", src: "/personagens/theo.png" },
+    { name: "Nilo", src: "/personagens/nilo.png" },
+  ];
+
   return (
-    <main className="min-h-screen flex flex-col items-center justify-center bg-[#FDD33A] py-10 px-4">
-      <div className="relative bg-[#FFF4BF] rounded-[50px] shadow-[12px_12px_0_#D1A12C] w-full max-w-[440px] pt-36 pb-12 px-8 text-center">
-        {/* Tina e balão */}
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 flex flex-col items-center">
-          <div className="flex items-start">
-            <Image
-              src="/personagens/tina.png"
-              alt="Tina"
-              width={190}
-              height={190}
-              priority
-            />
-            <div className="ml-3 mt-4 bg-[#FFF4BF] text-[#1E1464] px-5 py-3 rounded-2xl shadow-[4px_4px_0_#E4C56D] font-bold text-[14px] leading-tight">
-              Olá e<br />bem-vindo(a)!
+    <main className="w-full flex justify-center py-10">
+      <div className="relative w-full max-w-[520px]">
+        {/* CARD PRINCIPAL */}
+        <div className="main-card bg-[#FFEFB5] rounded-[40px] pt-32 pb-16 px-10 relative overflow-visible">
+          {/* PERSONAGEM AZUL + BALÃO DE FALA */}
+          <div className="absolute -top-32 left-1/2 -translate-x-[55%]">
+            <div className="relative">
+              <Image
+                src="/personagens/tina.png"
+                alt="Personagem de boas-vindas"
+                width={220}
+                height={220}
+                priority
+              />
+
+              {/* Balãozinho */}
+              <div className="absolute top-6 left-[64%] -translate-x-1/2 bg-[#FFEFB5] rounded-[24px] px-5 py-3 main-card">
+                <p className="text-sm font-semibold text-[#1E1464] whitespace-nowrap">
+                  Olá e bem-vindo(a)!
+                </p>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Título */}
-        <h1 className="text-[#1E1464] font-extrabold text-[38px] leading-tight mb-10 drop-shadow-[4px_4px_0_#FFD84D]">
-          Gerador de<br />Atividades<br />Infantis
-        </h1>
+          {/* TÍTULO */}
+          <h1 className="title-shadow text-[#1E1464] text-center font-extrabold text-[44px] leading-tight mt-4 mb-12">
+            <span className="block">Gerador de</span>
+            <span className="block">Atividades</span>
+            <span className="block">Infantis</span>
+          </h1>
 
-        {/* Personagens */}
-        <div className="grid grid-cols-4 gap-6 justify-items-center mb-12">
-          <div>
-            <Image src="/personagens/luno.png" alt="Luno" width={85} height={85} />
-            <p className="text-[#1E1464] font-bold mt-3 text-[15px]">Luno</p>
+          {/* PERSONAGENS */}
+          <div className="grid grid-cols-4 gap-4 mb-12">
+            {personagens.map((char) => (
+              <div
+                key={char.name}
+                className="flex flex-col items-center justify-start gap-3"
+              >
+                <Image
+                  src={char.src}
+                  alt={char.name}
+                  width={96}
+                  height={96}
+                  className="object-contain"
+                />
+                <p className="text-base font-semibold">{char.name}</p>
+              </div>
+            ))}
           </div>
-          <div>
-            <Image src="/personagens/malu.png" alt="Malu" width={85} height={85} />
-            <p className="text-[#1E1464] font-bold mt-3 text-[15px]">Malu</p>
-          </div>
-          <div>
-            <Image src="/personagens/theo.png" alt="Theo" width={85} height={85} />
-            <p className="text-[#1E1464] font-bold mt-3 text-[15px]">Theo</p>
-          </div>
-          <div>
-            <Image src="/personagens/nilo.png" alt="Nilo" width={85} height={85} />
-            <p className="text-[#1E1464] font-bold mt-3 text-[15px]">Nilo</p>
-          </div>
-        </div>
 
-        {/* Botões */}
-        <div className="flex flex-col items-center gap-6">
-          <button className="w-full bg-[#1E1464] text-white font-extrabold text-[17px] py-4 rounded-full shadow-[0_7px_0_#C6972E]">
-            Gerar Atividade Adaptada
-          </button>
-          <button className="w-full bg-[#F875AA] text-white font-extrabold text-[17px] py-4 rounded-full shadow-[0_7px_0_#C6972E]">
-            Gerar Atividade Comum
-          </button>
-          <button className="w-full bg-[#38A3FF] text-white font-extrabold text-[17px] py-4 rounded-full shadow-[0_7px_0_#C6972E]">
-            Meu Perfil
-          </button>
+          {/* BOTÕES */}
+          <div className="space-y-7">
+            <button className="w-full rounded-full bg-[#191A63] btn-shadow text-white text-lg font-semibold py-4">
+              Gerar Atividade Adaptada
+            </button>
+
+            <button className="w-full rounded-full bg-[#F875AA] btn-shadow text-white text-lg font-semibold py-4">
+              Gerar Atividade Comum
+            </button>
+
+            <button className="w-full rounded-full bg-[#1F88FF] btn-shadow text-white text-lg font-semibold py-4">
+              Meu Perfil
+            </button>
+          </div>
         </div>
       </div>
     </main>
