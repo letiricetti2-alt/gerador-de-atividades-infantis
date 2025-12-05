@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,9 +7,9 @@
 
 .personagens-linha {
   display: flex;
-  justify-content: space-evenly; /* mais centralizado */
+  justify-content: space-evenly;
   align-items: flex-end;
-  margin-top: 2.5rem; /* dá mais espaço entre título e personagens */
+  margin-top: 2.5rem;
 }
 
 .personagem-bloco {
@@ -18,7 +19,7 @@
 }
 
 .personagem-img {
-  width: 125px; /* aumentei um pouco o tamanho */
+  width: 125px;
   height: auto;
 }
 
@@ -28,17 +29,22 @@
   font-weight: 700;
   color: #1e1464;
   text-align: center;
-  font-size: 1rem; /* leve aumento para equilíbrio */
+  font-size: 1rem;
 }
 
 /* ===== TÍTULO ===== */
 h1 {
-  font-size: 48px !important; /* aumentei o tamanho */
+  font-family: "Baloo 2", cursive !important;
+  font-size: 48px !important;
   line-height: 1.1 !important;
   text-align: center;
+  font-weight: 700;
+  color: #1e1464;
+  text-shadow: 0 6px 0 #f8b62d;
 }
 
 /* ===== BOTÕES ===== */
+
 .botao-principal {
   width: 100%;
   border-radius: 9999px;
@@ -48,4 +54,11 @@ h1 {
   font-weight: 700;
   color: #ffffff;
   box-shadow: 0 10px 0 #f8b62d;
+}
+
+/* ===== BODY ===== */
+
+body {
+  font-family: "Baloo 2", cursive;
+  background-color: #FFD53A;
 }
