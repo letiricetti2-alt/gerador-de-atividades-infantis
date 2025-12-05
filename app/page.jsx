@@ -3,27 +3,27 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col items-center justify-center bg-[#FDBA3A] py-10 px-4">
-      {/* Personagem e balão de fala */}
+      {/* Personagem e balão */}
       <div className="relative w-full max-w-[420px] flex justify-start">
-        {/* Personagem sobrepondo o card */}
-        <div className="absolute -top-6 left-6 z-10">
+        {/* Personagem */}
+        <div className="absolute -top-12 left-8 z-10">
           <Image
             src="/personagens/tina.png"
             alt="Tina"
-            width={140}
-            height={140}
+            width={150}
+            height={150}
             priority
           />
         </div>
 
         {/* Balão */}
-        <div className="absolute top-[10px] left-[150px] bg-[#FFF3B0] text-[#1E1464] px-4 py-2 rounded-xl shadow-md font-semibold text-sm">
+        <div className="absolute top-[15px] left-[165px] bg-[#FFF3B0] text-[#1E1464] px-4 py-2 rounded-xl shadow-md font-semibold text-sm">
           Olá e bem-vindo(a)!
         </div>
       </div>
 
       {/* Cartão principal */}
-      <div className="bg-[#FFF3B0] rounded-[40px] shadow-[10px_10px_0_#D1A12C] w-full max-w-[420px] pt-16 pb-10 px-8 text-center mt-[70px]">
+      <div className="bg-[#FFF3B0] rounded-[40px] shadow-[6px_6px_0_#D1A12C] w-full max-w-[420px] pt-20 pb-10 px-8 text-center mt-[60px]">
         {/* Título */}
         <h1 className="text-[#1E1464] font-extrabold text-4xl leading-tight mb-8 drop-shadow-[3px_3px_0_#FFD84D]">
           Gerador de<br />Atividades<br />Infantis
@@ -56,12 +56,4 @@ export default function Home() {
           </button>
           <button className="w-full bg-[#F875AA] text-white font-semibold py-3 rounded-full shadow-[0_6px_0_#D1A12C] text-[15px]">
             Gerar Atividade Comum
-          </button>
-          <button className="w-full bg-[#38A3FF] text-white font-semibold py-3 rounded-full shadow-[0_6px_0_#D1A12C] text-[15px]">
-            Meu Perfil
-          </button>
-        </div>
-      </div>
-    </main>
-  );
-}
+          </butto
