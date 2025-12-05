@@ -54,6 +54,16 @@ export default function Home() {
           <button className="w-full bg-[#1E1464] text-white font-semibold py-3 rounded-full shadow-[0_6px_0_#D1A12C] text-[15px]">
             Gerar Atividade Adaptada
           </button>
+
           <button className="w-full bg-[#F875AA] text-white font-semibold py-3 rounded-full shadow-[0_6px_0_#D1A12C] text-[15px]">
             Gerar Atividade Comum
-          </butto
+          </button>
+
+          <button className="w-full bg-[#38A3FF] text-white font-semibold py-3 rounded-full shadow-[0_6px_0_#D1A12C] text-[15px]">
+            Meu Perfil
+          </button>
+        </div>
+      </div>
+    </main>
+  );
+}
