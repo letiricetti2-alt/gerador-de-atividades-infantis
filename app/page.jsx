@@ -1,48 +1,54 @@
-/* ==== PERSONAGENS – GRID / TAMANHO / POSIÇÃO ==== */
+import Image from "next/image";
 
-.personagens-linha {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  align-items: end;
-  justify-items: center;
-  column-gap: 1.75rem; /* aproxima do layout da arte */
-}
+const characters = [
+  { name: "Luno", src: "/personagens/luno.png" },
+  { name: "Malu", src: "/personagens/malu.png" },
+  { name: "Theo", src: "/personagens/theo.png" },
+  { name: "Nilo", src: "/personagens/nilo.png" },
+];
 
-.personagem-bloco {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+export default function Home() {
+  return (
+    <main className="min-h-screen flex items-center justify-center bg-[#FFD53A]">
+      <section className="relative bg-[#FFF1B8] rounded-[40px] shadow-[18px_18px_0_0_#E0A52B] px-10 pt-20 pb-16 max-w-[520px] w-full">
+        <header className="text-center text-[#1E1464] drop-shadow-[0_6px_0_#F8B62D]">
+          <h1 className="font-baloo text-[40px] leading-none tracking-tight">
+            <span className="block">Gerador de</span>
+            <span className="block mt-1">Atividades</span>
+            <span className="block mt-1">Infantis</span>
+          </h1>
+        </header>
 
-/* tamanho das imagens (mobile / desktop) */
-.personagem-img {
-  width: 5.5rem; /* ~88px */
-}
+        <section className="personagens-linha mt-10">
+          {characters.map((char) => (
+            <div key={char.name} className="personagem-bloco">
+              <Image
+                src={char.src}
+                alt={char.name}
+                width={200}
+                height={200}
+                className="personagem-img"
+                priority
+              />
+              <p className="personagem-nome">{char.name}</p>
+            </div>
+          ))}
+        </section>
 
-@media (min-width: 768px) {
-  .personagem-img {
-    width: 7.5rem; /* ~120px – maior como na arte */
-  }
-}
+        <section className="mt-10 space-y-5">
+          <button className="botao-principal bg-[#151B63]">
+            Gerar Atividade Adaptada
+          </button>
 
-/* nomes embaixo dos personagens */
-.personagem-nome {
-  margin-top: 0.75rem;
-  font-family: var(--font-baloo, system-ui);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #1e1464;
-}
+          <button className="botao-principal bg-[#FF80B5]">
+            Gerar Atividade Comum
+          </button>
 
-/* ==== BOTÕES – MESMAS PROPORÇÕES DA ARTE ==== */
-
-.botao-principal {
-  width: 100%;
-  border-radius: 9999px;
-  padding: 0.95rem 1rem;
-  font-family: var(--font-baloo, system-ui);
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #ffffff;
-  box-shadow: 0 10px 0 #f8b62d;
+          <button className="botao-principal bg-[#2F9BFF]">
+            Meu Perfil
+          </button>
+        </section>
+      </section>
+    </main>
+  );
 }
