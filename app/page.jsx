@@ -23,7 +23,7 @@ export default function Home() {
         </div>
 
         {/* TÍTULO */}
-        <header className="text-center text-[#1E1464] drop-shadow-[0_6px_0_#F8B62D]">
+        <header className="text-center text-[#1E1464]">
           <h1>
             <span className="block">Gerador de</span>
             <span className="block">Atividades</span>
