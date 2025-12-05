@@ -10,10 +10,10 @@ const characters = [
 export default function Home() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-[#FFD53A] font-baloo">
-      <section className="bg-[#FFF1B8] rounded-[40px] shadow-[18px_18px_0_0_#E0A52B] px-10 pt-24 pb-16 max-w-[620px] w-full text-center relative">
+      <section className="bg-[#FFF1B8] rounded-[40px] shadow-[18px_18px_0_0_#E0A52B] px-14 pt-24 pb-20 max-w-[720px] w-full text-center relative">
 
         {/* PERSONAGEM AZUL NO TOPO */}
-        <div className="-mt-28 mb-6 flex justify-center">
+        <div className="-mt-28 mb-8 flex justify-center">
           <Image
             src="/personagens/boasvindas.png"
             alt="Personagem de boas-vindas"
@@ -38,8 +38,8 @@ export default function Home() {
               <Image
                 src={char.src}
                 alt={char.name}
-                width={200}
-                height={210}
+                width={210}
+                height={230}
                 className="personagem-img"
               />
               <p className="personagem-nome">{char.name}</p>
