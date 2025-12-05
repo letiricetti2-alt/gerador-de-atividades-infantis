@@ -9,36 +9,37 @@ const characters = [
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center justify-center min-h-screen bg-[#FFD53A]">
-      <section className="relative bg-[#FFF1B8] rounded-[40px] shadow-[18px_18px_0_0_#E0A52B] px-10 pt-28 pb-16 max-w-[520px] w-full text-center">
-        
-        {/* Personagem azul de boas-vindas */}
-        <Image
-          src="/personagens/boasvindas.png"
-          alt="Personagem de boas-vindas"
-          width={230}
-          height={230}
-          className="absolute -top-24 left-1/2 transform -translate-x-1/2"
-        />
+    <main className="min-h-screen flex items-center justify-center bg-[#FFD53A]">
+      <section className="bg-[#FFF1B8] rounded-[40px] shadow-[18px_18px_0_0_#E0A52B] px-10 pt-20 pb-16 max-w-[520px] w-full text-center relative">
 
-        {/* Título centralizado e mais proeminente */}
-        <header className="text-center text-[#1E1464] drop-shadow-[0_6px_0_#F8B62D] mb-6">
-          <h1 className="font-baloo text-[46px] leading-tight tracking-tight">
+        {/* PERSONAGEM AZUL – SEM absolute, dentro do card */}
+        <div className="-mt-24 mb-4 flex justify-center">
+          <Image
+            src="/personagens/boasvindas.png"
+            alt="Personagem de boas-vindas"
+            width={200}
+            height={200}
+          />
+        </div>
+
+        {/* TÍTULO */}
+        <header className="text-center text-[#1E1464] drop-shadow-[0_6px_0_#F8B62D] mb-4">
+          <h1 className="font-baloo text-[40px] leading-tight tracking-tight">
             <span className="block">Gerador de</span>
             <span className="block">Atividades</span>
             <span className="block">Infantis</span>
           </h1>
         </header>
 
-        {/* Personagens maiores e mais próximos do título */}
-        <section className="personagens-linha mt-6 mb-10">
+        {/* PERSONAGENS */}
+        <section className="personagens-linha">
           {characters.map((char) => (
             <div key={char.name} className="personagem-bloco">
               <Image
                 src={char.src}
                 alt={char.name}
-                width={115}
-                height={115}
+                width={110}
+                height={110}
                 className="personagem-img"
               />
               <p className="personagem-nome">{char.name}</p>
@@ -46,8 +47,8 @@ export default function Home() {
           ))}
         </section>
 
-        {/* Botões idênticos ao layout original */}
-        <section className="space-y-5">
+        {/* BOTÕES */}
+        <section className="mt-10 space-y-5">
           <button className="botao-principal bg-[#151B63]">
             Gerar Atividade Adaptada
           </button>
@@ -56,7 +57,9 @@ export default function Home() {
             Gerar Atividade Comum
           </button>
 
-          <button className="botao-principal bg-[#2F9BFF]">Meu Perfil</button>
+          <button className="botao-principal bg-[#2F9BFF]">
+            Meu Perfil
+          </button>
         </section>
       </section>
     </main>
