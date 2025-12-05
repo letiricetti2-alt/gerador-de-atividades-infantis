@@ -12,7 +12,7 @@ export default function Home() {
     <main className="min-h-screen flex items-center justify-center bg-[#FFD53A] font-baloo">
       <section className="bg-[#FFF1B8] rounded-[40px] shadow-[18px_18px_0_0_#E0A52B] px-10 pt-24 pb-16 max-w-[540px] w-full text-center relative">
 
-        {/* PERSONAGEM AZUL */}
+        {/* PERSONAGEM AZUL NO TOPO */}
         <div className="-mt-28 mb-6 flex justify-center">
           <Image
             src="/personagens/boasvindas.png"
@@ -38,8 +38,8 @@ export default function Home() {
               <Image
                 src={char.src}
                 alt={char.name}
-                width={155}
-                height={160}
+                width={180}
+                height={190}
                 className="personagem-img"
               />
               <p className="personagem-nome">{char.name}</p>
