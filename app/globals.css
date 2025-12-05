@@ -17,8 +17,8 @@ h1 {
   text-align: center;
   font-weight: 700;
   color: #1e1464;
-  text-shadow: 0 4px 0 #f8b62d; /* sombra leve */
-  margin-bottom: 1.5rem;
+  text-shadow: 0 4px 0 #f8b62d; /* sombra suave e quente */
+  margin-bottom: 2rem;
 }
 
 /* ===== PERSONAGENS ===== */
@@ -37,8 +37,9 @@ h1 {
 }
 
 .personagem-img {
-  width: 150px;   /* proporcional à imagem original */
-  height: 180px;  /* aumenta para destacar os personagens */
+  width: 155px;   /* Ligeiramente mais largo (fofinho) */
+  height: 160px;  /* Mantém proporção equilibrada */
+  object-fit: contain;
 }
 
 .personagem-nome {
