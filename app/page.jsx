@@ -1,83 +1,64 @@
-// app/page.jsx
-"use client";
-
 import Image from "next/image";
 
-export default function HomePage() {
-  const personagens = [
-    { name: "Luno", src: "/personagens/luno.png" },
-    { name: "Malu", src: "/personagens/malu.png" },
-    { name: "Theo", src: "/personagens/theo.png" },
-    { name: "Nilo", src: "/personagens/nilo.png" },
-  ];
+const characters = [
+  { name: "Luno", src: "/personagens/luno.png" },
+  { name: "Malu", src: "/personagens/malu.png" },
+  { name: "Theo", src: "/personagens/theo.png" },
+  { name: "Nilo", src: "/personagens/nilo.png" },
+];
 
+export default function Home() {
   return (
-    <main className="w-full flex justify-center py-10">
-      <div className="relative w-full max-w-[520px]">
-        {/* CARD PRINCIPAL */}
-        <div className="main-card bg-[#FFEFB5] rounded-[40px] pt-32 pb-16 px-10 relative overflow-visible">
-          {/* PERSONAGEM AZUL + BALÃO DE FALA */}
-          <div className="absolute -top-32 left-1/2 -translate-x-[55%]">
-            <div className="relative">
-              <Image
-                src="/personagens/tina.png"
-                alt="Personagem de boas-vindas"
-                width={220}
-                height={220}
-                priority
-              />
+    <main className="flex flex-col items-center justify-center min-h-screen bg-[#FFD53A]">
+      <section className="relative bg-[#FFF1B8] rounded-[40px] shadow-[18px_18px_0_0_#E0A52B] px-10 pt-28 pb-16 max-w-[520px] w-full text-center">
+        
+        {/* Personagem azul de boas-vindas */}
+        <Image
+          src="/personagens/boasvindas.png"
+          alt="Personagem de boas-vindas"
+          width={230}
+          height={230}
+          className="absolute -top-24 left-1/2 transform -translate-x-1/2"
+        />
 
-              {/* Balãozinho */}
-              <div className="absolute top-6 left-[64%] -translate-x-1/2 bg-[#FFEFB5] rounded-[24px] px-5 py-3 main-card">
-                <p className="text-sm font-semibold text-[#1E1464] whitespace-nowrap">
-                  Olá e bem-vindo(a)!
-                </p>
-              </div>
-            </div>
-          </div>
-
-          {/* TÍTULO */}
-          <h1 className="title-shadow text-[#1E1464] text-center font-extrabold text-[44px] leading-tight mt-4 mb-12">
+        {/* Título centralizado e mais proeminente */}
+        <header className="text-center text-[#1E1464] drop-shadow-[0_6px_0_#F8B62D] mb-6">
+          <h1 className="font-baloo text-[46px] leading-tight tracking-tight">
             <span className="block">Gerador de</span>
             <span className="block">Atividades</span>
             <span className="block">Infantis</span>
           </h1>
+        </header>
 
-          {/* PERSONAGENS */}
-          <div className="grid grid-cols-4 gap-4 mb-12">
-            {personagens.map((char) => (
-              <div
-                key={char.name}
-                className="flex flex-col items-center justify-start gap-3"
-              >
-                <Image
-                  src={char.src}
-                  alt={char.name}
-                  width={96}
-                  height={96}
-                  className="object-contain"
-                />
-                <p className="text-base font-semibold">{char.name}</p>
-              </div>
-            ))}
-          </div>
+        {/* Personagens maiores e mais próximos do título */}
+        <section className="personagens-linha mt-6 mb-10">
+          {characters.map((char) => (
+            <div key={char.name} className="personagem-bloco">
+              <Image
+                src={char.src}
+                alt={char.name}
+                width={115}
+                height={115}
+                className="personagem-img"
+              />
+              <p className="personagem-nome">{char.name}</p>
+            </div>
+          ))}
+        </section>
 
-          {/* BOTÕES */}
-          <div className="space-y-7">
-            <button className="w-full rounded-full bg-[#191A63] btn-shadow text-white text-lg font-semibold py-4">
-              Gerar Atividade Adaptada
-            </button>
+        {/* Botões idênticos ao layout original */}
+        <section className="space-y-5">
+          <button className="botao-principal bg-[#151B63]">
+            Gerar Atividade Adaptada
+          </button>
 
-            <button className="w-full rounded-full bg-[#F875AA] btn-shadow text-white text-lg font-semibold py-4">
-              Gerar Atividade Comum
-            </button>
+          <button className="botao-principal bg-[#F808B5]">
+            Gerar Atividade Comum
+          </button>
 
-            <button className="w-full rounded-full bg-[#1F88FF] btn-shadow text-white text-lg font-semibold py-4">
-              Meu Perfil
-            </button>
-          </div>
-        </div>
-      </div>
+          <button className="botao-principal bg-[#2F9BFF]">Meu Perfil</button>
+        </section>
+      </section>
     </main>
   );
 }
