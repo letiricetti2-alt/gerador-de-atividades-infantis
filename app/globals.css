@@ -1,11 +1,13 @@
-/* ==== PERSONAGENS – GRID / TAMANHO / POSIÇÃO ==== */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* ==== PERSONAGENS ==== */
 .personagens-linha {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  align-items: end;
-  justify-items: center;
-  column-gap: 1.75rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  margin-top: 2rem;
 }
 
 .personagem-bloco {
@@ -15,30 +17,24 @@
 }
 
 .personagem-img {
-  width: 5.5rem; /* ~88px */
-}
-
-@media (min-width: 768px) {
-  .personagem-img {
-    width: 7.5rem; /* ~120px */
-  }
+  width: 100px;
+  height: auto;
 }
 
 .personagem-nome {
-  margin-top: 0.75rem;
-  font-family: var(--font-baloo, system-ui);
-  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  font-family: 'Baloo 2', cursive;
   font-weight: 700;
   color: #1e1464;
+  text-align: center;
 }
 
-/* ==== BOTÕES – MESMAS PROPORÇÕES DA ARTE ==== */
-
+/* ==== BOTÕES ==== */
 .botao-principal {
   width: 100%;
   border-radius: 9999px;
-  padding: 0.95rem 1rem;
-  font-family: var(--font-baloo, system-ui);
+  padding: 0.9rem 1rem;
+  font-family: 'Baloo 2', cursive;
   font-size: 1.1rem;
   font-weight: 700;
   color: #ffffff;
