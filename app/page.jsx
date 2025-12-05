@@ -1,61 +1,63 @@
 import Image from "next/image";
 
-const characters = [
-  { name: "Luno", src: "/personagens/luno.png" },
-  { name: "Malu", src: "/personagens/malu.png" },
-  { name: "Theo", src: "/personagens/theo.png" },
-  { name: "Nilo", src: "/personagens/nilo.png" },
-];
-
 export default function Home() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-[#FFD53A]">
-      <section className="relative bg-[#FFF1B8] rounded-[40px] shadow-[18px_18px_0_0_#E0A52B] px-10 pt-20 pb-16 max-w-[520px] w-full">
-        <div className="absolute -top-16 left-1/2 transform -translate-x-1/2">
-          <Image
-            src="/personagens/boasvindas.png"
-            alt="Personagem de boas-vindas"
-            width={180}
-            height={180}
-          />
+    <main className="min-h-screen flex flex-col items-center justify-center bg-[#FDD33A] py-10 px-4">
+      <div className="relative bg-[#FFF4BF] rounded-[50px] shadow-[12px_12px_0_#D1A12C] w-full max-w-[440px] pt-36 pb-12 px-8 text-center">
+        {/* Tina e balão */}
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 flex flex-col items-center">
+          <div className="flex items-start">
+            <Image
+              src="/personagens/tina.png"
+              alt="Tina"
+              width={190}
+              height={190}
+              priority
+            />
+            <div className="ml-3 mt-4 bg-[#FFF4BF] text-[#1E1464] px-5 py-3 rounded-2xl shadow-[4px_4px_0_#E4C56D] font-bold text-[14px] leading-tight">
+              Olá e<br />bem-vindo(a)!
+            </div>
+          </div>
         </div>
 
-        <header className="text-center text-[#1E1464] drop-shadow-[0_6px_0_#F8B62D]">
-          <h1 className="font-baloo text-[40px] leading-none tracking-tight">
-            <span className="block">Gerador de</span>
-            <span className="block mt-1">Atividades</span>
-            <span className="block mt-1">Infantis</span>
-          </h1>
-        </header>
+        {/* Título */}
+        <h1 className="text-[#1E1464] font-extrabold text-[38px] leading-tight mb-10 drop-shadow-[4px_4px_0_#FFD84D]">
+          Gerador de<br />Atividades<br />Infantis
+        </h1>
 
-        <section className="personagens-linha mt-10">
-          {characters.map((char) => (
-            <div key={char.name} className="personagem-bloco">
-              <Image
-                src={char.src}
-                alt={char.name}
-                width={110}
-                height={110}
-                className="personagem-img"
-                priority
-              />
-              <p className="personagem-nome">{char.name}</p>
-            </div>
-          ))}
-        </section>
+        {/* Personagens */}
+        <div className="grid grid-cols-4 gap-6 justify-items-center mb-12">
+          <div>
+            <Image src="/personagens/luno.png" alt="Luno" width={85} height={85} />
+            <p className="text-[#1E1464] font-bold mt-3 text-[15px]">Luno</p>
+          </div>
+          <div>
+            <Image src="/personagens/malu.png" alt="Malu" width={85} height={85} />
+            <p className="text-[#1E1464] font-bold mt-3 text-[15px]">Malu</p>
+          </div>
+          <div>
+            <Image src="/personagens/theo.png" alt="Theo" width={85} height={85} />
+            <p className="text-[#1E1464] font-bold mt-3 text-[15px]">Theo</p>
+          </div>
+          <div>
+            <Image src="/personagens/nilo.png" alt="Nilo" width={85} height={85} />
+            <p className="text-[#1E1464] font-bold mt-3 text-[15px]">Nilo</p>
+          </div>
+        </div>
 
-        <section className="mt-10 space-y-5">
-          <button className="botao-principal bg-[#151B63]">
+        {/* Botões */}
+        <div className="flex flex-col items-center gap-6">
+          <button className="w-full bg-[#1E1464] text-white font-extrabold text-[17px] py-4 rounded-full shadow-[0_7px_0_#C6972E]">
             Gerar Atividade Adaptada
           </button>
-
-          <button className="botao-principal bg-[#FF80B5]">
+          <button className="w-full bg-[#F875AA] text-white font-extrabold text-[17px] py-4 rounded-full shadow-[0_7px_0_#C6972E]">
             Gerar Atividade Comum
           </button>
-
-          <button className="botao-principal bg-[#2F9BFF]">Meu Perfil</button>
-        </section>
-      </section>
+          <button className="w-full bg-[#38A3FF] text-white font-extrabold text-[17px] py-4 rounded-full shadow-[0_7px_0_#C6972E]">
+            Meu Perfil
+          </button>
+        </div>
+      </div>
     </main>
   );
 }
