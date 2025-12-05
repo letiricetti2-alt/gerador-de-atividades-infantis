@@ -25,4 +25,38 @@ export default function Home() {
             <p className="text-[#1E1464] font-semibold mt-2">Theo</p>
           </div>
           <div>
-            <Image src="/personagens/nilo.png" alt="Nilo" widt
+            <Image src="/personagens/nilo.png" alt="Nilo" width={70} height={70} />
+            <p className="text-[#1E1464] font-semibold mt-2">Nilo</p>
+          </div>
+        </div>
+
+        {/* Botões */}
+        <div className="flex flex-col items-center gap-5">
+          <button className="w-full bg-[#1E1464] text-white font-semibold py-3 rounded-full shadow-[0_6px_0_#C6972E] text-[15px]">
+            Gerar Atividade Adaptada
+          </button>
+          <button className="w-full bg-[#F875AA] text-white font-semibold py-3 rounded-full shadow-[0_6px_0_#C6972E] text-[15px]">
+            Gerar Atividade Comum
+          </button>
+          <button className="w-full bg-[#38A3FF] text-white font-semibold py-3 rounded-full shadow-[0_6px_0_#C6972E] text-[15px]">
+            Meu Perfil
+          </button>
+        </div>
+      </div>
+
+      {/* Personagem e balão (por cima do cartão) */}
+      <div className="absolute top-[5%] left-[calc(50%-160px)] z-20 flex items-start">
+        <Image
+          src="/personagens/tina.png"
+          alt="Tina"
+          width={160}
+          height={160}
+          priority
+        />
+        <div className="ml-3 mt-2 bg-[#FFF3B0] text-[#1E1464] px-4 py-2 rounded-xl shadow-md font-semibold text-sm">
+          Olá e bem-vindo(a)!
+        </div>
+      </div>
+    </main>
+  );
+}
