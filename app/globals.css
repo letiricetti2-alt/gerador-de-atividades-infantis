@@ -12,23 +12,24 @@ body {
 /* ===== TÍTULO ===== */
 h1 {
   font-family: "Baloo 2", cursive !important;
-  font-size: 64px !important; /* um pouco maior */
+  font-size: 70px !important; /* proporcional à imagem 2 */
   line-height: 1.05 !important;
   text-align: center;
   font-weight: 700;
   color: #1e1464;
-  text-shadow: 0 3px 0 #f8b62d; /* sombra leve */
-  margin-bottom: 2.5rem;
+  text-shadow: 0 3px 0 #f8b62d;
+  margin-bottom: 3rem;
 }
 
 /* ===== PERSONAGENS ===== */
 .personagens-linha {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-end;
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-  gap: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  gap: 2rem;
+  transform: scale(1.2); /* aumenta proporcionalmente todo o grupo */
 }
 
 .personagem-bloco {
@@ -38,25 +39,25 @@ h1 {
 }
 
 .personagem-img {
-  width: 200px;   /* aumentados */
-  height: 210px;
+  width: 210px;   /* mais próximo do real da imagem 2 */
+  height: 230px;
   object-fit: contain;
-  flex-shrink: 0; /* não deixa o Next redimensionar */
+  flex-shrink: 0;
 }
 
 .personagem-nome {
-  margin-top: 0.5rem;
+  margin-top: 0.7rem;
   font-weight: 700;
   color: #1e1464;
   text-align: center;
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
 /* ===== BOTÕES ===== */
 .botao-principal {
   width: 100%;
   border-radius: 9999px;
-  padding: 1rem 1.2rem;
+  padding: 1.1rem 1.3rem;
   font-family: "Baloo 2", cursive;
   font-size: 1.1rem;
   font-weight: 700;
