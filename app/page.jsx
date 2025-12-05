@@ -1,71 +1,96 @@
-"use client";
-import Image from "next/image";
+// app/page.jsx
 
-export default function HomePage() {
-  const personagens = [
-    { name: "Luno", src: "/personagens/luno.png" },
-    { name: "Malu", src: "/personagens/malu.png" },
-    { name: "Theo", src: "/personagens/theo.png" },
-    { name: "Nilo", src: "/personagens/nilo.png" },
-  ];
-
+export default function Home() {
   return (
-    <main className="w-full flex justify-center items-start py-10 bg-[#FFD83A] overflow-visible">
-      <div className="relative w-full max-w-[640px] flex flex-col items-center">
-        {/* TINA E BALÃO */}
-        <div className="absolute -top-[160px] left-1/2 -translate-x-1/2 flex flex-col items-center">
-          <div className="relative">
-            <Image
-              src="/personagens/tina.png"
-              alt="Tina"
-              width={260}
-              height={260}
-              className="relative z-10"
-            />
-            <div className="absolute -right-[150px] top-[30px] bg-[#FFF4BF] px-6 py-3 rounded-2xl shadow-[4px_4px_0_#E3B333]">
-              <p className="text-[#1E1464] text-[18px] font-extrabold leading-tight text-center">
-                Olá e<br />bem-vindo(a)!
-              </p>
-            </div>
+    <main className="min-h-screen bg-[#FFD33F] flex items-center justify-center">
+      <div className="relative max-w-[960px] w-[92%] bg-[#FFEFB3] rounded-[56px] shadow-[20px_24px_0_0_#E0A72A] px-16 pt-40 pb-20 overflow-hidden">
+
+        {/* Mascote + balão de fala */}
+        <div className="absolute -top-36 left-10 flex items-start gap-4">
+          <img
+            src="/personagens/tina.png"
+            alt="Personagem de boas-vindas"
+            className="w-[190px] h-auto"
+          />
+          <div className="mt-6 bg-[#FFEEC5] rounded-[32px] px-8 py-4 shadow-[10px_10px_0_0_#E0A72A]">
+            <p className="text-[24px] leading-tight font-semibold text-[#1E1464]">
+              Olá e<br />bem-vindo(a)!
+            </p>
           </div>
         </div>
 
-        {/* CARD PRINCIPAL */}
-        <div className="bg-[#FFF4BF] rounded-[50px] shadow-[15px_15px_0_#E3B333] w-full text-center pt-[180px] pb-16 px-10">
-          {/* TÍTULO */}
-          <h1 className="text-[#1E1464] text-[60px] leading-[62px] font-extrabold mb-10 drop-shadow-[6px_6px_0_#FFD84D]">
-            Gerador de<br />Atividades<br />Infantis
+        {/* Título grande em 3 linhas */}
+        <header className="text-center mt-2">
+          <h1 className="text-[64px] leading-[68px] font-extrabold text-[#1E1464] drop-shadow-[6px_6px_0_#FFD84D] tracking-tight">
+            Gerador de
+            <br />
+            Atividades
+            <br />
+            Infantis
           </h1>
+        </header>
 
-          {/* PERSONAGENS */}
-          <div className="flex justify-between items-end mb-16 px-6">
-            {personagens.map((p) => (
-              <div key={p.name} className="flex flex-col items-center">
-                <Image
-                  src={p.src}
-                  alt={p.name}
-                  width={140}
-                  height={140}
-                  className="mb-3"
-                />
-                <p className="text-[#1E1464] font-bold text-[20px]">{p.name}</p>
-              </div>
-            ))}
+        {/* Personagens – maiores e na mesma linha da arte */}
+        <section className="mt-10 flex justify-between items-end px-4">
+          <div className="flex flex-col items-center gap-3">
+            <img
+              src="/personagens/luno.png"
+              alt="Luno"
+              className="w-[150px] h-auto"
+            />
+            <span className="text-[20px] font-semibold text-[#1E1464]">
+              Luno
+            </span>
           </div>
 
-          {/* BOTÕES */}
-          <div className="flex flex-col gap-8">
-            <button className="w-full bg-[#191A63] text-white text-[22px] font-extrabold py-5 rounded-full shadow-[0_10px_0_#E3B333]">
-              Gerar Atividade Adaptada
-            </button>
-            <button className="w-full bg-[#F875AA] text-white text-[22px] font-extrabold py-5 rounded-full shadow-[0_10px_0_#E3B333]">
-              Gerar Atividade Comum
-            </button>
-            <button className="w-full bg-[#1F88FF] text-white text-[22px] font-extrabold py-5 rounded-full shadow-[0_10px_0_#E3B333]">
-              Meu Perfil
-            </button>
+          <div className="flex flex-col items-center gap-3">
+            <img
+              src="/personagens/malu.png"
+              alt="Malu"
+              className="w-[150px] h-auto"
+            />
+            <span className="text-[20px] font-semibold text-[#1E1464]">
+              Malu
+            </span>
           </div>
-        </div>
+
+          <div className="flex flex-col items-center gap-3">
+            <img
+              src="/personagens/theo.png"
+              alt="Theo"
+              className="w-[170px] h-auto"
+            />
+            <span className="text-[20px] font-semibold text-[#1E1464]">
+              Theo
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center gap-3">
+            <img
+              src="/personagens/nilo.png"
+              alt="Nilo"
+              className="w-[150px] h-auto"
+            />
+            <span className="text-[20px] font-semibold text-[#1E1464]">
+              Nilo
+            </span>
+          </div>
+        </section>
+
+        {/* Botões – mesmas cores e proporção da arte */}
+        <section className="mt-12 space-y-7">
+          <button className="w-full bg-[#16195B] text-white font-semibold text-[20px] py-4 rounded-full shadow-[0_12px_0_0_#E0A72A]">
+            Gerar Atividade Adaptada
+          </button>
+
+          <button className="w-full bg-[#FF7FB3] text-white font-semibold text-[20px] py-4 rounded-full shadow-[0_12px_0_0_#E0A72A]">
+            Gerar Atividade Comum
+          </button>
+
+          <button className="w-full bg-[#2E93FF] text-white font-semibold text-[20px] py-4 rounded-full shadow-[0_12px_0_0_#E0A72A]">
+            Meu Perfil
+          </button>
+        </section>
       </div>
     </main>
   );
