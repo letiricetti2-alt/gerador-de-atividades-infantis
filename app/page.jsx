@@ -18,60 +18,60 @@ export default function Home() {
         </div>
 
         {/* --- TÍTULO --- */}
-        <h1 className="text-center text-[#1E1464] text-[80px] leading-[82px] font-extrabold drop-shadow-[8px_8px_0_#FFD84D] tracking-tight mb-6">
+        <h1 className="text-center text-[#1E1464] text-[84px] leading-[86px] font-extrabold drop-shadow-[8px_8px_0_#FFD84D] tracking-tight mb-2">
           Gerador de<br />Atividades<br />Infantis
         </h1>
 
-        {/* --- PERSONAGENS (grandes, encostando no título) --- */}
-        <div className="flex justify-between items-end mb-14 mt-2 px-4">
-          <div className="flex flex-col items-center gap-3">
+        {/* --- PERSONAGENS --- */}
+        <div className="flex justify-between items-end mb-12 -mt-2">
+          <div className="flex flex-col items-center gap-3 -mt-10">
             <img
               src="/personagens/luno.png"
               alt="Luno"
-              className="w-[190px] h-auto -mt-6"
+              className="w-[220px] h-auto"
             />
-            <span className="text-[24px] font-bold text-[#1E1464]">Luno</span>
+            <span className="text-[26px] font-bold text-[#1E1464]">Luno</span>
           </div>
 
-          <div className="flex flex-col items-center gap-3">
+          <div className="flex flex-col items-center gap-3 -mt-10">
             <img
               src="/personagens/malu.png"
               alt="Malu"
-              className="w-[190px] h-auto -mt-6"
+              className="w-[220px] h-auto"
             />
-            <span className="text-[24px] font-bold text-[#1E1464]">Malu</span>
+            <span className="text-[26px] font-bold text-[#1E1464]">Malu</span>
           </div>
 
-          <div className="flex flex-col items-center gap-3">
+          <div className="flex flex-col items-center gap-3 -mt-10">
             <img
               src="/personagens/theo.png"
               alt="Theo"
-              className="w-[215px] h-auto -mt-6"
+              className="w-[250px] h-auto"
             />
-            <span className="text-[24px] font-bold text-[#1E1464]">Theo</span>
+            <span className="text-[26px] font-bold text-[#1E1464]">Theo</span>
           </div>
 
-          <div className="flex flex-col items-center gap-3">
+          <div className="flex flex-col items-center gap-3 -mt-10">
             <img
               src="/personagens/nilo.png"
               alt="Nilo"
-              className="w-[190px] h-auto -mt-6"
+              className="w-[220px] h-auto"
             />
-            <span className="text-[24px] font-bold text-[#1E1464]">Nilo</span>
+            <span className="text-[26px] font-bold text-[#1E1464]">Nilo</span>
           </div>
         </div>
 
         {/* --- BOTÕES --- */}
         <div className="flex flex-col gap-8">
-          <button className="w-full bg-[#191A63] text-white font-extrabold text-[30px] py-5 rounded-full shadow-[0_12px_0_#E0A72A]">
+          <button className="w-full bg-[#191A63] text-white font-extrabold text-[32px] py-5 rounded-full shadow-[0_12px_0_#E0A72A]">
             Gerar Atividade Adaptada
           </button>
 
-          <button className="w-full bg-[#FF7FB3] text-white font-extrabold text-[30px] py-5 rounded-full shadow-[0_12px_0_#E0A72A]">
+          <button className="w-full bg-[#FF7FB3] text-white font-extrabold text-[32px] py-5 rounded-full shadow-[0_12px_0_#E0A72A]">
             Gerar Atividade Comum
           </button>
 
-          <button className="w-full bg-[#2E93FF] text-white font-extrabold text-[30px] py-5 rounded-full shadow-[0_12px_0_#E0A72A]">
+          <button className="w-full bg-[#2E93FF] text-white font-extrabold text-[32px] py-5 rounded-full shadow-[0_12px_0_#E0A72A]">
             Meu Perfil
           </button>
         </div>
