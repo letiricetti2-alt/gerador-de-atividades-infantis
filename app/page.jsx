@@ -10,7 +10,7 @@ const characters = [
 export default function Home() {
   return (
     <main className="min-h-screen flex items-center justify-center bg-[#FFD53A] font-baloo">
-      <section className="bg-[#FFF1B8] rounded-[40px] shadow-[18px_18px_0_0_#E0A52B] px-14 pt-24 pb-20 max-w-[740px] w-full text-center relative">
+      <section className="bg-[#FFF1B8] rounded-[40px] shadow-[18px_18px_0_0_#E0A52B] px-14 pt-24 pb-20 max-w-[850px] w-full text-center relative">
 
         {/* PERSONAGEM AZUL NO TOPO */}
         <div className="-mt-28 mb-8 flex justify-center">
@@ -38,8 +38,8 @@ export default function Home() {
               <Image
                 src={char.src}
                 alt={char.name}
-                width={220}
-                height={240}
+                width={200}
+                height={220}
                 className="personagem-img"
               />
               <p className="personagem-nome">{char.name}</p>
