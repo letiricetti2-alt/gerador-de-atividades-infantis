@@ -2,31 +2,32 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="min-h-screen flex flex-col items-center justify-start bg-[#FDBA3A] py-8">
-      {/* Personagem e balão */}
-      <div className="flex items-start justify-center w-full mb-4 relative">
-        <div className="absolute top-0 left-[15%] sm:left-[25%]">
+    <main className="min-h-screen flex flex-col items-center justify-center bg-[#FDBA3A] py-10 px-4">
+      {/* Personagem e balão de fala */}
+      <div className="relative w-full max-w-[420px] flex justify-start mb-[-40px]">
+        <div className="absolute -top-10 left-2 sm:left-6">
           <Image
             src="/personagens/tina.png"
             alt="Tina"
-            width={160}
-            height={160}
+            width={130}
+            height={130}
             priority
           />
         </div>
-        <div className="ml-[190px] mt-[20px] bg-[#FFF3B0] text-[#1E1464] px-4 py-2 rounded-xl shadow-md font-semibold text-sm">
+        <div className="absolute top-0 left-[110px] bg-[#FFF3B0] text-[#1E1464] px-4 py-2 rounded-xl shadow-md font-semibold text-sm">
           Olá e bem-vindo(a)!
         </div>
       </div>
 
-      {/* Card central */}
-      <div className="bg-[#FFF3B0] rounded-[30px] shadow-[10px_10px_0_#D1A12C] px-8 py-10 w-[90%] max-w-[400px] text-center">
-        <h1 className="text-[#1E1464] font-extrabold text-3xl leading-tight mb-8 drop-shadow-[3px_3px_0_#FFD84D]">
+      {/* Cartão principal */}
+      <div className="bg-[#FFF3B0] rounded-[40px] shadow-[10px_10px_0_#D1A12C] w-full max-w-[420px] pt-20 pb-10 px-8 text-center">
+        {/* Título */}
+        <h1 className="text-[#1E1464] font-extrabold text-4xl leading-tight mb-8 drop-shadow-[3px_3px_0_#FFD84D]">
           Gerador de<br />Atividades<br />Infantis
         </h1>
 
         {/* Personagens */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 justify-items-center mb-8">
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 justify-items-center mb-10">
           <div>
             <Image src="/personagens/luno.png" alt="Luno" width={70} height={70} />
             <p className="text-[#1E1464] font-semibold mt-2">Luno</p>
@@ -46,7 +47,7 @@ export default function Home() {
         </div>
 
         {/* Botões */}
-        <div className="space-y-5">
+        <div className="flex flex-col items-center gap-5">
           <button className="w-full bg-[#1E1464] text-white font-semibold py-3 rounded-full shadow-[0_6px_0_#D1A12C]">
             🌱 Gerar Atividade Adaptada
           </button>
