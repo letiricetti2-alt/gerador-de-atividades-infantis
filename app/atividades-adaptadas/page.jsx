@@ -3,27 +3,29 @@ import Link from "next/link";
 
 export default function AtividadesAdaptadas() {
   return (
-    <main className="relative flex items-center justify-center min-h-screen bg-[#FFD74F] overflow-hidden">
-      {/* Imagem em tamanho igual à da tela inicial */}
-      <Image
-        src="/adaptada.jpeg"
-        alt="Tela de Atividades Adaptadas"
-        fill
-        style={{ objectFit: "contain" }}
-        className="max-w-[480px] mx-auto rounded-3xl shadow-2xl"
-        priority
-      />
+    <main className="relative flex items-center justify-center min-h-screen bg-[#FFD74F]">
+      {/* Contêiner com posição e tamanho fixos */}
+      <div className="relative w-[430px] h-[850px]">
+        <Image
+          src="/adaptada.jpeg"
+          alt="Tela de Atividades Adaptadas"
+          fill
+          style={{ objectFit: "contain" }}
+          className="rounded-3xl shadow-2xl"
+          priority
+        />
+      </div>
 
       {/* Área clicável - Gerar Atividade Adaptada */}
       <Link
         href="#"
         className="absolute"
         style={{
-          top: "73%", // botão roxo
+          top: "72%",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "300px",
-          height: "60px",
+          width: "280px",
+          height: "55px",
         }}
       >
         <span className="sr-only">Gerar Atividade Adaptada</span>
@@ -34,11 +36,11 @@ export default function AtividadesAdaptadas() {
         href="/"
         className="absolute"
         style={{
-          top: "82%", // botão verde
+          top: "81%",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "300px",
-          height: "60px",
+          width: "280px",
+          height: "55px",
         }}
       >
         <span className="sr-only">Voltar para o início</span>
