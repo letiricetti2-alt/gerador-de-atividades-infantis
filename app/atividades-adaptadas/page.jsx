@@ -3,15 +3,13 @@ import Link from "next/link";
 
 export default function AtividadesAdaptadas() {
   return (
-    <main className="relative flex items-center justify-center min-h-screen bg-[#FFD74F]">
-      {/* Contêiner com posição e tamanho fixos */}
+    <main className="flex items-center justify-center min-h-screen bg-[#FFD74F]">
       <div className="relative w-[430px] h-[850px]">
         <Image
           src="/adaptada.jpeg"
-          alt="Tela de Atividades Adaptadas"
+          alt="Atividades Adaptadas"
           fill
-          style={{ objectFit: "contain" }}
-          className="rounded-3xl shadow-2xl"
+          className="object-contain rounded-3xl shadow-2xl"
           priority
         />
       </div>
@@ -21,11 +19,11 @@ export default function AtividadesAdaptadas() {
         href="#"
         className="absolute"
         style={{
-          top: "72%",
+          top: "73%",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "280px",
-          height: "55px",
+          width: "300px",
+          height: "60px",
         }}
       >
         <span className="sr-only">Gerar Atividade Adaptada</span>
@@ -36,11 +34,11 @@ export default function AtividadesAdaptadas() {
         href="/"
         className="absolute"
         style={{
-          top: "81%",
+          top: "82%",
           left: "50%",
           transform: "translateX(-50%)",
-          width: "280px",
-          height: "55px",
+          width: "300px",
+          height: "60px",
         }}
       >
         <span className="sr-only">Voltar para o início</span>
