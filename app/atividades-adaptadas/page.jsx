@@ -4,14 +4,14 @@ import Image from "next/image";
 
 export default function AtividadesAdaptadas() {
   return (
-    <main className="flex justify-center items-center min-h-screen bg-[#A9E4FF]">
-      <div className="relative w-[430px] max-w-full h-[900px]">
+    <main className="relative flex items-center justify-center min-h-screen bg-[#A9E4FF] overflow-hidden">
+      <div className="relative w-[480px] max-w-full h-[950px]">
         <Image
           src="/adaptada.jpeg"
           alt="Atividades Adaptadas"
           fill
           priority
-          className="object-cover rounded-2xl"
+          className="object-contain"
         />
       </div>
     </main>
