@@ -4,14 +4,14 @@ import Link from "next/link";
 export default function AtividadesAdaptadas() {
   return (
     <main className="flex items-center justify-center h-screen w-screen bg-[#FFD74F] overflow-hidden">
-      {/* Contêiner principal da imagem */}
-      <div className="relative w-[500px] h-[940px] flex items-center justify-center">
+      {/* Contêiner principal */}
+      <div className="relative w-[520px] h-[960px] flex items-center justify-center">
         <Image
           src="/adaptada.jpeg"
           alt="Tela de Atividades Adaptadas"
-          width={500}
-          height={940}
-          className="rounded-3xl shadow-2xl object-contain scale-[1.03]"
+          width={520}
+          height={960}
+          className="rounded-3xl shadow-2xl object-contain scale-[1.08] translate-y-[-10px]"
           priority
         />
 
@@ -23,8 +23,8 @@ export default function AtividadesAdaptadas() {
             top: "73%",
             left: "50%",
             transform: "translateX(-50%)",
-            width: "330px",
-            height: "65px",
+            width: "340px",
+            height: "70px",
           }}
         >
           <span className="sr-only">Gerar Atividade Adaptada</span>
@@ -35,11 +35,11 @@ export default function AtividadesAdaptadas() {
           href="/"
           className="absolute"
           style={{
-            top: "82%",
+            top: "82.5%",
             left: "50%",
             transform: "translateX(-50%)",
-            width: "330px",
-            height: "65px",
+            width: "340px",
+            height: "70px",
           }}
         >
           <span className="sr-only">Voltar para o início</span>
