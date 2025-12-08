@@ -7,22 +7,19 @@ import { FaArrowLeft } from "react-icons/fa";
 
 export default function AtividadesComuns() {
   return (
-    <main className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#FFBFD1]">
-      {/* 🔹 Imagem de fundo em proporção igual às outras páginas */}
-      <div className="absolute inset-0 flex justify-center items-center">
-        <div className="relative w-[1080px] h-[2340px] max-w-full max-h-full">
-          <Image
-            src="/comum.jpeg"
-            alt="Atividades Comuns"
-            fill
-            priority
-            style={{
-              objectFit: "cover",
-              objectPosition: "center",
-            }}
-          />
-        </div>
-      </div>
+    <main className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#FFBFD1]">
+      {/* 🔹 Imagem de fundo (exatamente mesmo tamanho das outras páginas) */}
+      <Image
+        src="/comum.jpeg"
+        alt="Atividades Comuns"
+        width={1080}
+        height={2340}
+        priority
+        className="absolute top-0 left-1/2 -translate-x-1/2 h-auto w-auto max-h-screen"
+        style={{
+          objectFit: "contain",
+        }}
+      />
 
       {/* 🔹 Conteúdo sobreposto */}
       <div className="absolute inset-0 flex flex-col items-center justify-end pb-12 text-center z-10">
