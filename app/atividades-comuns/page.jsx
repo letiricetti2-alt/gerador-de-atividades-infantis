@@ -7,23 +7,21 @@ import { motion } from "framer-motion";
 export default function AtividadesComuns() {
   return (
     <main className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#FFC7CF]">
-      {/* 🔹 Fundo */}
       <Image
         src="/comum.jpeg"
         alt="Atividades Comuns"
         width={1080}
         height={2340}
         priority
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-auto h-full object-contain"
+        className="absolute inset-0 w-full h-full object-cover"
       />
 
-      {/* 🔹 Conteúdo */}
-      <div className="absolute inset-0 flex flex-col items-center justify-end pb-12 text-center z-10">
+      <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 text-center z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="w-full flex flex-col items-center gap-4"
+          className="flex flex-col items-center gap-4"
         >
           <Link
             href="/"
