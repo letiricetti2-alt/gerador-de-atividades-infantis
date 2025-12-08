@@ -8,9 +8,10 @@ export default function AtividadesAdaptadas() {
       <Image
         src="/adaptada.jpeg"
         alt="Atividades Adaptadas"
-        fill
+        width={1080}
+        height={1920}
+        className="max-w-full h-auto"
         priority
-        className="object-contain"
       />
     </main>
   );
