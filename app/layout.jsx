@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body
-        className={`${baloo.variable} font-baloo bg-[#FFD83A] text-[#1E1464] flex justify-center`}
+        className={`${baloo.variable} font-baloo flex justify-center items-center min-h-screen text-[#1E1464]`}
       >
         {children}
       </body>
