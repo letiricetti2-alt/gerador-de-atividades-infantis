@@ -16,9 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <body
-        className={`${baloo.variable} font-baloo bg-[#FFD83A] text-[#1E1464] flex justify-center`}
-      >
+      <body className={`${baloo.variable} font-baloo text-[#1E1464]`}>
         {children}
       </body>
     </html>
