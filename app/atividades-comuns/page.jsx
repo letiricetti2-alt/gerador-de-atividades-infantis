@@ -8,9 +8,10 @@ export default function AtividadesComuns() {
       <Image
         src="/comum.jpeg"
         alt="Atividades Comuns"
-        fill
+        width={1080}
+        height={1920}
+        className="max-w-full h-auto"
         priority
-        className="object-contain"
       />
     </main>
   );
