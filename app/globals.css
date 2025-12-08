@@ -2,60 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ------------------------------------------------------ */
-/* 🌈 CONFIGURAÇÃO GLOBAL DO APP                          */
-/* ------------------------------------------------------ */
-
-:root {
-  --font-baloo: "Baloo 2", cursive;
-}
-
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: var(--font-baloo), sans-serif;
-  color: #1e1464;
-  background-color: #ffd83a;
+  color: #1E1464;
+  background-color: #FFD83A;
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 }
-
-/* ------------------------------------------------------ */
-/* 🔒 PADRONIZAÇÃO GLOBAL DE LAYOUT (TODAS AS PÁGINAS)    */
-/* ------------------------------------------------------ */
-
-.page-wrapper {
-  width: 480px;          /* largura fixa da página */
-  max-width: 100%;
-  height: 950px;         /* altura proporcional padrão */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  position: relative;
-}
-
-/* 🔽 Ajustes automáticos para telas menores (responsivo) */
-@media (max-height: 850px) {
-  .page-wrapper {
-    transform: scale(0.9);
-    transform-origin: top center;
-  }
-}
-
-@media (max-height: 700px) {
-  .page-wrapper {
-    transform: scale(0.8);
-    transform-origin: top center;
-  }
-}
-
-/* ------------------------------------------------------ */
-/* 🎨 ELEMENTOS PADRÃO                                    */
-/* ------------------------------------------------------ */
 
 button,
 a {
@@ -66,38 +24,4 @@ button:hover,
 a:hover {
   opacity: 0.9;
   transform: scale(1.02);
-}
-
-select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-position: right 1rem center;
-  background-repeat: no-repeat;
-  background-size: 1rem;
-}
-
-/* ------------------------------------------------------ */
-/* 💬 BALÕES DE FALA / TEXTO                              */
-/* ------------------------------------------------------ */
-
-.speech-bubble {
-  background-color: #fff8d1;
-  border-radius: 12px;
-  padding: 1rem;
-  color: #1e1464;
-  font-size: 1rem;
-  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
-}
-
-/* ------------------------------------------------------ */
-/* ✨ EXTRAS E AJUSTES DE SOMBRA / ARREDONDAMENTO         */
-/* ------------------------------------------------------ */
-
-.shadow-card {
-  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-.rounded-2xl {
-  border-radius: 1rem;
 }
