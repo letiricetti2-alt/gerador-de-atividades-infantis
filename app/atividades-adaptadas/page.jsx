@@ -7,13 +7,13 @@ import { motion } from "framer-motion";
 export default function AtividadesAdaptadas() {
   return (
     <main className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#A9E4FF]">
-      {/* Fundo fixo (corrigido para não duplicar renderização) */}
+      {/* Fundo fixo sem camada interativa */}
       <div className="absolute inset-0 flex justify-center items-center pointer-events-none select-none">
         <Image
           src="/adaptada.jpeg"
           alt="Atividades Adaptadas"
-          width={800}
-          height={1200}
+          width={900}
+          height={1400}
           priority
           className="object-contain"
         />
@@ -27,9 +27,10 @@ export default function AtividadesAdaptadas() {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center gap-4"
         >
+          {/* 🔹 Botão único e fixo */}
           <Link
             href="/"
-            className="bg-green-500 text-white font-semibold py-3 px-6 rounded-2xl shadow-lg hover:scale-105 transition w-[80%] max-w-xs text-center"
+            className="bg-green-500 text-white font-semibold py-3 px-6 rounded-2xl shadow-lg hover:scale-105 transition w-[80%] max-w-xs text-center relative z-20"
           >
             Voltar para o início
           </Link>
