@@ -3,14 +3,14 @@ import Link from "next/link";
 
 export default function AtividadesAdaptadas() {
   return (
-    <main className="flex items-center justify-center min-h-screen bg-[#FFD74F] overflow-hidden">
-      {/* Aumenta ligeiramente o tamanho da arte para igualar à tela inicial */}
-      <div className="relative w-[500px] h-[970px] flex items-center justify-center">
+    <main className="flex items-center justify-center h-screen w-screen bg-[#FFD74F] overflow-hidden">
+      {/* Contêiner da imagem */}
+      <div className="relative w-[500px] h-[940px] flex items-center justify-center">
         <Image
           src="/adaptada.jpeg"
           alt="Tela de Atividades Adaptadas"
           width={500}
-          height={970}
+          height={940}
           className="rounded-3xl shadow-2xl object-contain"
           priority
         />
