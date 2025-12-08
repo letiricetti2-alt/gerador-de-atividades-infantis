@@ -3,13 +3,15 @@ import Link from "next/link";
 
 export default function AtividadesAdaptadas() {
   return (
-    <main className="flex items-center justify-center min-h-screen bg-[#FFD74F]">
-      <div className="relative w-[430px] h-[850px]">
+    <main className="flex items-center justify-center min-h-screen bg-[#FFD74F] overflow-hidden">
+      {/* Contêiner da imagem com tamanho fixo */}
+      <div className="relative w-[430px] h-[850px] flex items-center justify-center">
         <Image
           src="/adaptada.jpeg"
-          alt="Atividades Adaptadas"
-          fill
-          className="object-contain rounded-3xl shadow-2xl"
+          alt="Tela de Atividades Adaptadas"
+          width={430}
+          height={850}
+          className="rounded-3xl shadow-2xl object-contain"
           priority
         />
       </div>
@@ -19,7 +21,7 @@ export default function AtividadesAdaptadas() {
         href="#"
         className="absolute"
         style={{
-          top: "73%",
+          top: "72%",
           left: "50%",
           transform: "translateX(-50%)",
           width: "300px",
@@ -34,7 +36,7 @@ export default function AtividadesAdaptadas() {
         href="/"
         className="absolute"
         style={{
-          top: "82%",
+          top: "81%",
           left: "50%",
           transform: "translateX(-50%)",
           width: "300px",
