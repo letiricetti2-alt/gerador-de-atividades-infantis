@@ -29,6 +29,7 @@ export default function AtividadesAdaptadas() {
           transition={{ duration: 0.6 }}
           className="w-full flex flex-col items-center gap-4"
         >
+          {/* 🔸 Só um botão “Voltar para o início” */}
           <Link
             href="/"
             className="bg-green-500 text-white font-semibold py-3 px-6 rounded-2xl shadow-lg hover:scale-105 transition"
@@ -38,7 +39,7 @@ export default function AtividadesAdaptadas() {
         </motion.div>
       </div>
 
-      {/* 🔹 Ícone voltar */}
+      {/* 🔹 Ícone de voltar (canto superior esquerdo) */}
       <Link
         href="/"
         className="absolute top-6 left-6 bg-white/70 hover:bg-white p-3 rounded-full shadow-md text-gray-800 transition"
