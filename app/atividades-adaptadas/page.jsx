@@ -4,15 +4,25 @@ import Image from "next/image";
 
 export default function AtividadesAdaptadas() {
   return (
-    <main className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#A9E4FF]">
-      <Image
-        src="/adaptada.jpeg"
-        alt="Atividades Adaptadas"
-        width={1080}
-        height={1920}
-        className="max-w-full h-auto"
-        priority
-      />
-    </main>
+    <>
+      {/* Corrige o fundo do layout global */}
+      <style jsx global>{`
+        body {
+          background-color: #A9E4FF !important;
+        }
+      `}</style>
+
+      <main className="flex justify-center items-center min-h-screen">
+        <div className="relative w-[390px] h-[844px]"> {/* mesmo tamanho da home */}
+          <Image
+            src="/adaptada.jpeg"
+            alt="Atividades Adaptadas"
+            fill
+            priority
+            className="object-contain"
+          />
+        </div>
+      </main>
+    </>
   );
 }
