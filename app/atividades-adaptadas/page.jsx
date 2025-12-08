@@ -3,12 +3,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FaArrowLeft } from "react-icons/fa";
 
 export default function AtividadesAdaptadas() {
   return (
     <main className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-[#A9E4FF]">
-      {/* 🔹 Imagem de fundo idêntica em proporção às outras páginas */}
+      {/* 🔹 Imagem de fundo com proporção exata */}
       <Image
         src="/adaptada.jpeg"
         alt="Atividades Adaptadas"
@@ -21,7 +20,7 @@ export default function AtividadesAdaptadas() {
         }}
       />
 
-      {/* 🔹 Conteúdo sobreposto */}
+      {/* 🔹 Conteúdo principal */}
       <div className="absolute inset-0 flex flex-col items-center justify-end pb-12 text-center z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -29,7 +28,6 @@ export default function AtividadesAdaptadas() {
           transition={{ duration: 0.6 }}
           className="w-full flex flex-col items-center gap-4"
         >
-          {/* 🔸 Só um botão “Voltar para o início” */}
           <Link
             href="/"
             className="bg-green-500 text-white font-semibold py-3 px-6 rounded-2xl shadow-lg hover:scale-105 transition"
@@ -38,14 +36,6 @@ export default function AtividadesAdaptadas() {
           </Link>
         </motion.div>
       </div>
-
-      {/* 🔹 Ícone de voltar (canto superior esquerdo) */}
-      <Link
-        href="/"
-        className="absolute top-6 left-6 bg-white/70 hover:bg-white p-3 rounded-full shadow-md text-gray-800 transition"
-      >
-        <FaArrowLeft size={20} />
-      </Link>
     </main>
   );
 }
