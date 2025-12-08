@@ -7,17 +7,21 @@ import { FaArrowLeft } from "react-icons/fa";
 
 export default function AtividadesComuns() {
   return (
-    <main className="relative w-full h-[2340px] max-w-[1080px] mx-auto flex items-center justify-center overflow-hidden bg-[#F9B9C1]">
-      {/* 🔹 Imagem de fundo (comum.jpeg) */}
-      <div className="absolute inset-0 w-full h-full flex items-center justify-center">
-        <Image
-          src="/comum.jpeg"
-          alt="Atividades Comuns"
-          width={1080}
-          height={2340}
-          priority
-          className="w-full h-full object-cover object-center"
-        />
+    <main className="relative min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#FFBFD1]">
+      {/* 🔹 Imagem de fundo em proporção igual às outras páginas */}
+      <div className="absolute inset-0 flex justify-center items-center">
+        <div className="relative w-[1080px] h-[2340px] max-w-full max-h-full">
+          <Image
+            src="/comum.jpeg"
+            alt="Atividades Comuns"
+            fill
+            priority
+            style={{
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
+          />
+        </div>
       </div>
 
       {/* 🔹 Conteúdo sobreposto */}
@@ -28,7 +32,6 @@ export default function AtividadesComuns() {
           transition={{ duration: 0.6 }}
           className="w-full flex flex-col items-center gap-4"
         >
-          {/* Botão voltar */}
           <Link
             href="/"
             className="bg-green-500 text-white font-semibold py-3 px-6 rounded-2xl shadow-lg hover:scale-105 transition"
