@@ -24,7 +24,7 @@ export default function AtividadesAdaptadas() {
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center gap-4"
         >
-          {/* 🔹 único botão (o duplicado foi removido) */}
+          {/* 🔹 Apenas UM botão “Voltar para o início” */}
           <Link
             href="/"
             className="bg-green-500 text-white font-semibold py-3 px-6 rounded-2xl shadow-lg hover:scale-105 transition w-[80%] max-w-xs text-center"
