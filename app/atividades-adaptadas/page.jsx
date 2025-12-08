@@ -6,7 +6,7 @@ export default function AtividadesAdaptadasPage() {
       style={{
         width: "100vw",
         height: "100vh",
-        backgroundColor: "#7BD3FF", // fundo azul claro
+        backgroundColor: "#A9E6FF", // azul mais clarinho
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
