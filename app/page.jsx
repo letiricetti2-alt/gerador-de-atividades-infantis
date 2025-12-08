@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -9,9 +8,10 @@ export default function Home() {
       <Image
         src="/home.jpeg"
         alt="Página inicial"
-        fill
+        width={1080}
+        height={1920}
+        className="max-w-full h-auto"
         priority
-        className="object-contain"
       />
     </main>
   );
