@@ -1,50 +1,30 @@
-import Image from "next/image";
-import Link from "next/link";
+"use client";
 
-export default function AtividadesAdaptadas() {
+export default function AtividadesAdaptadasPage() {
   return (
-    <main className="flex items-center justify-center h-screen w-screen bg-[#FFD74F] overflow-hidden">
-      {/* Contêiner principal */}
-      <div className="relative w-[520px] h-[960px] flex items-center justify-center">
-        <Image
-          src="/adaptada.jpeg"
-          alt="Tela de Atividades Adaptadas"
-          width={520}
-          height={960}
-          className="rounded-3xl shadow-2xl object-contain scale-[1.08] translate-y-[-10px]"
-          priority
-        />
-
-        {/* Botão: Gerar Atividade Adaptada */}
-        <Link
-          href="#"
-          className="absolute"
-          style={{
-            top: "73%",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "340px",
-            height: "70px",
-          }}
-        >
-          <span className="sr-only">Gerar Atividade Adaptada</span>
-        </Link>
-
-        {/* Botão: Voltar para o início */}
-        <Link
-          href="/"
-          className="absolute"
-          style={{
-            top: "82.5%",
-            left: "50%",
-            transform: "translateX(-50%)",
-            width: "340px",
-            height: "70px",
-          }}
-        >
-          <span className="sr-only">Voltar para o início</span>
-        </Link>
-      </div>
-    </main>
+    <div
+      style={{
+        width: "100vw",
+        height: "100vh",
+        backgroundColor: "#7BD3FF", // fundo azul claro
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        overflow: "hidden",
+        margin: 0,
+        padding: 0,
+      }}
+    >
+      <img
+        src="/adaptada.jpeg"
+        alt="Tela de Atividades Adaptadas"
+        style={{
+          height: "100%",
+          width: "auto",
+          objectFit: "contain",
+          display: "block",
+        }}
+      />
+    </div>
   );
 }
