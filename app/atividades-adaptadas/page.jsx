@@ -5,15 +5,18 @@ import Image from "next/image";
 export default function AtividadesAdaptadas() {
   return (
     <>
-      {/* Corrige o fundo do layout global */}
+      {/* Força o fundo azul para esta página */}
       <style jsx global>{`
-        body {
+        html, body {
           background-color: #A9E4FF !important;
+          height: 100%;
+          margin: 0;
+          padding: 0;
         }
       `}</style>
 
-      <main className="flex justify-center items-center min-h-screen">
-        <div className="relative w-[390px] h-[844px]"> {/* mesmo tamanho da home */}
+      <main className="flex justify-center items-center min-h-screen bg-[#A9E4FF]">
+        <div className="relative w-[390px] h-[844px]">
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
