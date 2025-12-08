@@ -16,8 +16,8 @@ export default function AtividadesAdaptadas() {
       `}</style>
 
       <main className="flex justify-center items-center min-h-screen bg-[#A9E4FF]">
-        {/* Container no mesmo tamanho e proporção da home */}
-        <div className="relative w-[480px] h-[950px] scale-[1.05] flex justify-center items-center">
+        {/* Largura e altura levemente maiores que antes */}
+        <div className="relative w-[500px] h-[990px] flex justify-center items-center">
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
