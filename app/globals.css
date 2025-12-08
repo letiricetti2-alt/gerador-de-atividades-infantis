@@ -1,66 +1,103 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* ===== BODY ===== */
+/* ------------------------------------------------------ */
+/* 🌈 CONFIGURAÇÃO GLOBAL DO APP                          */
+/* ------------------------------------------------------ */
+
+:root {
+  --font-baloo: "Baloo 2", cursive;
+}
+
+html,
 body {
-  font-family: "Baloo 2", cursive;
-  background-color: #FFD53A;
-}
-
-/* ===== TÍTULO ===== */
-h1 {
-  font-family: "Baloo 2", cursive !important;
-  font-size: 70px !important;
-  line-height: 1.05 !important;
-  text-align: center;
-  font-weight: 700;
+  padding: 0;
+  margin: 0;
+  font-family: var(--font-baloo), sans-serif;
   color: #1e1464;
-  text-shadow: 0 3px 0 #f8b62d;
-  margin-bottom: 2.5rem;
-}
-
-/* ===== PERSONAGENS ===== */
-.personagens-linha {
+  background-color: #ffd83a;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  flex-wrap: nowrap;
-  gap: 2.8rem; /* controla distância entre personagens */
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
-}
-
-.personagem-bloco {
-  display: flex;
-  flex-direction: column;
   align-items: center;
+  min-height: 100vh;
 }
 
-.personagem-img {
-  width: 200px;   /* tamanho visual perfeito */
-  height: 220px;
-  object-fit: contain;
-  flex-shrink: 0;
+/* ------------------------------------------------------ */
+/* 🔒 PADRONIZAÇÃO GLOBAL DE LAYOUT (TODAS AS PÁGINAS)    */
+/* ------------------------------------------------------ */
+
+.page-wrapper {
+  width: 480px;          /* largura fixa da página */
+  max-width: 100%;
+  height: 950px;         /* altura proporcional padrão */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  position: relative;
 }
 
-.personagem-nome {
-  margin-top: 0.6rem;
-  font-weight: 700;
+/* 🔽 Ajustes automáticos para telas menores (responsivo) */
+@media (max-height: 850px) {
+  .page-wrapper {
+    transform: scale(0.9);
+    transform-origin: top center;
+  }
+}
+
+@media (max-height: 700px) {
+  .page-wrapper {
+    transform: scale(0.8);
+    transform-origin: top center;
+  }
+}
+
+/* ------------------------------------------------------ */
+/* 🎨 ELEMENTOS PADRÃO                                    */
+/* ------------------------------------------------------ */
+
+button,
+a {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover,
+a:hover {
+  opacity: 0.9;
+  transform: scale(1.02);
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-position: right 1rem center;
+  background-repeat: no-repeat;
+  background-size: 1rem;
+}
+
+/* ------------------------------------------------------ */
+/* 💬 BALÕES DE FALA / TEXTO                              */
+/* ------------------------------------------------------ */
+
+.speech-bubble {
+  background-color: #fff8d1;
+  border-radius: 12px;
+  padding: 1rem;
   color: #1e1464;
-  text-align: center;
-  font-size: 1.05rem;
+  font-size: 1rem;
+  box-shadow: 0 4px 0 rgba(0, 0, 0, 0.15);
 }
 
-/* ===== BOTÕES ===== */
-.botao-principal {
-  width: 100%;
-  border-radius: 9999px;
-  padding: 1.1rem 1.3rem;
-  font-family: "Baloo 2", cursive;
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #ffffff;
-  box-shadow: 0 10px 0 #f8b62d;
+/* ------------------------------------------------------ */
+/* ✨ EXTRAS E AJUSTES DE SOMBRA / ARREDONDAMENTO         */
+/* ------------------------------------------------------ */
+
+.shadow-card {
+  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.rounded-2xl {
+  border-radius: 1rem;
 }
