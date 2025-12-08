@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function AtividadesAdaptadas() {
   return (
     <>
-      {/* Força o fundo azul para esta página */}
+      {/* Fundo azul igual às outras telas */}
       <style jsx global>{`
         html, body {
           background-color: #A9E4FF !important;
@@ -16,7 +16,7 @@ export default function AtividadesAdaptadas() {
       `}</style>
 
       <main className="flex justify-center items-center min-h-screen bg-[#A9E4FF]">
-        <div className="relative w-[390px] h-[844px]">
+        <div className="relative w-[480px] h-[950px]">
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
