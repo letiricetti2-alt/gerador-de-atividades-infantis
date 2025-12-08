@@ -4,21 +4,25 @@ import Image from "next/image";
 
 export default function AtividadesAdaptadas() {
   return (
-    <main className="relative flex items-center justify-center min-h-screen">
-      {/* Cor de fundo azul fixa sobrepondo o amarelo global */}
-      <div className="absolute inset-0 bg-[#A9E4FF] -z-10" />
+    <>
+      {/* Fundo azul fixo substituindo o amarelo do layout global */}
+      <style jsx global>{`
+        body {
+          background-color: #A9E4FF !important;
+        }
+      `}</style>
 
-      {/* Conteúdo principal com limite de tamanho */}
-      <div className="relative w-full max-w-[420px] aspect-[9/16] flex items-center justify-center">
-        <Image
-          src="/adaptada.jpeg"
-          alt="Atividades Adaptadas"
-          fill
-          priority
-          sizes="(max-width: 768px) 100vw, 420px"
-          className="object-contain"
-        />
-      </div>
-    </main>
+      <main className="flex items-center justify-center min-h-screen">
+        <div className="relative w-full max-w-[400px] aspect-[9/16] flex items-center justify-center">
+          <Image
+            src="/adaptada.jpeg"
+            alt="Atividades Adaptadas"
+            fill
+            priority
+            className="object-contain"
+          />
+        </div>
+      </main>
+    </>
   );
 }
