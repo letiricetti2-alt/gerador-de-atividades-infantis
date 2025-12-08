@@ -10,13 +10,12 @@ export default function AtividadesComuns() {
       <Image
         src="/comum.jpeg"
         alt="Atividades Comuns"
-        width={1080}
-        height={2340}
+        fill
         priority
-        className="absolute inset-0 w-full h-full object-cover"
+        className="object-contain"
       />
 
-      <div className="absolute inset-0 flex flex-col items-center justify-end pb-10 text-center z-10">
+      <div className="absolute inset-0 flex flex-col items-center justify-end pb-12 text-center z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
