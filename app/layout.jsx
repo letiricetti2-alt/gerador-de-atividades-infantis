@@ -1,4 +1,3 @@
-// app/layout.jsx
 import "./globals.css";
 import { Baloo_2 } from "next/font/google";
 
@@ -16,8 +15,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
-      <body className={`${baloo.variable} font-baloo text-[#1E1464]`}>
-        {children}
+      <body className={`${baloo.variable} font-baloo bg-[#FFD83A] text-[#1E1464]`}>
+        <div className="min-h-screen w-full flex justify-center items-center">
+          {children}
+        </div>
       </body>
     </html>
   );
