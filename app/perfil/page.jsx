@@ -1,19 +1,31 @@
 "use client";
+
 import Image from "next/image";
-import Link from "next/link";
+import { useEffect } from "react";
 
 export default function Perfil() {
+  useEffect(() => {
+    document.body.style.backgroundColor = "#C5A3FF"; // 💜 lilás do fundo
+    document.documentElement.style.backgroundColor = "#C5A3FF";
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.backgroundColor = "";
+      document.documentElement.style.backgroundColor = "";
+      document.body.style.overflow = "";
+    };
+  }, []);
+
   return (
     <main
       style={{
-        backgroundColor: "#B18BE8", // fundo roxo definitivo
+        backgroundColor: "#C5A3FF",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
         width: "100vw",
         height: "100vh",
         margin: 0,
         padding: 0,
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
         overflow: "hidden",
       }}
     >
@@ -22,40 +34,22 @@ export default function Perfil() {
           position: "relative",
           width: "480px",
           height: "950px",
-          overflow: "hidden",
-          borderRadius: "0px",
+          backgroundColor: "#C5A3FF",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <Image
           src="/perfil.jpeg"
-          alt="Tela do perfil"
-          width={480}
-          height={950}
-          style={{
-            display: "block",
-            width: "100%",
-            height: "100%",
-            objectFit: "contain",
-            backgroundColor: "#B18BE8",
-          }}
+          alt="Meu Perfil"
+          fill
           priority
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
         />
-
-        {/* Exemplo: botão "Voltar ao Início" */}
-        <Link href="/">
-          <div
-            style={{
-              position: "absolute",
-              bottom: "40px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              width: "60%",
-              height: "50px",
-              borderRadius: "20px",
-              cursor: "pointer",
-            }}
-          />
-        </Link>
       </div>
     </main>
   );
