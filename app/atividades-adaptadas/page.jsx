@@ -1,34 +1,56 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect } from "react";
 
 export default function AtividadesAdaptadas() {
-  return (
-    <>
-      {/* Fundo global idêntico */}
-      <style jsx global>{`
-        html, body {
-          background-color: #A9E4FF !important;
-          margin: 0;
-          padding: 0;
-          height: 100%;
-          width: 100%;
-          overflow: hidden;
-        }
-      `}</style>
+  useEffect(() => {
+    document.body.style.backgroundColor = "#A9E4FF"; // 💙 azul clarinho
+    document.documentElement.style.backgroundColor = "#A9E4FF";
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.backgroundColor = "";
+      document.documentElement.style.backgroundColor = "";
+      document.body.style.overflow = "";
+    };
+  }, []);
 
-      {/* Container central com proporção igual à home */}
-      <main className="flex justify-center items-center w-screen h-screen bg-[#A9E4FF]">
-        <div className="relative flex justify-center items-center w-[480px] h-[950px]">
-          <Image
-            src="/adaptada.jpeg"
-            alt="Atividades Adaptadas"
-            fill
-            priority
-            className="object-contain"
-          />
-        </div>
-      </main>
-    </>
+  return (
+    <main
+      style={{
+        backgroundColor: "#A9E4FF",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        width: "100vw",
+        height: "100vh",
+        margin: 0,
+        padding: 0,
+        overflow: "hidden",
+      }}
+    >
+      <div
+        style={{
+          position: "relative",
+          width: "480px",
+          height: "950px",
+          backgroundColor: "#A9E4FF",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Image
+          src="/adaptada.jpeg"
+          alt="Atividades Adaptadas"
+          fill
+          priority
+          style={{
+            objectFit: "contain",
+            objectPosition: "center",
+          }}
+        />
+      </div>
+    </main>
   );
 }
