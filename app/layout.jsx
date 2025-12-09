@@ -1,22 +1,27 @@
 import "./globals.css";
-import { Baloo_2 } from "next/font/google";
+import { Inter } from "next/font/google";
 
-const baloo = Baloo_2({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
-  variable: "--font-baloo",
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Gerador de Atividades Infantis",
-  description: "App de atividades adaptadas e inclusivas para crianças",
+  description: "Aplicativo para criar e personalizar atividades infantis",
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR">
       <body
-        className={`${baloo.variable} font-baloo bg-[#FFD83A] text-[#1E1464] flex justify-center`}
+        className={inter.className}
+        style={{
+          margin: 0,
+          padding: 0,
+          backgroundColor: "transparent", // 💜 fundo global neutro
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          minHeight: "100vh",
+        }}
       >
         {children}
       </body>
