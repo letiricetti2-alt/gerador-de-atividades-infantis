@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export default function Perfil() {
   useEffect(() => {
-    document.body.style.backgroundColor = "#B490F7"; // cor exata do fundo da arte
+    document.body.style.backgroundColor = "#B490F7";
     document.documentElement.style.backgroundColor = "#B490F7";
     document.body.style.overflow = "hidden";
     return () => {
@@ -18,15 +18,15 @@ export default function Perfil() {
   return (
     <main
       style={{
-        backgroundColor: "#B490F7", // mesmo tom da imagem
+        backgroundColor: "#B490F7",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         width: "100vw",
         height: "100vh",
+        overflow: "hidden",
         margin: 0,
         padding: 0,
-        overflow: "hidden",
       }}
     >
       <div
@@ -47,7 +47,7 @@ export default function Perfil() {
           fill
           priority
           style={{
-            objectFit: "contain",
+            objectFit: "cover", // <<< ocupa tudo, sem sobras
             objectPosition: "center",
           }}
         />
