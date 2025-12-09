@@ -5,7 +5,7 @@ import { useEffect } from "react";
 
 export default function AtividadesAdaptadas() {
   useEffect(() => {
-    document.body.style.backgroundColor = "#9EDFFF"; // azul claro da arte
+    document.body.style.backgroundColor = "#9EDFFF";
     document.documentElement.style.backgroundColor = "#9EDFFF";
     document.body.style.overflow = "hidden";
     return () => {
@@ -24,9 +24,9 @@ export default function AtividadesAdaptadas() {
         alignItems: "center",
         width: "100vw",
         height: "100vh",
+        overflow: "hidden",
         margin: 0,
         padding: 0,
-        overflow: "hidden",
       }}
     >
       <div
@@ -47,7 +47,7 @@ export default function AtividadesAdaptadas() {
           fill
           priority
           style={{
-            objectFit: "contain",
+            objectFit: "cover", // <<< remove as bordas
             objectPosition: "center",
           }}
         />
