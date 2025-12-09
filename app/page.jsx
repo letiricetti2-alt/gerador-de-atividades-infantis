@@ -5,10 +5,10 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      {/* Fundo global amarelo */}
+      {/* Fundo global amarelo igual às outras páginas */}
       <style jsx global>{`
         html, body {
-          background-color: #FFDB3A !important; /* mesmo tom do fundo das outras */
+          background-color: #FFDB3A !important; /* Amarelo principal */
           margin: 0;
           padding: 0;
           height: 100%;
@@ -17,11 +17,11 @@ export default function Home() {
         }
       `}</style>
 
-      {/* Container central igual às outras páginas */}
+      {/* Container central padronizado */}
       <main className="flex justify-center items-center w-screen h-screen bg-[#FFDB3A]">
         <div className="relative flex justify-center items-center w-[480px] h-[950px]">
           <Image
-            src="/home.jpeg"
+            src="/inicial.jpeg"
             alt="Página Inicial"
             fill
             priority
