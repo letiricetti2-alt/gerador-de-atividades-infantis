@@ -3,25 +3,38 @@ import Link from "next/link";
 
 export default function Perfil() {
   return (
-    <div
+    <main
       style={{
-        backgroundColor: "#b18be8", // fundo roxo suave
+        backgroundColor: "#B18BE8", // fundo roxo suave (igual ao da arte)
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         minHeight: "100vh",
+        margin: 0,
+        padding: 0,
       }}
     >
-      <div style={{ position: "relative", width: "480px", height: "950px" }}>
+      <div
+        style={{
+          position: "relative",
+          width: "480px",
+          height: "950px",
+          overflow: "hidden",
+        }}
+      >
         <Image
           src="/perfil.jpeg"
           alt="Tela do perfil"
-          fill
-          style={{ objectFit: "contain" }}
+          layout="fill"
+          objectFit="contain"
           priority
+          style={{
+            borderRadius: "0px",
+            display: "block",
+          }}
         />
 
-        {/* Área clicável - botão "Voltar ao Início" (exemplo) */}
+        {/* Exemplo: botão "Voltar ao Início" (clicável) */}
         <Link href="/">
           <div
             style={{
@@ -37,6 +50,6 @@ export default function Perfil() {
           />
         </Link>
       </div>
-    </div>
+    </main>
   );
 }
