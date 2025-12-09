@@ -4,15 +4,17 @@ import Link from "next/link";
 
 export default function Perfil() {
   return (
-    <div
+    <main
       style={{
-        backgroundColor: "#B18BE8", // fundo roxo
+        backgroundColor: "#B18BE8", // fundo roxo definitivo
+        width: "100vw",
+        height: "100vh",
+        margin: 0,
+        padding: 0,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "100vh",
-        margin: 0,
-        padding: 0,
+        overflow: "hidden",
       }}
     >
       <div
@@ -20,8 +22,8 @@ export default function Perfil() {
           position: "relative",
           width: "480px",
           height: "950px",
-          backgroundColor: "#B18BE8",
           overflow: "hidden",
+          borderRadius: "0px",
         }}
       >
         <Image
@@ -30,10 +32,11 @@ export default function Perfil() {
           width={480}
           height={950}
           style={{
-            width: "480px",
-            height: "950px",
-            objectFit: "fill", // preenche exatamente sem cortar
             display: "block",
+            width: "100%",
+            height: "100%",
+            objectFit: "contain",
+            backgroundColor: "#B18BE8",
           }}
           priority
         />
@@ -54,6 +57,6 @@ export default function Perfil() {
           />
         </Link>
       </div>
-    </div>
+    </main>
   );
 }
