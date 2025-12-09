@@ -7,7 +7,7 @@ export default function AtividadesAdaptadas() {
     <>
       <style jsx global>{`
         html, body {
-          background-color: #9DDEFC !important; /* azul da imagem */
+          background-color: #9DDEFC !important; /* Azul exato da imagem */
           margin: 0;
           padding: 0;
           height: 100%;
@@ -17,7 +17,7 @@ export default function AtividadesAdaptadas() {
       `}</style>
 
       <main className="flex justify-center items-center w-screen h-screen bg-[#9DDEFC]">
-        <div className="relative flex justify-center items-center w-[480px] h-[880px]">
+        <div className="relative flex justify-center items-center w-[480px] h-[720px]">
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
