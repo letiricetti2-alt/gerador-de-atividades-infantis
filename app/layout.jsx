@@ -8,7 +8,7 @@ export const metadata = {
   description: "Aplicativo para criar e personalizar atividades infantis",
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR">
       <body
