@@ -1,17 +1,19 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function Perfil() {
   return (
-    <main
+    <div
       style={{
-        backgroundColor: "#B18BE8", // fundo roxo suave (igual ao da arte)
+        backgroundColor: "#B18BE8", // fundo roxo (forçado)
+        minHeight: "100vh",
+        width: "100vw",
+        margin: 0,
+        padding: 0,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "100vh",
-        margin: 0,
-        padding: 0,
       }}
     >
       <div
@@ -25,16 +27,16 @@ export default function Perfil() {
         <Image
           src="/perfil.jpeg"
           alt="Tela do perfil"
-          layout="fill"
-          objectFit="contain"
-          priority
+          fill
           style={{
-            borderRadius: "0px",
-            display: "block",
+            objectFit: "contain",
+            backgroundColor: "#B18BE8", // garante que não apareça o amarelo
+            borderRadius: "0",
           }}
+          priority
         />
 
-        {/* Exemplo: botão "Voltar ao Início" (clicável) */}
+        {/* Exemplo: botão "Voltar ao Início" */}
         <Link href="/">
           <div
             style={{
@@ -50,6 +52,6 @@ export default function Perfil() {
           />
         </Link>
       </div>
-    </main>
+    </div>
   );
 }
