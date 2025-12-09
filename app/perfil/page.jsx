@@ -1,57 +1,34 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect } from "react";
 
 export default function Perfil() {
-  useEffect(() => {
-    document.body.style.backgroundColor = "#B490F7";
-    document.documentElement.style.backgroundColor = "#B490F7";
-    document.body.style.overflow = "hidden";
-    return () => {
-      document.body.style.backgroundColor = "";
-      document.documentElement.style.backgroundColor = "";
-      document.body.style.overflow = "";
-    };
-  }, []);
-
   return (
-    <main
-      style={{
-        backgroundColor: "#B490F7",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100vw",
-        height: "100vh",
-        overflow: "hidden",
-        margin: 0,
-        padding: 0,
-      }}
-    >
-      <div
-        style={{
-          position: "relative",
-          width: "480px",
-          height: "950px",
-          backgroundColor: "#B490F7",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          overflow: "hidden",
-        }}
-      >
-        <Image
-          src="/perfil.jpeg"
-          alt="Meu Perfil"
-          fill
-          priority
-          style={{
-            objectFit: "cover", // <<< ocupa tudo, sem sobras
-            objectPosition: "center",
-          }}
-        />
-      </div>
-    </main>
+    <>
+      {/* Fundo igual ao das outras páginas */}
+      <style jsx global>{`
+        html, body {
+          background-color: #B490F7 !important; /* lilás */
+          margin: 0;
+          padding: 0;
+          height: 100%;
+          width: 100%;
+          overflow: hidden;
+        }
+      `}</style>
+
+      {/* Container central no mesmo padrão */}
+      <main className="flex justify-center items-center w-screen h-screen bg-[#B490F7]">
+        <div className="relative flex justify-center items-center w-[480px] h-[950px]">
+          <Image
+            src="/perfil.jpeg"
+            alt="Meu Perfil"
+            fill
+            priority
+            className="object-contain"
+          />
+        </div>
+      </main>
+    </>
   );
 }
