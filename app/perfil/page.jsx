@@ -6,7 +6,7 @@ export default function Perfil() {
   return (
     <div
       style={{
-        backgroundColor: "#B18BE8", // fundo roxo (forçado)
+        backgroundColor: "#B18BE8",
         minHeight: "100vh",
         width: "100vw",
         margin: 0,
@@ -21,7 +21,9 @@ export default function Perfil() {
           position: "relative",
           width: "480px",
           height: "950px",
+          backgroundColor: "#B18BE8", // mantém roxo no entorno
           overflow: "hidden",
+          boxShadow: "0 0 10px rgba(0,0,0,0.1)",
         }}
       >
         <Image
@@ -29,9 +31,7 @@ export default function Perfil() {
           alt="Tela do perfil"
           fill
           style={{
-            objectFit: "contain",
-            backgroundColor: "#B18BE8", // garante que não apareça o amarelo
-            borderRadius: "0",
+            objectFit: "cover", // cobre toda a área sem deixar margens
           }}
           priority
         />
