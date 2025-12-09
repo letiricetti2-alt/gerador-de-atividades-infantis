@@ -5,10 +5,10 @@ import Image from "next/image";
 export default function AtividadesAdaptadas() {
   return (
     <>
-      {/* Fundo idêntico ao da imagem (sem sobrinhas) */}
+      {/* Fundo global idêntico ao da imagem */}
       <style jsx global>{`
         html, body {
-          background-color: #9DDEFC !important; /* azul exato do fundo */
+          background-color: #9DDEFC !important;
           margin: 0;
           padding: 0;
           height: 100%;
@@ -17,15 +17,14 @@ export default function AtividadesAdaptadas() {
         }
       `}</style>
 
-      {/* Container central com mesmo padrão das outras páginas */}
       <main className="flex justify-center items-center w-screen h-screen bg-[#9DDEFC]">
-        <div className="relative flex justify-center items-center w-[480px] h-[950px]">
+        <div className="relative flex justify-center items-center w-[480px] h-[950px] overflow-hidden">
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
             fill
             priority
-            className="object-contain"
+            className="object-cover"  // <- cobre toda a área, sem bordas
           />
         </div>
       </main>
