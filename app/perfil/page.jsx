@@ -5,10 +5,10 @@ import Image from "next/image";
 export default function Perfil() {
   return (
     <>
-      {/* Fundo idêntico ao da imagem (sem sobrinhas) */}
+      {/* Fundo global idêntico ao da imagem */}
       <style jsx global>{`
         html, body {
-          background-color: #B38FE8 !important; /* lilás exato do fundo */
+          background-color: #B38FE8 !important;
           margin: 0;
           padding: 0;
           height: 100%;
@@ -17,15 +17,14 @@ export default function Perfil() {
         }
       `}</style>
 
-      {/* Container central com mesmo padrão das outras páginas */}
       <main className="flex justify-center items-center w-screen h-screen bg-[#B38FE8]">
-        <div className="relative flex justify-center items-center w-[480px] h-[950px]">
+        <div className="relative flex justify-center items-center w-[480px] h-[950px] overflow-hidden">
           <Image
             src="/perfil.jpeg"
             alt="Meu Perfil"
             fill
             priority
-            className="object-contain"
+            className="object-cover"  // <- cobre tudo, sem sobrinhas
           />
         </div>
       </main>
