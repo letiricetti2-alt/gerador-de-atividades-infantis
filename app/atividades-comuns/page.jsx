@@ -6,7 +6,7 @@ export default function AtividadesComuns() {
   return (
     <main
       style={{
-        backgroundColor: "#FFD1DC", // rosa
+        backgroundColor: "#FFD1DC", // rosa igual à imagem
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -22,7 +22,9 @@ export default function AtividadesComuns() {
           position: "relative",
           width: "480px",
           height: "950px",
-          overflow: "hidden", // 👈 corta qualquer sobra
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         <Image
@@ -31,7 +33,7 @@ export default function AtividadesComuns() {
           fill
           priority
           style={{
-            objectFit: "cover", // 👈 cobre tudo, sem sobrar
+            objectFit: "contain", // mantém proporção original
           }}
         />
       </div>
