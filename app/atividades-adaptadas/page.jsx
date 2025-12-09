@@ -5,8 +5,8 @@ import { useEffect } from "react";
 
 export default function AtividadesAdaptadas() {
   useEffect(() => {
-    document.body.style.backgroundColor = "#A9E4FF"; // 💙 azul clarinho
-    document.documentElement.style.backgroundColor = "#A9E4FF";
+    document.body.style.backgroundColor = "#9EDFFF"; // azul claro da arte
+    document.documentElement.style.backgroundColor = "#9EDFFF";
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.backgroundColor = "";
@@ -18,7 +18,7 @@ export default function AtividadesAdaptadas() {
   return (
     <main
       style={{
-        backgroundColor: "#A9E4FF",
+        backgroundColor: "#9EDFFF",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -34,10 +34,11 @@ export default function AtividadesAdaptadas() {
           position: "relative",
           width: "480px",
           height: "950px",
-          backgroundColor: "#A9E4FF",
+          backgroundColor: "#9EDFFF",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          overflow: "hidden",
         }}
       >
         <Image
