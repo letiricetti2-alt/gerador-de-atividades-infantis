@@ -5,8 +5,8 @@ import { useEffect } from "react";
 
 export default function Perfil() {
   useEffect(() => {
-    document.body.style.backgroundColor = "#C5A3FF"; // 💜 lilás do fundo
-    document.documentElement.style.backgroundColor = "#C5A3FF";
+    document.body.style.backgroundColor = "#B490F7"; // cor exata do fundo da arte
+    document.documentElement.style.backgroundColor = "#B490F7";
     document.body.style.overflow = "hidden";
     return () => {
       document.body.style.backgroundColor = "";
@@ -18,7 +18,7 @@ export default function Perfil() {
   return (
     <main
       style={{
-        backgroundColor: "#C5A3FF",
+        backgroundColor: "#B490F7", // mesmo tom da imagem
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -34,10 +34,11 @@ export default function Perfil() {
           position: "relative",
           width: "480px",
           height: "950px",
-          backgroundColor: "#C5A3FF",
+          backgroundColor: "#B490F7",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          overflow: "hidden",
         }}
       >
         <Image
