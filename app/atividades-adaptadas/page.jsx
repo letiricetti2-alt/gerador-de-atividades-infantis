@@ -35,14 +35,14 @@ export default function AtividadesAdaptadas() {
           {/* BOTÃO NÍVEL DE SUPORTE */}
           <button
             onClick={() => setMostrarSuporte(true)}
-            className="absolute top-[365px] left-[90px] w-[300px] h-[60px]"
+            className="absolute top-[350px] left-[170px] w-[230px] h-[60px]"
           >
             <span className="sr-only">Selecionar nível de suporte</span>
           </button>
 
-          {/* TEXTO DO NÍVEL SELECIONADO */}
+          {/* TEXTO DO NÍVEL SELECIONADO (DENTRO DO CAMPO) */}
           {nivelSuporte && (
-            <div className="absolute top-[382px] left-[240px] text-blue-900 font-bold">
+            <div className="absolute top-[370px] left-[230px] text-blue-900 font-bold">
               {nivelSuporte}
             </div>
           )}
@@ -56,15 +56,12 @@ export default function AtividadesAdaptadas() {
                   Quanto apoio a criança precisa para realizar a atividade?
                 </h2>
 
-                {/* OPÇÕES */}
                 {["Baixo", "Moderado", "Alto"].map((opcao) => (
                   <button
                     key={opcao}
                     onClick={() => setNivelSuporte(opcao)}
                     className={`w-full py-3 rounded-full mb-3 text-white font-bold transition ${
-                      nivelSuporte === opcao
-                        ? "ring-4 ring-green-500"
-                        : ""
+                      nivelSuporte === opcao ? "ring-4 ring-green-500" : ""
                     } ${
                       opcao === "Baixo"
                         ? "bg-teal-400"
@@ -77,7 +74,6 @@ export default function AtividadesAdaptadas() {
                   </button>
                 ))}
 
-                {/* AÇÕES */}
                 <div className="flex justify-between mt-4">
                   <button
                     onClick={() => setMostrarSuporte(false)}
