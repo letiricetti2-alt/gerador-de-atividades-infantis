@@ -27,7 +27,7 @@ export default function AtividadesAdaptadas() {
   }
 
   function confirmarSelecao() {
-    console.log("Neurodivergências selecionadas:", selecionados);
+    console.log("Selecionados:", selecionados);
     setModalAberto(false);
   }
 
@@ -45,7 +45,9 @@ export default function AtividadesAdaptadas() {
       `}</style>
 
       <main className="flex justify-center items-center w-screen h-screen bg-[#9DDEFC] relative">
-        <div className="relative flex justify-center items-center w-[480px] h-[720px]">
+        <div className="relative w-[480px] h-[720px]">
+
+          {/* IMAGEM FUNDO */}
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
@@ -54,10 +56,13 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          {/* BOTÃO SOBRE A IMAGEM */}
+          {/* BOTÃO REAL (em cima da imagem) */}
           <button
             onClick={() => setModalAberto(true)}
-            className="absolute bottom-[230px] w-[360px] h-[64px] rounded-full bg-purple-700 text-white font-bold text-lg shadow-lg"
+            className="absolute left-1/2 -translate-x-1/2 bottom-[265px]
+                       w-[360px] h-[64px] rounded-full
+                       bg-purple-600 text-white font-bold text-lg
+                       shadow-xl hover:scale-105 transition"
           >
             + Selecionar Neurodivergências
           </button>
@@ -79,16 +84,16 @@ export default function AtividadesAdaptadas() {
                     <button
                       key={item}
                       onClick={() => toggleSelecao(item)}
-                      className={`relative px-3 py-2 rounded-xl font-semibold text-white transition
+                      className={`relative px-3 py-2 rounded-xl font-semibold transition
                         ${ativo ? "scale-105 ring-4 ring-white" : ""}
                         ${
-                          item.includes("TEA") ? "bg-indigo-500" :
-                          item === "TDAH" ? "bg-purple-500" :
-                          item === "Dislexia" ? "bg-green-500" :
+                          item.includes("TEA") ? "bg-indigo-500 text-white" :
+                          item === "TDAH" ? "bg-purple-500 text-white" :
+                          item === "Dislexia" ? "bg-green-500 text-white" :
                           item === "Discalculia" ? "bg-yellow-400 text-black" :
-                          item.includes("Deficiência") ? "bg-orange-400" :
-                          item === "Hiperlexia" ? "bg-cyan-500" :
-                          item.includes("Altas") ? "bg-pink-500 col-span-2" :
+                          item.includes("Deficiência") ? "bg-orange-400 text-white" :
+                          item === "Hiperlexia" ? "bg-cyan-500 text-white" :
+                          item.includes("Altas") ? "bg-pink-500 text-white col-span-2" :
                           "bg-gray-300 text-black col-span-2"
                         }
                       `}
