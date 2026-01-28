@@ -26,11 +26,6 @@ export default function AtividadesAdaptadas() {
     }
   }
 
-  function confirmarSelecao() {
-    console.log("Selecionados:", selecionados);
-    setModalAberto(false);
-  }
-
   return (
     <>
       <style jsx global>{`
@@ -47,7 +42,7 @@ export default function AtividadesAdaptadas() {
       <main className="flex justify-center items-center w-screen h-screen bg-[#9DDEFC] relative">
         <div className="relative w-[480px] h-[720px]">
 
-          {/* IMAGEM FUNDO */}
+          {/* IMAGEM DE FUNDO */}
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
@@ -56,22 +51,21 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          {/* BOTÃO REAL (em cima da imagem) */}
+          {/* ÁREA CLICÁVEL INVISÍVEL SOBRE O BOTÃO DA IMAGEM */}
           <button
             onClick={() => setModalAberto(true)}
-            className="absolute left-1/2 -translate-x-1/2 bottom-[265px]
-                       w-[360px] h-[64px] rounded-full
-                       bg-purple-600 text-white font-bold text-lg
-                       shadow-xl hover:scale-105 transition"
-          >
-            + Selecionar Neurodivergências
-          </button>
+            className="absolute left-1/2 -translate-x-1/2 bottom-[270px]
+                       w-[360px] h-[64px]
+                       bg-transparent"
+          />
+
         </div>
 
         {/* MODAL */}
         {modalAberto && (
           <div className="absolute inset-0 bg-black/40 flex justify-center items-center">
             <div className="bg-white rounded-3xl w-[360px] p-6 text-center shadow-2xl">
+
               <h2 className="text-xl font-bold text-blue-900 mb-4">
                 Selecione as Neurodivergências da Criança
               </h2>
@@ -118,12 +112,13 @@ export default function AtividadesAdaptadas() {
                 </button>
 
                 <button
-                  onClick={confirmarSelecao}
+                  onClick={() => setModalAberto(false)}
                   className="px-6 py-2 rounded-xl bg-green-500 text-white font-semibold"
                 >
                   Confirmar
                 </button>
               </div>
+
             </div>
           </div>
         )}
