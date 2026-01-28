@@ -32,14 +32,14 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          {/* SELECTS SOBRE A IMAGEM */}
-          <div className="absolute top-[315px] left-0 w-full flex flex-col items-center gap-[22px]">
+          {/* SELECTS POSICIONADOS SOBRE OS CAMPOS CLAROS */}
+          <div className="absolute top-[285px] left-0 w-full flex flex-col items-center gap-[24px]">
 
             {/* NÍVEL DE SUPORTE */}
             <select
               value={nivelSuporte}
               onChange={(e) => setNivelSuporte(e.target.value)}
-              className="w-[250px] h-[40px] rounded-full bg-[#FFE8B0] text-[#1E3A8A] font-bold shadow text-center"
+              className="w-[260px] h-[42px] rounded-full bg-[#FFE8B0] text-[#1E3A8A] font-bold shadow text-center"
             >
               <option value="Baixo">Baixo</option>
               <option value="Moderado">Moderado</option>
@@ -50,7 +50,7 @@ export default function AtividadesAdaptadas() {
             <select
               value={tipoAtividade}
               onChange={(e) => setTipoAtividade(e.target.value)}
-              className="w-[250px] h-[40px] rounded-full bg-[#FFE8B0] text-[#1E3A8A] font-bold shadow text-center"
+              className="w-[260px] h-[42px] rounded-full bg-[#FFE8B0] text-[#1E3A8A] font-bold shadow text-center"
             >
               <option value="Todas">Todas</option>
               <option value="Alfabetização">Alfabetização</option>
