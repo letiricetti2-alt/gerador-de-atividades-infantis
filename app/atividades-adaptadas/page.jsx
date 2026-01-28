@@ -21,9 +21,9 @@ export default function AtividadesAdaptadas() {
       `}</style>
 
       <main className="flex justify-center items-center w-screen h-screen bg-[#9DDEFC]">
-        <div className="relative flex justify-center items-center w-[480px] h-[720px]">
-          
-          {/* IMAGEM */}
+        <div className="relative w-[480px] h-[720px]">
+
+          {/* IMAGEM BASE */}
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
@@ -32,14 +32,14 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          {/* CAMPOS FUNCIONAIS */}
-          <div className="absolute top-[345px] left-0 w-full flex flex-col items-center gap-4">
+          {/* SELECTS SOBRE A IMAGEM */}
+          <div className="absolute top-[315px] left-0 w-full flex flex-col items-center gap-[22px]">
 
-            {/* NÍVEL DE SUPORTE (substitui o antigo "Todas") */}
+            {/* NÍVEL DE SUPORTE */}
             <select
               value={nivelSuporte}
               onChange={(e) => setNivelSuporte(e.target.value)}
-              className="w-[240px] p-2 rounded-full bg-[#FFE8B0] text-[#1E3A8A] font-bold shadow"
+              className="w-[250px] h-[40px] rounded-full bg-[#FFE8B0] text-[#1E3A8A] font-bold shadow text-center"
             >
               <option value="Baixo">Baixo</option>
               <option value="Moderado">Moderado</option>
@@ -50,7 +50,7 @@ export default function AtividadesAdaptadas() {
             <select
               value={tipoAtividade}
               onChange={(e) => setTipoAtividade(e.target.value)}
-              className="w-[240px] p-2 rounded-full bg-[#FFE8B0] text-[#1E3A8A] font-bold shadow"
+              className="w-[250px] h-[40px] rounded-full bg-[#FFE8B0] text-[#1E3A8A] font-bold shadow text-center"
             >
               <option value="Todas">Todas</option>
               <option value="Alfabetização">Alfabetização</option>
@@ -60,6 +60,7 @@ export default function AtividadesAdaptadas() {
             </select>
 
           </div>
+
         </div>
       </main>
     </>
