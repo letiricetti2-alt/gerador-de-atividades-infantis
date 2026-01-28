@@ -28,12 +28,12 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          {/* NOVO TEXTO DO PRIMEIRO BOTÃO */}
-          <div className="absolute top-[235px] left-[85px] w-[310px] text-white font-bold">
-            <div className="text-[14px] leading-tight">
+          {/* NOVO TEXTO DO PRIMEIRO BOTÃO (POSIÇÃO CORRETA) */}
+          <div className="absolute top-[345px] left-[90px] w-[300px] text-white font-bold">
+            <div className="text-[13px] leading-tight">
               Nível de Suporte Necessário
             </div>
-            <div className="text-[10px] font-normal leading-tight">
+            <div className="text-[9px] font-normal leading-tight">
               quanto apoio a criança precisa para realizar a atividade
             </div>
           </div>
