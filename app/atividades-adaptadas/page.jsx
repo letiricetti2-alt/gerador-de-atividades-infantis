@@ -4,25 +4,10 @@ import { useState } from "react";
 import Image from "next/image";
 
 export default function AtividadesAdaptadas() {
-  const [modalAberto, setModalAberto] = useState(false);
-  const [selecionados, setSelecionados] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
-  const opcoes = [
-    "TEA (Autismo)",
-    "TDAH",
-    "Dislexia",
-    "Discalculia",
-    "Deficiência Intelectual Leve",
-    "Hiperlexia",
-    "Altas Habilidades / Superdotação",
-  ];
-
-  function toggleOpcao(opcao) {
-    if (selecionados.includes(opcao)) {
-      setSelecionados(selecionados.filter((o) => o !== opcao));
-    } else {
-      setSelecionados([...selecionados, opcao]);
-    }
+  function confirmarNeuro() {
+    setShowModal(false);
   }
 
   return (
@@ -39,7 +24,9 @@ export default function AtividadesAdaptadas() {
       `}</style>
 
       <main className="flex justify-center items-center w-screen h-screen bg-[#9DDEFC] relative">
-        <div className="relative w-[480px] h-[720px]">
+
+        {/* IMAGEM BASE */}
+        <div className="relative flex justify-center items-center w-[480px] h-[720px]">
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
@@ -48,58 +35,78 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          {/* BOTÃO INVISÍVEL SOBRE "Selecionar Neurodivergências" */}
+          {/* BOTÃO INVISÍVEL SOBRE A ÁREA DO BOTÃO DA IMAGEM */}
           <button
-            onClick={() => setModalAberto(true)}
-            className="absolute left-1/2 -translate-x-1/2 top-[430px] w-[380px] h-[60px] bg-transparent"
+            onClick={() => setShowModal(true)}
+            className="absolute bottom-[230px] left-1/2 -translate-x-1/2 w-[380px] h-[70px] opacity-0"
           />
-
-          {/* MODAL */}
-          {modalAberto && (
-            <div className="absolute inset-0 bg-black/50 flex justify-center items-center">
-              <div className="bg-white rounded-2xl p-5 w-[400px] max-h-[80%] overflow-y-auto">
-                <h2 className="text-lg font-bold text-center mb-4">
-                  Selecione as Neurodivergências
-                </h2>
-
-                <div className="grid grid-cols-1 gap-2">
-                  {opcoes.map((opcao) => (
-                    <button
-                      key={opcao}
-                      onClick={() => toggleOpcao(opcao)}
-                      className={`px-3 py-2 rounded-xl text-sm font-semibold ${
-                        selecionados.includes(opcao)
-                          ? "bg-purple-600 text-white"
-                          : "bg-gray-200 text-gray-800"
-                      }`}
-                    >
-                      {opcao}
-                    </button>
-                  ))}
-                </div>
-
-                <div className="flex justify-between mt-4">
-                  <button
-                    onClick={() => setModalAberto(false)}
-                    className="bg-gray-300 px-4 py-2 rounded-xl"
-                  >
-                    Cancelar
-                  </button>
-
-                  <button
-                    onClick={() => {
-                      console.log("Selecionados:", selecionados);
-                      setModalAberto(false);
-                    }}
-                    className="bg-green-500 text-white px-4 py-2 rounded-xl"
-                  >
-                    Confirmar
-                  </button>
-                </div>
-              </div>
-            </div>
-          )}
         </div>
+
+        {/* MODAL */}
+        {showModal && (
+          <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+            <div className="bg-white rounded-3xl p-6 w-[360px] shadow-xl">
+
+              <h2 className="text-center text-xl font-bold text-blue-900 mb-4">
+                Selecione as Neurodivergências da Criança
+              </h2>
+
+              <div className="grid grid-cols-2 gap-3 mb-4">
+
+                <button className="bg-indigo-500 text-white py-2 rounded-xl">
+                  TEA (Autismo)
+                </button>
+
+                <button className="bg-purple-500 text-white py-2 rounded-xl">
+                  TDAH
+                </button>
+
+                <button className="bg-green-500 text-white py-2 rounded-xl">
+                  Dislexia
+                </button>
+
+                <button className="bg-yellow-400 text-white py-2 rounded-xl">
+                  Discalculia
+                </button>
+
+                <button className="bg-orange-400 text-white py-2 rounded-xl col-span-2">
+                  Deficiência Intelectual Leve
+                </button>
+
+                <button className="bg-cyan-500 text-white py-2 rounded-xl">
+                  Hiperlexia
+                </button>
+
+                <button className="bg-pink-500 text-white py-2 rounded-xl col-span-2">
+                  Altas Habilidades / Superdotação
+                </button>
+
+                <button className="bg-gray-200 text-gray-800 py-2 rounded-xl col-span-2">
+                  Outros
+                </button>
+
+              </div>
+
+              <div className="flex justify-between mt-4">
+                <button
+                  onClick={() => setShowModal(false)}
+                  className="bg-gray-300 px-4 py-2 rounded-xl"
+                >
+                  Cancelar
+                </button>
+
+                <button
+                  onClick={confirmarNeuro}
+                  className="bg-green-500 text-white px-4 py-2 rounded-xl"
+                >
+                  Confirmar
+                </button>
+              </div>
+
+            </div>
+          </div>
+        )}
+
       </main>
     </>
   );
