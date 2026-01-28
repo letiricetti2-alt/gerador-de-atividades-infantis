@@ -4,8 +4,42 @@ import { useState } from "react";
 import Image from "next/image";
 
 export default function AtividadesAdaptadas() {
+  const [showNeuroModal, setShowNeuroModal] = useState(false);
   const [showSupportModal, setShowSupportModal] = useState(false);
+
   const [supportLevel, setSupportLevel] = useState("");
+
+  const [selectedNeuros, setSelectedNeuros] = useState([]);
+  const [otherNeuro, setOtherNeuro] = useState("");
+
+  const neuroOptions = [
+    "TEA",
+    "TDAH",
+    "Dislexia",
+    "Discalculia",
+    "Deficiência Intelectual Leve",
+    "Hiperlexia",
+    "Altas Habilidades / Superdotação",
+    "Outros",
+  ];
+
+  const toggleNeuro = (item) => {
+    if (item === "Outros") {
+      if (selectedNeuros.includes("Outros")) {
+        setSelectedNeuros(selectedNeuros.filter((n) => n !== "Outros"));
+        setOtherNeuro("");
+      } else {
+        setSelectedNeuros([...selectedNeuros, "Outros"]);
+      }
+      return;
+    }
+
+    if (selectedNeuros.includes(item)) {
+      setSelectedNeuros(selectedNeuros.filter((n) => n !== item));
+    } else {
+      setSelectedNeuros([...selectedNeuros, item]);
+    }
+  };
 
   return (
     <>
@@ -22,7 +56,7 @@ export default function AtividadesAdaptadas() {
       <main className="flex justify-center items-center w-screen h-screen bg-[#9DDEFC]">
         <div className="relative w-[480px] h-[720px]">
 
-          {/* IMAGEM BASE */}
+          {/* IMAGEM */}
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
@@ -31,9 +65,9 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          {/* CAMPO SOBRE A CAIXA BEGE (NÍVEL DE SUPORTE) */}
+          {/* TEXTO DO NÍVEL DE SUPORTE NA CAIXA BEGE */}
           <div
-            className="absolute flex items-center justify-center text-blue-800 font-bold"
+            className="absolute flex items-center justify-center font-bold text-blue-800"
             style={{
               top: "345px",
               left: "210px",
@@ -46,7 +80,7 @@ export default function AtividadesAdaptadas() {
             {supportLevel}
           </div>
 
-          {/* BOTÃO INVISÍVEL SOBRE A FAIXA VERMELHA */}
+          {/* ÁREA CLICÁVEL DO NÍVEL DE SUPORTE */}
           <div
             className="absolute"
             style={{
@@ -57,6 +91,19 @@ export default function AtividadesAdaptadas() {
               cursor: "pointer",
             }}
             onClick={() => setShowSupportModal(true)}
+          />
+
+          {/* ÁREA CLICÁVEL DO BOTÃO NEURODIVERGÊNCIAS */}
+          <div
+            className="absolute"
+            style={{
+              top: "440px",
+              left: "60px",
+              width: "360px",
+              height: "70px",
+              cursor: "pointer",
+            }}
+            onClick={() => setShowNeuroModal(true)}
           />
 
           {/* MODAL NÍVEL DE SUPORTE */}
@@ -100,6 +147,72 @@ export default function AtividadesAdaptadas() {
                   </button>
                   <button
                     onClick={() => setShowSupportModal(false)}
+                    className="bg-green-500 text-white px-4 py-2 rounded-full"
+                  >
+                    Confirmar
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* MODAL NEURODIVERGÊNCIAS */}
+          {showNeuroModal && (
+            <div className="absolute inset-0 bg-black/40 flex justify-center items-center z-50">
+              <div className="bg-white rounded-3xl p-6 w-[340px] shadow-xl">
+
+                <h2 className="text-blue-600 font-bold text-center mb-4">
+                  Selecione as Neurodivergências da Criança
+                </h2>
+
+                <div className="grid grid-cols-2 gap-3">
+                  {neuroOptions.map((item) => {
+                    const selected = selectedNeuros.includes(item);
+
+                    return (
+                      <button
+                        key={item}
+                        onClick={() => toggleNeuro(item)}
+                        className={`rounded-full py-2 px-3 font-bold text-white text-sm transition
+                          ${
+                            item === "TEA" ? "bg-indigo-500" :
+                            item === "TDAH" ? "bg-purple-500" :
+                            item === "Dislexia" ? "bg-green-500" :
+                            item === "Discalculia" ? "bg-yellow-400" :
+                            item === "Deficiência Intelectual Leve" ? "bg-orange-400 col-span-2" :
+                            item === "Hiperlexia" ? "bg-cyan-400" :
+                            item === "Altas Habilidades / Superdotação" ? "bg-pink-500 col-span-2" :
+                            "bg-gray-300 text-gray-700 col-span-2"
+                          }
+                          ${selected ? "ring-4 ring-green-400" : ""}
+                        `}
+                      >
+                        {selected ? "✓ " : ""}
+                        {item}
+                      </button>
+                    );
+                  })}
+                </div>
+
+                {selectedNeuros.includes("Outros") && (
+                  <input
+                    type="text"
+                    placeholder="Descreva a neurodivergência..."
+                    value={otherNeuro}
+                    onChange={(e) => setOtherNeuro(e.target.value)}
+                    className="w-full mt-3 p-2 border rounded-xl"
+                  />
+                )}
+
+                <div className="flex justify-between mt-4">
+                  <button
+                    onClick={() => setShowNeuroModal(false)}
+                    className="bg-gray-300 px-4 py-2 rounded-full"
+                  >
+                    Cancelar
+                  </button>
+                  <button
+                    onClick={() => setShowNeuroModal(false)}
                     className="bg-green-500 text-white px-4 py-2 rounded-full"
                   >
                     Confirmar
