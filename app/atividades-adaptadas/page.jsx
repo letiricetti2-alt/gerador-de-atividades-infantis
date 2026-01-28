@@ -3,54 +3,27 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const neurodivergenciasList = [
-  { label: "TEA (Autismo)", color: "bg-indigo-500" },
-  { label: "TDAH", color: "bg-purple-500" },
-  { label: "Dislexia", color: "bg-green-500" },
-  { label: "Discalculia", color: "bg-yellow-400 text-black" },
-  { label: "Deficiência Intelectual Leve", color: "bg-orange-400" },
-  { label: "Hiperlexia", color: "bg-cyan-500" },
-  { label: "Altas Habilidades / Superdotação", color: "bg-pink-500 col-span-2" },
-  { label: "Outros", color: "bg-gray-300 text-black col-span-2" },
-];
-
 export default function AtividadesAdaptadas() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const [selecionadas, setSelecionadas] = useState([]);
-  const [outrosTexto, setOutrosTexto] = useState("");
-
-  function toggleNeuro(item) {
-    if (item === "Outros") {
-      if (selecionadas.includes("Outros")) {
-        setSelecionadas(selecionadas.filter((n) => n !== "Outros"));
-        setOutrosTexto("");
-      } else {
-        setSelecionadas([...selecionadas, "Outros"]);
-      }
-      return;
-    }
-
-    if (selecionadas.includes(item)) {
-      setSelecionadas(selecionadas.filter((n) => n !== item));
-    } else {
-      setSelecionadas([...selecionadas, item]);
-    }
-  }
+  const [nivelSuporte, setNivelSuporte] = useState("Baixo");
+  const [tipoAtividade, setTipoAtividade] = useState("Todas");
 
   return (
     <>
       <style jsx global>{`
-        html,
-        body {
-          background-color: #9ddeff;
+        html, body {
+          background-color: #9DDEFC !important;
           margin: 0;
           padding: 0;
           height: 100%;
+          width: 100%;
+          overflow: hidden;
         }
       `}</style>
 
-      <main className="flex justify-center items-center w-screen h-screen bg-[#9ddeff] relative">
-        <div className="relative w-[480px] h-[720px]">
+      <main className="flex justify-center items-center w-screen h-screen bg-[#9DDEFC]">
+        <div className="relative flex justify-center items-center w-[480px] h-[720px]">
+          
+          {/* Imagem de fundo */}
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
@@ -59,76 +32,50 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          {/* Botão invisível sobre "Selecionar Neurodivergências" */}
-          <button
-            onClick={() => setModalOpen(true)}
-            className="absolute left-1/2 -translate-x-1/2 bottom-[185px] w-[320px] h-[60px] bg-transparent"
-            aria-label="Selecionar Neurodivergências"
-          />
-        </div>
+          {/* Área clicável por cima da imagem */}
+          <div className="absolute top-[360px] left-0 w-full flex flex-col items-center gap-4">
 
-        {modalOpen && (
-          <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-            <div className="bg-white rounded-3xl p-6 w-[380px] shadow-xl">
-              <h2 className="text-center text-blue-600 font-bold text-lg mb-4">
-                Selecione as Neurodivergências da Criança
-              </h2>
+            {/* NÍVEL DE SUPORTE */}
+            <div className="w-[360px]">
+              <label className="block text-white font-bold text-sm mb-1">
+                Nível de suporte necessário
+              </label>
+              <span className="block text-white text-xs mb-2">
+                (Quanto apoio a criança precisa para realizar a atividade)
+              </span>
 
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                {neurodivergenciasList.map((item) => {
-                  const ativo = selecionadas.includes(item.label);
-
-                  return (
-                    <button
-                      key={item.label}
-                      onClick={() => toggleNeuro(item.label)}
-                      className={`
-                        ${item.color}
-                        ${ativo ? "ring-4 ring-green-500 scale-105" : ""}
-                        px-3 py-2 rounded-xl font-semibold text-sm text-white
-                        transition-all
-                      `}
-                    >
-                      {ativo ? "✔ " : ""}
-                      {item.label}
-                    </button>
-                  );
-                })}
-              </div>
-
-              {/* CAMPO "OUTROS" */}
-              {selecionadas.includes("Outros") && (
-                <input
-                  type="text"
-                  placeholder="Descreva a neurodivergência..."
-                  value={outrosTexto}
-                  onChange={(e) => setOutrosTexto(e.target.value)}
-                  className="w-full mb-4 px-3 py-2 border rounded-lg text-sm"
-                />
-              )}
-
-              <div className="flex justify-between">
-                <button
-                  onClick={() => setModalOpen(false)}
-                  className="bg-gray-300 px-4 py-2 rounded-lg font-semibold text-blue-700"
-                >
-                  Cancelar
-                </button>
-
-                <button
-                  onClick={() => {
-                    console.log("Selecionadas:", selecionadas);
-                    console.log("Outros:", outrosTexto);
-                    setModalOpen(false);
-                  }}
-                  className="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold"
-                >
-                  Confirmar
-                </button>
-              </div>
+              <select
+                value={nivelSuporte}
+                onChange={(e) => setNivelSuporte(e.target.value)}
+                className="w-full p-2 rounded-full bg-[#FFE8B0] text-[#1E3A8A] font-bold shadow"
+              >
+                <option value="Baixo">Baixo</option>
+                <option value="Moderado">Moderado</option>
+                <option value="Alto">Alto</option>
+              </select>
             </div>
+
+            {/* TIPO DE ATIVIDADE */}
+            <div className="w-[360px]">
+              <label className="block text-white font-bold text-sm mb-1">
+                Tipo de Atividade
+              </label>
+
+              <select
+                value={tipoAtividade}
+                onChange={(e) => setTipoAtividade(e.target.value)}
+                className="w-full p-2 rounded-full bg-[#FFE8B0] text-[#1E3A8A] font-bold shadow"
+              >
+                <option value="Todas">Todas</option>
+                <option value="Alfabetização">Alfabetização</option>
+                <option value="Coordenação Motora">Coordenação Motora</option>
+                <option value="Matemática Inicial">Matemática Inicial</option>
+                <option value="Caligrafia">Caligrafia</option>
+              </select>
+            </div>
+
           </div>
-        )}
+        </div>
       </main>
     </>
   );
