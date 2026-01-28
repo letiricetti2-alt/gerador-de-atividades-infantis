@@ -6,8 +6,8 @@ import Image from "next/image";
 export default function AtividadesAdaptadas() {
   const [showNeuroModal, setShowNeuroModal] = useState(false);
   const [showSuporteModal, setShowSuporteModal] = useState(false);
-  const [showOutrosInput, setShowOutrosInput] = useState(false);
-  const [outrosTexto, setOutrosTexto] = useState("");
+
+  const [selectedSuporte, setSelectedSuporte] = useState(null);
 
   return (
     <>
@@ -35,7 +35,7 @@ export default function AtividadesAdaptadas() {
           />
         </div>
 
-        {/* BOTÃO NIVEL DE SUPORTE */}
+        {/* BOTÃO NIVEL DE SUPORTE (área invisível sobre a imagem) */}
         <button
           onClick={() => setShowSuporteModal(true)}
           className="absolute top-[360px] w-[300px] h-[55px] opacity-0"
@@ -56,24 +56,53 @@ export default function AtividadesAdaptadas() {
               </h2>
 
               <div className="space-y-3">
-                <button className="w-full bg-teal-400 text-white py-3 rounded-full">
-                  Baixo
+
+                <button
+                  onClick={() => setSelectedSuporte("Baixo")}
+                  className={`w-full py-3 rounded-full text-white ${
+                    selectedSuporte === "Baixo"
+                      ? "bg-teal-500 border-4 border-green-400"
+                      : "bg-teal-400"
+                  }`}
+                >
+                  {selectedSuporte === "Baixo" && "✓ "}Baixo
                 </button>
-                <button className="w-full bg-yellow-300 text-white py-3 rounded-full">
-                  Moderado
+
+                <button
+                  onClick={() => setSelectedSuporte("Moderado")}
+                  className={`w-full py-3 rounded-full text-white ${
+                    selectedSuporte === "Moderado"
+                      ? "bg-yellow-400 border-4 border-green-400"
+                      : "bg-yellow-300"
+                  }`}
+                >
+                  {selectedSuporte === "Moderado" && "✓ "}Moderado
                 </button>
-                <button className="w-full bg-pink-500 text-white py-3 rounded-full">
-                  Alto
+
+                <button
+                  onClick={() => setSelectedSuporte("Alto")}
+                  className={`w-full py-3 rounded-full text-white ${
+                    selectedSuporte === "Alto"
+                      ? "bg-pink-600 border-4 border-green-400"
+                      : "bg-pink-500"
+                  }`}
+                >
+                  {selectedSuporte === "Alto" && "✓ "}Alto
                 </button>
+
               </div>
 
               <div className="flex justify-between mt-5">
                 <button
-                  onClick={() => setShowSuporteModal(false)}
+                  onClick={() => {
+                    setShowSuporteModal(false);
+                    setSelectedSuporte(null);
+                  }}
                   className="bg-gray-300 px-4 py-2 rounded-full"
                 >
                   Cancelar
                 </button>
+
                 <button
                   onClick={() => setShowSuporteModal(false)}
                   className="bg-green-500 text-white px-4 py-2 rounded-full"
@@ -85,7 +114,7 @@ export default function AtividadesAdaptadas() {
           </div>
         )}
 
-        {/* MODAL NEURODIVERGÊNCIAS */}
+        {/* MODAL NEURODIVERGÊNCIAS (mantém o seu atual) */}
         {showNeuroModal && (
           <div className="absolute inset-0 bg-black/40 flex justify-center items-center z-50">
             <div className="bg-white rounded-3xl p-6 w-[340px] text-center shadow-xl">
@@ -109,41 +138,20 @@ export default function AtividadesAdaptadas() {
                   Altas Habilidades / Superdotação
                 </button>
 
-                {/* BOTÃO OUTROS */}
-                <button
-                  onClick={() => setShowOutrosInput(!showOutrosInput)}
-                  className="bg-gray-300 text-black rounded-full py-2 col-span-2"
-                >
+                <button className="bg-gray-300 text-black rounded-full py-2 col-span-2">
                   Outros
                 </button>
               </div>
 
-              {/* INPUT OUTROS */}
-              {showOutrosInput && (
-                <input
-                  type="text"
-                  placeholder="Descreva a neurodivergência..."
-                  value={outrosTexto}
-                  onChange={(e) => setOutrosTexto(e.target.value)}
-                  className="mt-3 w-full border rounded-full px-4 py-2 text-sm"
-                />
-              )}
-
               <div className="flex justify-between mt-5">
                 <button
-                  onClick={() => {
-                    setShowNeuroModal(false);
-                    setShowOutrosInput(false);
-                  }}
+                  onClick={() => setShowNeuroModal(false)}
                   className="bg-gray-300 px-4 py-2 rounded-full"
                 >
                   Cancelar
                 </button>
                 <button
-                  onClick={() => {
-                    setShowNeuroModal(false);
-                    setShowOutrosInput(false);
-                  }}
+                  onClick={() => setShowNeuroModal(false)}
                   className="bg-green-500 text-white px-4 py-2 rounded-full"
                 >
                   Confirmar
