@@ -33,14 +33,14 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          {/* TEXTO DO NÍVEL SELECIONADO (DENTRO DO CAMPO) */}
+          {/* TEXTO CENTRALIZADO NA CAIXA BEGE */}
           {nivelSuporte && (
-            <div className="absolute top-[360px] left-[265px] text-blue-900 font-bold">
+            <div className="absolute top-[352px] left-[210px] w-[190px] h-[40px] flex items-center justify-center text-blue-900 font-bold">
               {nivelSuporte}
             </div>
           )}
 
-          {/* BOTÃO NÍVEL DE SUPORTE */}
+          {/* BOTÃO ÁREA DO NÍVEL DE SUPORTE */}
           <button
             className="absolute top-[345px] left-[40px] w-[400px] h-[60px] opacity-0"
             onClick={() => setMostrarSuporte(true)}
@@ -101,7 +101,7 @@ export default function AtividadesAdaptadas() {
             </div>
           )}
 
-          {/* MODAL NEURODIVERGÊNCIAS (mantido como você já tinha) */}
+          {/* MODAL NEURODIVERGÊNCIAS */}
           {mostrarNeuro && (
             <div className="absolute inset-0 bg-black/40 flex justify-center items-center">
               <div className="bg-white rounded-[24px] p-6 w-[340px] shadow-xl">
