@@ -26,14 +26,16 @@ export default function AtividadesAdaptadas() {
   ];
 
   const typeOptions = [
-    "Alfabetização",
-    "Matemática",
-    "Coordenação Motora",
-    "Atenção e Concentração",
-    "Socioemocional",
-    "Linguagem",
-    "Raciocínio Lógico",
-    "Artes",
+    { label: "Alfabetização", color: "bg-indigo-400" },
+    { label: "Matemática", color: "bg-purple-400" },
+    { label: "Coordenação Motora", color: "bg-green-400" },
+    { label: "Atenção e Concentração", color: "bg-yellow-400" },
+    { label: "Socioemocional", color: "bg-pink-400" },
+    { label: "Linguagem", color: "bg-cyan-400" },
+    { label: "Raciocínio Lógico", color: "bg-orange-400" },
+    { label: "Artes", color: "bg-rose-400" },
+    { label: "Atividades Temáticas", color: "bg-teal-400" },
+    { label: "Caligrafia Personalizada", color: "bg-blue-400" },
   ];
 
   const toggleNeuro = (item) => {
@@ -69,7 +71,6 @@ export default function AtividadesAdaptadas() {
       <main className="flex justify-center items-center w-screen h-screen bg-[#9DDEFC]">
         <div className="relative w-[480px] h-[720px]">
 
-          {/* IMAGEM */}
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
@@ -86,7 +87,7 @@ export default function AtividadesAdaptadas() {
             {supportLevel}
           </div>
 
-          {/* TEXTO TIPO DE ATIVIDADE */}
+          {/* TEXTO TIPO */}
           <div
             className="absolute flex items-center justify-center font-bold text-blue-800"
             style={{ top: "415px", left: "210px", width: "170px", height: "40px" }}
@@ -94,21 +95,17 @@ export default function AtividadesAdaptadas() {
             {activityType}
           </div>
 
-          {/* ÁREA SUPORTE */}
+          {/* ÁREAS */}
           <div
             className="absolute"
             style={{ top: "330px", left: "60px", width: "360px", height: "70px" }}
             onClick={() => setShowSupportModal(true)}
           />
-
-          {/* ÁREA TIPO */}
           <div
             className="absolute"
             style={{ top: "400px", left: "60px", width: "360px", height: "70px" }}
             onClick={() => setShowTypeModal(true)}
           />
-
-          {/* ÁREA NEURO */}
           <div
             className="absolute"
             style={{ top: "470px", left: "60px", width: "360px", height: "70px" }}
@@ -127,14 +124,14 @@ export default function AtividadesAdaptadas() {
                   <button
                     key={level}
                     onClick={() => setSupportLevel(level)}
-                    className={`w-full py-3 rounded-full mb-3 font-bold
+                    className={`w-full py-3 rounded-full mb-3 font-bold text-white
                       ${supportLevel === level ? "ring-4 ring-green-400" : ""}
                       ${
                         level === "Baixo"
-                          ? "bg-teal-400 text-white"
+                          ? "bg-teal-400"
                           : level === "Moderado"
-                          ? "bg-yellow-400 text-white"
-                          : "bg-pink-400 text-white"
+                          ? "bg-yellow-400"
+                          : "bg-pink-400"
                       }`}
                   >
                     {supportLevel === level ? "✓ " : ""}
@@ -154,10 +151,10 @@ export default function AtividadesAdaptadas() {
             </div>
           )}
 
-          {/* MODAL TIPO DE ATIVIDADE */}
+          {/* MODAL TIPO */}
           {showTypeModal && (
             <div className="absolute inset-0 bg-black/40 flex justify-center items-center z-50">
-              <div className="bg-white rounded-3xl p-6 w-[340px] shadow-xl">
+              <div className="bg-white rounded-3xl p-6 w-[350px] shadow-xl">
                 <h2 className="text-blue-600 font-bold text-center mb-4">
                   Qual o tipo de atividade?
                 </h2>
@@ -165,14 +162,15 @@ export default function AtividadesAdaptadas() {
                 <div className="grid grid-cols-1 gap-3">
                   {typeOptions.map((item) => (
                     <button
-                      key={item}
-                      onClick={() => setActivityType(item)}
+                      key={item.label}
+                      onClick={() => setActivityType(item.label)}
                       className={`rounded-full py-2 px-3 font-bold text-white transition
-                        ${activityType === item ? "ring-4 ring-green-400" : ""}
-                        bg-indigo-400`}
+                        ${item.color}
+                        ${activityType === item.label ? "ring-4 ring-green-400" : ""}
+                      `}
                     >
-                      {activityType === item ? "✓ " : ""}
-                      {item}
+                      {activityType === item.label ? "✓ " : ""}
+                      {item.label}
                     </button>
                   ))}
                 </div>
