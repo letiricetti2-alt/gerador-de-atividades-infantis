@@ -79,23 +79,23 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          {/* TEXTO SUPORTE */}
+          {/* TEXTO NÍVEL DE SUPORTE (CENTRALIZADO) */}
           <div
-            className="absolute flex items-center justify-center font-bold text-blue-800"
+            className="absolute flex items-center justify-center font-bold text-blue-800 text-center pointer-events-none"
             style={{ top: "345px", left: "210px", width: "170px", height: "40px" }}
           >
             {supportLevel}
           </div>
 
-          {/* TEXTO TIPO */}
+          {/* TEXTO TIPO DE ATIVIDADE (AGORA IGUAL AO DE SUPORTE) */}
           <div
-            className="absolute flex items-center justify-center font-bold text-blue-800"
+            className="absolute flex items-center justify-center font-bold text-blue-800 text-center pointer-events-none"
             style={{ top: "415px", left: "210px", width: "170px", height: "40px" }}
           >
             {activityType}
           </div>
 
-          {/* ÁREAS */}
+          {/* ÁREAS CLICÁVEIS */}
           <div
             className="absolute"
             style={{ top: "330px", left: "60px", width: "360px", height: "70px" }}
