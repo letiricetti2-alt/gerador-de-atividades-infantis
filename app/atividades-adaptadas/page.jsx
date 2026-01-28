@@ -35,7 +35,12 @@ export default function AtividadesAdaptadas() {
           />
         </div>
 
-        {/* BOTÃO NIVEL DE SUPORTE (área invisível sobre a imagem) */}
+        {/* TEXTO DINÂMICO DO NÍVEL DE SUPORTE */}
+        <div className="absolute top-[370px] left-1/2 -translate-x-1/2 w-[240px] text-center font-bold text-blue-900">
+          {selectedSuporte ? selectedSuporte : "Todas"}
+        </div>
+
+        {/* BOTÃO NIVEL DE SUPORTE (área invisível) */}
         <button
           onClick={() => setShowSuporteModal(true)}
           className="absolute top-[360px] w-[300px] h-[55px] opacity-0"
@@ -114,7 +119,7 @@ export default function AtividadesAdaptadas() {
           </div>
         )}
 
-        {/* MODAL NEURODIVERGÊNCIAS (mantém o seu atual) */}
+        {/* MODAL NEURODIVERGÊNCIAS */}
         {showNeuroModal && (
           <div className="absolute inset-0 bg-black/40 flex justify-center items-center z-50">
             <div className="bg-white rounded-3xl p-6 w-[340px] text-center shadow-xl">
