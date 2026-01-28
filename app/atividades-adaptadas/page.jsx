@@ -33,7 +33,7 @@ export default function AtividadesAdaptadas() {
           />
         </div>
 
-        {/* BOTÃO NIVEL DE SUPORTE (INVISÍVEL POR CIMA DA IMAGEM) */}
+        {/* BOTÃO NIVEL DE SUPORTE */}
         <button
           onClick={() => setShowSuporteModal(true)}
           className="absolute top-[360px] w-[300px] h-[55px] opacity-0"
@@ -54,13 +54,13 @@ export default function AtividadesAdaptadas() {
               </h2>
 
               <div className="space-y-3">
-                <button className="w-full bg-green-500 text-white py-3 rounded-full">
+                <button className="w-full bg-teal-400 text-white py-3 rounded-full">
                   Baixo
                 </button>
-                <button className="w-full bg-yellow-400 text-white py-3 rounded-full">
+                <button className="w-full bg-yellow-300 text-white py-3 rounded-full">
                   Moderado
                 </button>
-                <button className="w-full bg-red-500 text-white py-3 rounded-full">
+                <button className="w-full bg-pink-500 text-white py-3 rounded-full">
                   Alto
                 </button>
               </div>
