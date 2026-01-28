@@ -23,7 +23,7 @@ export default function AtividadesAdaptadas() {
       <main className="flex justify-center items-center w-screen h-screen bg-[#9DDEFC]">
         <div className="relative flex justify-center items-center w-[480px] h-[720px]">
           
-          {/* Imagem de fundo */}
+          {/* IMAGEM */}
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
@@ -32,47 +32,32 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          {/* Área clicável por cima da imagem */}
-          <div className="absolute top-[360px] left-0 w-full flex flex-col items-center gap-4">
+          {/* CAMPOS FUNCIONAIS */}
+          <div className="absolute top-[345px] left-0 w-full flex flex-col items-center gap-4">
 
-            {/* NÍVEL DE SUPORTE */}
-            <div className="w-[360px]">
-              <label className="block text-white font-bold text-sm mb-1">
-                Nível de suporte necessário
-              </label>
-              <span className="block text-white text-xs mb-2">
-                (Quanto apoio a criança precisa para realizar a atividade)
-              </span>
-
-              <select
-                value={nivelSuporte}
-                onChange={(e) => setNivelSuporte(e.target.value)}
-                className="w-full p-2 rounded-full bg-[#FFE8B0] text-[#1E3A8A] font-bold shadow"
-              >
-                <option value="Baixo">Baixo</option>
-                <option value="Moderado">Moderado</option>
-                <option value="Alto">Alto</option>
-              </select>
-            </div>
+            {/* NÍVEL DE SUPORTE (substitui o antigo "Todas") */}
+            <select
+              value={nivelSuporte}
+              onChange={(e) => setNivelSuporte(e.target.value)}
+              className="w-[240px] p-2 rounded-full bg-[#FFE8B0] text-[#1E3A8A] font-bold shadow"
+            >
+              <option value="Baixo">Baixo</option>
+              <option value="Moderado">Moderado</option>
+              <option value="Alto">Alto</option>
+            </select>
 
             {/* TIPO DE ATIVIDADE */}
-            <div className="w-[360px]">
-              <label className="block text-white font-bold text-sm mb-1">
-                Tipo de Atividade
-              </label>
-
-              <select
-                value={tipoAtividade}
-                onChange={(e) => setTipoAtividade(e.target.value)}
-                className="w-full p-2 rounded-full bg-[#FFE8B0] text-[#1E3A8A] font-bold shadow"
-              >
-                <option value="Todas">Todas</option>
-                <option value="Alfabetização">Alfabetização</option>
-                <option value="Coordenação Motora">Coordenação Motora</option>
-                <option value="Matemática Inicial">Matemática Inicial</option>
-                <option value="Caligrafia">Caligrafia</option>
-              </select>
-            </div>
+            <select
+              value={tipoAtividade}
+              onChange={(e) => setTipoAtividade(e.target.value)}
+              className="w-[240px] p-2 rounded-full bg-[#FFE8B0] text-[#1E3A8A] font-bold shadow"
+            >
+              <option value="Todas">Todas</option>
+              <option value="Alfabetização">Alfabetização</option>
+              <option value="Coordenação Motora">Coordenação Motora</option>
+              <option value="Matemática Inicial">Matemática Inicial</option>
+              <option value="Caligrafia">Caligrafia</option>
+            </select>
 
           </div>
         </div>
