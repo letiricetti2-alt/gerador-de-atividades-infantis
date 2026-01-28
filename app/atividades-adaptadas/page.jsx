@@ -17,8 +17,19 @@ const neurodivergenciasList = [
 export default function AtividadesAdaptadas() {
   const [modalOpen, setModalOpen] = useState(false);
   const [selecionadas, setSelecionadas] = useState([]);
+  const [outrosTexto, setOutrosTexto] = useState("");
 
   function toggleNeuro(item) {
+    if (item === "Outros") {
+      if (selecionadas.includes("Outros")) {
+        setSelecionadas(selecionadas.filter((n) => n !== "Outros"));
+        setOutrosTexto("");
+      } else {
+        setSelecionadas([...selecionadas, "Outros"]);
+      }
+      return;
+    }
+
     if (selecionadas.includes(item)) {
       setSelecionadas(selecionadas.filter((n) => n !== item));
     } else {
@@ -40,7 +51,6 @@ export default function AtividadesAdaptadas() {
 
       <main className="flex justify-center items-center w-screen h-screen bg-[#9ddeff] relative">
         <div className="relative w-[480px] h-[720px]">
-          {/* IMAGEM BASE */}
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
@@ -49,7 +59,7 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          {/* BOTÃO INVISÍVEL SOBRE O BOTÃO DA IMAGEM */}
+          {/* Botão invisível sobre "Selecionar Neurodivergências" */}
           <button
             onClick={() => setModalOpen(true)}
             className="absolute left-1/2 -translate-x-1/2 bottom-[185px] w-[320px] h-[60px] bg-transparent"
@@ -57,7 +67,6 @@ export default function AtividadesAdaptadas() {
           />
         </div>
 
-        {/* MODAL */}
         {modalOpen && (
           <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
             <div className="bg-white rounded-3xl p-6 w-[380px] shadow-xl">
@@ -65,7 +74,7 @@ export default function AtividadesAdaptadas() {
                 Selecione as Neurodivergências da Criança
               </h2>
 
-              <div className="grid grid-cols-2 gap-3 mb-5">
+              <div className="grid grid-cols-2 gap-3 mb-4">
                 {neurodivergenciasList.map((item) => {
                   const ativo = selecionadas.includes(item.label);
 
@@ -87,6 +96,17 @@ export default function AtividadesAdaptadas() {
                 })}
               </div>
 
+              {/* CAMPO "OUTROS" */}
+              {selecionadas.includes("Outros") && (
+                <input
+                  type="text"
+                  placeholder="Descreva a neurodivergência..."
+                  value={outrosTexto}
+                  onChange={(e) => setOutrosTexto(e.target.value)}
+                  className="w-full mb-4 px-3 py-2 border rounded-lg text-sm"
+                />
+              )}
+
               <div className="flex justify-between">
                 <button
                   onClick={() => setModalOpen(false)}
@@ -96,7 +116,11 @@ export default function AtividadesAdaptadas() {
                 </button>
 
                 <button
-                  onClick={() => setModalOpen(false)}
+                  onClick={() => {
+                    console.log("Selecionadas:", selecionadas);
+                    console.log("Outros:", outrosTexto);
+                    setModalOpen(false);
+                  }}
                   className="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold"
                 >
                   Confirmar
