@@ -1,12 +1,8 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 
 export default function AtividadesAdaptadas() {
-  const [nivelSuporte, setNivelSuporte] = useState("Baixo");
-  const [tipoAtividade, setTipoAtividade] = useState("Todas");
-
   return (
     <>
       <style jsx global>{`
@@ -32,33 +28,15 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          {/* SELECT NÍVEL DE SUPORTE (em cima do vermelho) */}
-          <select
-            value={nivelSuporte}
-            onChange={(e) => setNivelSuporte(e.target.value)}
-            className="absolute top-[255px] left-1/2 -translate-x-1/2
-              w-[260px] h-[42px] rounded-full bg-[#FFE8B0]
-              text-[#1E3A8A] font-bold shadow text-center"
-          >
-            <option value="Baixo">Baixo</option>
-            <option value="Moderado">Moderado</option>
-            <option value="Alto">Alto</option>
-          </select>
-
-          {/* SELECT TIPO DE ATIVIDADE (em cima do laranja) */}
-          <select
-            value={tipoAtividade}
-            onChange={(e) => setTipoAtividade(e.target.value)}
-            className="absolute top-[325px] left-1/2 -translate-x-1/2
-              w-[260px] h-[42px] rounded-full bg-[#FFE8B0]
-              text-[#1E3A8A] font-bold shadow text-center"
-          >
-            <option value="Todas">Todas</option>
-            <option value="Alfabetização">Alfabetização</option>
-            <option value="Coordenação Motora">Coordenação Motora</option>
-            <option value="Matemática Inicial">Matemática Inicial</option>
-            <option value="Caligrafia">Caligrafia</option>
-          </select>
+          {/* NOVO TEXTO DO PRIMEIRO BOTÃO */}
+          <div className="absolute top-[235px] left-[85px] w-[310px] text-white font-bold">
+            <div className="text-[14px] leading-tight">
+              Nível de Suporte Necessário
+            </div>
+            <div className="text-[10px] font-normal leading-tight">
+              quanto apoio a criança precisa para realizar a atividade
+            </div>
+          </div>
 
         </div>
       </main>
