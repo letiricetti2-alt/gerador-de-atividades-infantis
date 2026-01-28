@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 
-const neurodivergencias = [
+const neurodivergenciasList = [
   "TEA (Autismo)",
   "TDAH",
   "Dislexia",
@@ -15,34 +15,31 @@ const neurodivergencias = [
 ];
 
 export default function AtividadesAdaptadas() {
-  const [modalAberto, setModalAberto] = useState(false);
-  const [selecionados, setSelecionados] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selecionadas, setSelecionadas] = useState([]);
 
-  function toggleSelecao(item) {
-    if (selecionados.includes(item)) {
-      setSelecionados(selecionados.filter((i) => i !== item));
+  function toggleNeuro(nome) {
+    if (selecionadas.includes(nome)) {
+      setSelecionadas(selecionadas.filter((n) => n !== nome));
     } else {
-      setSelecionados([...selecionados, item]);
+      setSelecionadas([...selecionadas, nome]);
     }
   }
 
   return (
     <>
       <style jsx global>{`
-        html, body {
-          background-color: #9DDEFC;
+        html,
+        body {
+          background-color: #9ddeff;
           margin: 0;
           padding: 0;
           height: 100%;
-          width: 100%;
-          overflow: hidden;
         }
       `}</style>
 
-      <main className="flex justify-center items-center w-screen h-screen bg-[#9DDEFC] relative">
+      <main className="flex justify-center items-center w-screen h-screen bg-[#9ddeff] relative">
         <div className="relative w-[480px] h-[720px]">
-
-          {/* IMAGEM DE FUNDO */}
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
@@ -51,74 +48,56 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          {/* ÁREA CLICÁVEL INVISÍVEL SOBRE O BOTÃO DA IMAGEM */}
+          {/* BOTÃO CORRETO */}
           <button
-            onClick={() => setModalAberto(true)}
-            className="absolute left-1/2 -translate-x-1/2 bottom-[270px]
-                       w-[360px] h-[64px]
-                       bg-transparent"
-          />
-
+            onClick={() => setModalOpen(true)}
+            className="absolute left-1/2 -translate-x-1/2 bottom-[160px] bg-purple-600 text-white px-6 py-3 rounded-full shadow-lg font-bold"
+          >
+            + Selecionar Neurodivergências
+          </button>
         </div>
 
         {/* MODAL */}
-        {modalAberto && (
-          <div className="absolute inset-0 bg-black/40 flex justify-center items-center">
-            <div className="bg-white rounded-3xl w-[360px] p-6 text-center shadow-2xl">
-
-              <h2 className="text-xl font-bold text-blue-900 mb-4">
+        {modalOpen && (
+          <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
+            <div className="bg-white rounded-3xl p-6 w-[360px] max-h-[80vh] overflow-y-auto shadow-xl">
+              <h2 className="text-center text-blue-700 font-bold text-lg mb-4">
                 Selecione as Neurodivergências da Criança
               </h2>
 
-              <div className="grid grid-cols-2 gap-3 mb-4">
-                {neurodivergencias.map((item) => {
-                  const ativo = selecionados.includes(item);
-
-                  return (
-                    <button
-                      key={item}
-                      onClick={() => toggleSelecao(item)}
-                      className={`relative px-3 py-2 rounded-xl font-semibold transition
-                        ${ativo ? "scale-105 ring-4 ring-white" : ""}
-                        ${
-                          item.includes("TEA") ? "bg-indigo-500 text-white" :
-                          item === "TDAH" ? "bg-purple-500 text-white" :
-                          item === "Dislexia" ? "bg-green-500 text-white" :
-                          item === "Discalculia" ? "bg-yellow-400 text-black" :
-                          item.includes("Deficiência") ? "bg-orange-400 text-white" :
-                          item === "Hiperlexia" ? "bg-cyan-500 text-white" :
-                          item.includes("Altas") ? "bg-pink-500 text-white col-span-2" :
-                          "bg-gray-300 text-black col-span-2"
-                        }
-                      `}
-                    >
-                      {item}
-                      {ativo && (
-                        <span className="absolute top-1 right-2 text-white text-lg">
-                          ✔
-                        </span>
-                      )}
-                    </button>
-                  );
-                })}
+              <div className="grid grid-cols-2 gap-3">
+                {neurodivergenciasList.map((item) => (
+                  <button
+                    key={item}
+                    onClick={() => toggleNeuro(item)}
+                    className={`px-3 py-2 rounded-xl font-semibold text-sm transition
+                      ${
+                        selecionadas.includes(item)
+                          ? "bg-green-500 text-white"
+                          : "bg-gray-200 text-gray-800"
+                      }`}
+                  >
+                    {selecionadas.includes(item) ? "✔ " : ""}
+                    {item}
+                  </button>
+                ))}
               </div>
 
-              <div className="flex justify-between mt-4">
+              <div className="flex justify-between mt-6">
                 <button
-                  onClick={() => setModalAberto(false)}
-                  className="px-6 py-2 rounded-xl bg-gray-300 text-gray-800 font-semibold"
+                  onClick={() => setModalOpen(false)}
+                  className="bg-gray-300 px-4 py-2 rounded-lg font-semibold"
                 >
                   Cancelar
                 </button>
 
                 <button
-                  onClick={() => setModalAberto(false)}
-                  className="px-6 py-2 rounded-xl bg-green-500 text-white font-semibold"
+                  onClick={() => setModalOpen(false)}
+                  className="bg-green-500 text-white px-4 py-2 rounded-lg font-semibold"
                 >
                   Confirmar
                 </button>
               </div>
-
             </div>
           </div>
         )}
