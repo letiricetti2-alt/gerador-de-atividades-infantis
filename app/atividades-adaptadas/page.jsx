@@ -27,7 +27,7 @@ export default function AtividadesAdaptadas() {
     <main className="flex justify-center items-center min-h-screen bg-[#9DDEFC]">
       <div className="relative w-[480px] h-[720px]">
 
-        {/* IMAGEM */}
+        {/* IMAGEM (NÃO CAPTA CLIQUE) */}
         <Image
           src="/adaptada.jpeg"
           alt="Atividades Adaptadas"
@@ -38,12 +38,12 @@ export default function AtividadesAdaptadas() {
 
         {/* CAIXA INVISÍVEL - NÍVEL DE SUPORTE */}
         <div
-          className="absolute flex items-center justify-center font-bold text-blue-800 text-center cursor-pointer"
+          className="absolute z-10 flex items-center justify-center font-bold text-blue-800 text-center cursor-pointer"
           style={{
-            top: "338px",
-            left: "225px",
-            width: "155px",
-            height: "36px"
+            top: "340px",
+            left: "205px",
+            width: "170px",
+            height: "40px"
           }}
           onClick={() => setShowSupportModal(true)}
         >
@@ -52,12 +52,12 @@ export default function AtividadesAdaptadas() {
 
         {/* CAIXA INVISÍVEL - TIPO DE ATIVIDADE */}
         <div
-          className="absolute flex items-center justify-center font-bold text-blue-800 text-center cursor-pointer px-1"
+          className="absolute z-10 flex items-center justify-center font-bold text-blue-800 text-center cursor-pointer px-1"
           style={{
-            top: "402px",
-            left: "225px",
-            width: "155px",
-            minHeight: "36px"
+            top: "405px",
+            left: "205px",
+            width: "170px",
+            minHeight: "40px"
           }}
           onClick={() => setShowTypeModal(true)}
         >
