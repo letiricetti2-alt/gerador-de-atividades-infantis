@@ -59,7 +59,6 @@ export default function AtividadesAdaptadas() {
       <main className="flex justify-center items-center w-screen h-screen">
         <div className="relative w-[480px] h-[720px]">
 
-          {/* IMAGEM */}
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
@@ -70,37 +69,31 @@ export default function AtividadesAdaptadas() {
 
           {/* TEXTO NÍVEL DE SUPORTE */}
           <div
-            className="absolute flex items-center justify-center font-bold text-blue-800 text-center cursor-pointer"
+            className="absolute flex items-center justify-center font-bold text-blue-800 text-center"
             style={{ top: "345px", left: "210px", width: "170px", height: "40px" }}
-            onClick={() => setShowSupportModal(true)}
           >
             {supportDefined && "✨ Pronto!"}
           </div>
 
           {/* TEXTO TIPO DE ATIVIDADE */}
           <div
-            className="absolute flex items-center justify-center font-bold text-blue-800 text-center cursor-pointer"
+            className="absolute flex items-center justify-center font-bold text-blue-800 text-center"
             style={{ top: "415px", left: "210px", width: "170px", height: "40px" }}
-            onClick={() => setShowTypeModal(true)}
           >
             {typeDefined && "✨ Pronto!"}
           </div>
 
-          {/* ÁREA CLICÁVEL SUPORTE */}
+          {/* ÁREAS CLICÁVEIS */}
           <div
             className="absolute"
             style={{ top: "330px", left: "60px", width: "360px", height: "70px" }}
             onClick={() => setShowSupportModal(true)}
           />
-
-          {/* ÁREA CLICÁVEL TIPO */}
           <div
             className="absolute"
             style={{ top: "400px", left: "60px", width: "360px", height: "70px" }}
             onClick={() => setShowTypeModal(true)}
           />
-
-          {/* ÁREA CLICÁVEL NEURO */}
           <div
             className="absolute"
             style={{ top: "470px", left: "60px", width: "360px", height: "70px" }}
@@ -114,12 +107,17 @@ export default function AtividadesAdaptadas() {
                 <button
                   key={level}
                   onClick={() => setSupportDefined(true)}
-                  className="w-full py-3 rounded-full mb-3 font-bold bg-orange-400 text-white"
+                  className={`w-full py-3 rounded-full mb-3 font-bold text-white ${
+                    level === "Baixo"
+                      ? "bg-teal-400"
+                      : level === "Moderado"
+                      ? "bg-yellow-400"
+                      : "bg-pink-400"
+                  }`}
                 >
                   {level}
                 </button>
               ))}
-
               <ModalActions onClose={() => setShowSupportModal(false)} />
             </Modal>
           )}
@@ -136,7 +134,6 @@ export default function AtividadesAdaptadas() {
                   {opt.label}
                 </button>
               ))}
-
               <ModalActions onClose={() => setShowTypeModal(false)} />
             </Modal>
           )}
@@ -157,7 +154,6 @@ export default function AtividadesAdaptadas() {
                   {selectedNeuros.includes(item) && "✓ "} {item}
                 </button>
               ))}
-
               <ModalActions onClose={() => setShowNeuroModal(false)} />
             </Modal>
           )}
@@ -168,15 +164,13 @@ export default function AtividadesAdaptadas() {
   );
 }
 
-/* COMPONENTES AUXILIARES */
+/* COMPONENTES */
 
 function Modal({ title, children }) {
   return (
     <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-50">
       <div className="bg-white p-6 rounded-3xl w-[330px] shadow-xl">
-        <h2 className="text-blue-600 font-bold mb-4 text-center">
-          {title}
-        </h2>
+        <h2 className="text-blue-600 font-bold mb-4 text-center">{title}</h2>
         {children}
       </div>
     </div>
