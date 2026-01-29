@@ -92,12 +92,12 @@ export default function AtividadesAdaptadas() {
             }}
             onClick={() => setShowSupportModal(true)}
           >
-            {supportLevel}
+            {supportLevel ? "✔ Definido" : ""}
           </div>
 
-          {/* TEXTO TIPO DE ATIVIDADE (CENTRALIZADO) */}
+          {/* TEXTO TIPO DE ATIVIDADE */}
           <div
-            className="absolute flex items-center justify-center font-bold text-blue-800 text-center"
+            className="absolute flex items-center justify-center font-bold text-blue-800"
             style={{
               top: "415px",
               left: "210px",
@@ -107,7 +107,7 @@ export default function AtividadesAdaptadas() {
             }}
             onClick={() => setShowTypeModal(true)}
           >
-            {activityType}
+            {activityType ? "✔ Definido" : ""}
           </div>
 
           {/* ÁREA CLICÁVEL NÍVEL DE SUPORTE */}
@@ -149,11 +149,11 @@ export default function AtividadesAdaptadas() {
             onClick={() => setShowNeuroModal(true)}
           />
 
-          {/* MODAL SUPORTE */}
+          {/* MODAL SUPORTE (GRANDE) */}
           {showSupportModal && (
             <div className="absolute inset-0 bg-black/40 flex justify-center items-center z-50">
-              <div className="bg-white rounded-3xl p-6 w-[320px] text-center shadow-xl">
-                <h2 className="text-blue-600 font-bold mb-4">
+              <div className="bg-white rounded-3xl p-6 w-[360px] shadow-xl">
+                <h2 className="text-blue-600 font-bold text-center mb-4">
                   Quanto apoio a criança precisa para realizar a atividade?
                 </h2>
 
@@ -198,10 +198,10 @@ export default function AtividadesAdaptadas() {
             </div>
           )}
 
-          {/* MODAL TIPO */}
+          {/* MODAL TIPO (GRANDE) */}
           {showTypeModal && (
             <div className="absolute inset-0 bg-black/40 flex justify-center items-center z-50">
-              <div className="bg-white rounded-3xl p-6 w-[350px] shadow-xl">
+              <div className="bg-white rounded-3xl p-6 w-[360px] shadow-xl">
                 <h2 className="text-blue-600 font-bold text-center mb-4">
                   Qual o tipo de atividade?
                 </h2>
