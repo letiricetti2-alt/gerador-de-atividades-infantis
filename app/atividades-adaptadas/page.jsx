@@ -32,12 +32,13 @@ export default function AtividadesAdaptadas() {
           src="/adaptada.jpeg"
           alt="Atividades Adaptadas"
           fill
+          priority
           className="object-contain pointer-events-none"
         />
 
-        {/* CAIXA NÍVEL DE SUPORTE */}
+        {/* CAIXA INVISÍVEL - NÍVEL DE SUPORTE */}
         <div
-          className="absolute flex items-center justify-center font-bold text-blue-800 text-center bg-yellow-100 rounded-full cursor-pointer"
+          className="absolute flex items-center justify-center font-bold text-blue-800 text-center cursor-pointer"
           style={{
             top: "338px",
             left: "225px",
@@ -49,9 +50,9 @@ export default function AtividadesAdaptadas() {
           {supportLevel}
         </div>
 
-        {/* CAIXA TIPO DE ATIVIDADE */}
+        {/* CAIXA INVISÍVEL - TIPO DE ATIVIDADE */}
         <div
-          className="absolute flex items-center justify-center font-bold text-blue-800 text-center bg-yellow-100 rounded-full cursor-pointer px-2"
+          className="absolute flex items-center justify-center font-bold text-blue-800 text-center cursor-pointer px-1"
           style={{
             top: "402px",
             left: "225px",
