@@ -97,12 +97,15 @@ export default function Page() {
 
       {/* MODAL SUPORTE */}
       {showSupport && (
-        <Modal onClose={() => setShowSupport(false)} title="Quanto apoio a criança precisa para realizar a atividade?">
+        <Modal
+          onClose={() => setShowSupport(false)}
+          title="Quanto apoio a criança precisa para realizar a atividade?"
+        >
           {supportOptions.map((opt) => (
             <button
               key={opt.label}
               onClick={() => setSupport(opt.label)}
-              className={${opt.color} w-full py-2 mb-2 rounded-full text-white font-semibold}
+              className={`${opt.color} w-full py-2 mb-2 rounded-full text-white font-semibold`}
             >
               {support === opt.label && "✓ "} {opt.label}
             </button>
@@ -113,12 +116,15 @@ export default function Page() {
 
       {/* MODAL TIPO */}
       {showType && (
-        <Modal onClose={() => setShowType(false)} title="Qual o tipo de atividade?">
+        <Modal
+          onClose={() => setShowType(false)}
+          title="Qual o tipo de atividade?"
+        >
           {typeOptions.map((opt) => (
             <button
               key={opt.label}
               onClick={() => setType(opt.label)}
-              className={${opt.color} w-full py-2 mb-2 rounded-full text-white font-semibold}
+              className={`${opt.color} w-full py-2 mb-2 rounded-full text-white font-semibold`}
             >
               {type === opt.label && "✓ "} {opt.label}
             </button>
@@ -129,13 +135,18 @@ export default function Page() {
 
       {/* MODAL NEURO */}
       {showNeuro && (
-        <Modal onClose={() => setShowNeuro(false)} title="Selecione as Neurodivergências da Criança">
+        <Modal
+          onClose={() => setShowNeuro(false)}
+          title="Selecione as Neurodivergências da Criança"
+        >
           {neuroOptions.map((item) => (
             <button
               key={item}
               onClick={() => toggleNeuro(item)}
               className={`w-full py-2 mb-2 rounded-full font-semibold ${
-                neuro.includes(item) ? "bg-green-400 text-white" : "bg-gray-200"
+                neuro.includes(item)
+                  ? "bg-green-400 text-white"
+                  : "bg-gray-200"
               }`}
             >
               {neuro.includes(item) && "✓ "} {item}
@@ -154,7 +165,9 @@ function Modal({ children, title, onClose }) {
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
       <div className="bg-white p-6 rounded-xl w-[320px] shadow-xl">
-        <h2 className="text-blue-600 font-bold mb-4 text-center">{title}</h2>
+        <h2 className="text-blue-600 font-bold mb-4 text-center">
+          {title}
+        </h2>
         {children}
       </div>
     </div>
