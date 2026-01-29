@@ -87,14 +87,14 @@ export default function AtividadesAdaptadas() {
             {supportLevel}
           </div>
 
-          {/* TEXTO TIPO DE ATIVIDADE (centralização corrigida) */}
+          {/* TEXTO TIPO DE ATIVIDADE (CAIXA MAIOR) */}
           <div
             className="absolute flex items-center justify-center font-bold text-blue-800 text-center pointer-events-none"
             style={{
               top: "415px",
               left: "210px",
               width: "170px",
-              height: "40px",
+              height: "60px",
               lineHeight: "1.1"
             }}
           >
