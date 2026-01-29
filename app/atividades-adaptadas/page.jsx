@@ -82,78 +82,52 @@ export default function AtividadesAdaptadas() {
 
           {/* TEXTO NÍVEL DE SUPORTE */}
           <div
-            className="absolute flex items-center justify-center font-bold text-blue-800"
-            style={{
-              top: "345px",
-              left: "210px",
-              width: "170px",
-              height: "40px",
-              cursor: "pointer",
-            }}
+            className="absolute flex items-center justify-center"
+            style={{ top: "345px", left: "210px", width: "170px", height: "40px", cursor: "pointer" }}
             onClick={() => setShowSupportModal(true)}
           >
-            {supportLevel ? "✔ Definido" : ""}
+            {supportLevel && (
+              <span className="bg-white/80 text-blue-700 px-4 py-1 rounded-full text-sm font-bold shadow">
+                ✨ Pronto!
+              </span>
+            )}
           </div>
 
           {/* TEXTO TIPO DE ATIVIDADE */}
           <div
-            className="absolute flex items-center justify-center font-bold text-blue-800"
-            style={{
-              top: "415px",
-              left: "210px",
-              width: "170px",
-              height: "40px",
-              cursor: "pointer",
-            }}
+            className="absolute flex items-center justify-center"
+            style={{ top: "415px", left: "210px", width: "170px", height: "40px", cursor: "pointer" }}
             onClick={() => setShowTypeModal(true)}
           >
-            {activityType ? "✔ Definido" : ""}
+            {activityType && (
+              <span className="bg-white/80 text-blue-700 px-4 py-1 rounded-full text-sm font-bold shadow">
+                ✨ Pronto!
+              </span>
+            )}
           </div>
 
-          {/* ÁREA CLICÁVEL NÍVEL DE SUPORTE */}
+          {/* ÁREAS CLICÁVEIS */}
           <div
             className="absolute"
-            style={{
-              top: "330px",
-              left: "60px",
-              width: "360px",
-              height: "70px",
-              cursor: "pointer",
-            }}
+            style={{ top: "330px", left: "60px", width: "360px", height: "70px", cursor: "pointer" }}
             onClick={() => setShowSupportModal(true)}
           />
-
-          {/* ÁREA CLICÁVEL TIPO DE ATIVIDADE */}
           <div
             className="absolute"
-            style={{
-              top: "400px",
-              left: "60px",
-              width: "360px",
-              height: "70px",
-              cursor: "pointer",
-            }}
+            style={{ top: "400px", left: "60px", width: "360px", height: "70px", cursor: "pointer" }}
             onClick={() => setShowTypeModal(true)}
           />
-
-          {/* ÁREA CLICÁVEL NEURODIVERGÊNCIAS */}
           <div
             className="absolute"
-            style={{
-              top: "470px",
-              left: "60px",
-              width: "360px",
-              height: "70px",
-              cursor: "pointer",
-            }}
+            style={{ top: "470px", left: "60px", width: "360px", height: "70px", cursor: "pointer" }}
             onClick={() => setShowNeuroModal(true)}
           />
 
-          {/* MODAL SUPORTE (GRANDE) */}
+          {/* MODAL SUPORTE */}
           {showSupportModal && (
             <div className="absolute inset-0 bg-black/40 flex justify-center items-center z-50">
-              <div className="bg-white rounded-3xl p-6 w-[360px] shadow-xl">
-                <h2 className="text-blue-600 font-bold text-center mb-4">
+              <div className="bg-white rounded-3xl p-6 w-[320px] text-center shadow-xl">
+                <h2 className="text-blue-600 font-bold mb-4">
                   Quanto apoio a criança precisa para realizar a atividade?
                 </h2>
 
@@ -161,12 +135,8 @@ export default function AtividadesAdaptadas() {
                   <button
                     key={level}
                     onClick={() => setSupportLevel(level)}
-                    className={`w-full py-3 rounded-full mb-3 font-bold transition
-                      ${
-                        supportLevel === level
-                          ? "ring-4 ring-green-400"
-                          : ""
-                      }
+                    className={`w-full py-3 rounded-full mb-3 font-bold
+                      ${supportLevel === level ? "ring-4 ring-green-400" : ""}
                       ${
                         level === "Baixo"
                           ? "bg-teal-400 text-white"
@@ -181,16 +151,10 @@ export default function AtividadesAdaptadas() {
                 ))}
 
                 <div className="flex justify-between mt-4">
-                  <button
-                    onClick={() => setShowSupportModal(false)}
-                    className="bg-gray-300 px-4 py-2 rounded-full"
-                  >
+                  <button onClick={() => setShowSupportModal(false)} className="bg-gray-300 px-4 py-2 rounded-full">
                     Cancelar
                   </button>
-                  <button
-                    onClick={() => setShowSupportModal(false)}
-                    className="bg-green-500 text-white px-4 py-2 rounded-full"
-                  >
+                  <button onClick={() => setShowSupportModal(false)} className="bg-green-500 text-white px-4 py-2 rounded-full">
                     Confirmar
                   </button>
                 </div>
@@ -198,10 +162,10 @@ export default function AtividadesAdaptadas() {
             </div>
           )}
 
-          {/* MODAL TIPO (GRANDE) */}
+          {/* MODAL TIPO */}
           {showTypeModal && (
             <div className="absolute inset-0 bg-black/40 flex justify-center items-center z-50">
-              <div className="bg-white rounded-3xl p-6 w-[360px] shadow-xl">
+              <div className="bg-white rounded-3xl p-6 w-[340px] shadow-xl">
                 <h2 className="text-blue-600 font-bold text-center mb-4">
                   Qual o tipo de atividade?
                 </h2>
@@ -211,20 +175,8 @@ export default function AtividadesAdaptadas() {
                     <button
                       key={item}
                       onClick={() => setActivityType(item)}
-                      className={`rounded-full py-2 px-3 font-bold text-white transition
-                        ${activityType === item ? "ring-4 ring-green-400" : ""}
-                        ${
-                          item === "Alfabetização" ? "bg-indigo-400" :
-                          item === "Matemática" ? "bg-purple-400" :
-                          item === "Coordenação Motora" ? "bg-green-400" :
-                          item === "Atenção e Concentração" ? "bg-yellow-400" :
-                          item === "Socioemocional" ? "bg-pink-400" :
-                          item === "Linguagem" ? "bg-cyan-400" :
-                          item === "Raciocínio Lógico" ? "bg-orange-400" :
-                          item === "Artes" ? "bg-rose-400" :
-                          item === "Atividades Temáticas" ? "bg-emerald-400" :
-                          "bg-blue-400"
-                        }
+                      className={`rounded-full py-2 px-3 font-bold text-white
+                        ${activityType === item ? "ring-4 ring-green-400 bg-blue-500" : "bg-blue-400"}
                       `}
                     >
                       {activityType === item ? "✓ " : ""}
@@ -234,16 +186,10 @@ export default function AtividadesAdaptadas() {
                 </div>
 
                 <div className="flex justify-between mt-4">
-                  <button
-                    onClick={() => setShowTypeModal(false)}
-                    className="bg-gray-300 px-4 py-2 rounded-full"
-                  >
+                  <button onClick={() => setShowTypeModal(false)} className="bg-gray-300 px-4 py-2 rounded-full">
                     Cancelar
                   </button>
-                  <button
-                    onClick={() => setShowTypeModal(false)}
-                    className="bg-green-500 text-white px-4 py-2 rounded-full"
-                  >
+                  <button onClick={() => setShowTypeModal(false)} className="bg-green-500 text-white px-4 py-2 rounded-full">
                     Confirmar
                   </button>
                 </div>
@@ -267,7 +213,7 @@ export default function AtividadesAdaptadas() {
                       <button
                         key={item}
                         onClick={() => toggleNeuro(item)}
-                        className={`rounded-full py-2 px-3 font-bold text-white text-sm transition
+                        className={`rounded-full py-2 px-3 font-bold text-white text-sm
                           ${
                             item === "TEA" ? "bg-indigo-500" :
                             item === "TDAH" ? "bg-purple-500" :
@@ -299,16 +245,10 @@ export default function AtividadesAdaptadas() {
                 )}
 
                 <div className="flex justify-between mt-4">
-                  <button
-                    onClick={() => setShowNeuroModal(false)}
-                    className="bg-gray-300 px-4 py-2 rounded-full"
-                  >
+                  <button onClick={() => setShowNeuroModal(false)} className="bg-gray-300 px-4 py-2 rounded-full">
                     Cancelar
                   </button>
-                  <button
-                    onClick={() => setShowNeuroModal(false)}
-                    className="bg-green-500 text-white px-4 py-2 rounded-full"
-                  >
+                  <button onClick={() => setShowNeuroModal(false)} className="bg-green-500 text-white px-4 py-2 rounded-full">
                     Confirmar
                   </button>
                 </div>
