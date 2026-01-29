@@ -51,7 +51,6 @@ export default function Page() {
   return (
     <main className="min-h-screen bg-sky-300 flex items-center justify-center p-6">
       <div className="bg-sky-400 p-8 rounded-xl shadow-xl w-[380px] text-center">
-
         <h1 className="text-4xl font-extrabold text-yellow-100 drop-shadow mb-6">
           Atividades Adaptadas
         </h1>
@@ -78,7 +77,7 @@ export default function Page() {
           </span>
         </button>
 
-        {/* NEURODIVERGÊNCIAS */}
+        {/* NEURO */}
         <button
           onClick={() => setShowNeuro(true)}
           className="w-full bg-purple-600 text-white py-3 rounded-full mb-4 font-semibold"
@@ -97,10 +96,7 @@ export default function Page() {
 
       {/* MODAL SUPORTE */}
       {showSupport && (
-        <Modal
-          onClose={() => setShowSupport(false)}
-          title="Quanto apoio a criança precisa para realizar a atividade?"
-        >
+        <Modal title="Quanto apoio a criança precisa para realizar a atividade?">
           {supportOptions.map((opt) => (
             <button
               key={opt.label}
@@ -110,16 +106,13 @@ export default function Page() {
               {support === opt.label && "✓ "} {opt.label}
             </button>
           ))}
-          <ModalActions onCancel={() => setShowSupport(false)} />
+          <ModalActions onConfirm={() => setShowSupport(false)} onCancel={() => setShowSupport(false)} />
         </Modal>
       )}
 
       {/* MODAL TIPO */}
       {showType && (
-        <Modal
-          onClose={() => setShowType(false)}
-          title="Qual o tipo de atividade?"
-        >
+        <Modal title="Qual o tipo de atividade?">
           {typeOptions.map((opt) => (
             <button
               key={opt.label}
@@ -129,16 +122,13 @@ export default function Page() {
               {type === opt.label && "✓ "} {opt.label}
             </button>
           ))}
-          <ModalActions onCancel={() => setShowType(false)} />
+          <ModalActions onConfirm={() => setShowType(false)} onCancel={() => setShowType(false)} />
         </Modal>
       )}
 
       {/* MODAL NEURO */}
       {showNeuro && (
-        <Modal
-          onClose={() => setShowNeuro(false)}
-          title="Selecione as Neurodivergências da Criança"
-        >
+        <Modal title="Selecione as Neurodivergências da Criança">
           {neuroOptions.map((item) => (
             <button
               key={item}
@@ -152,16 +142,16 @@ export default function Page() {
               {neuro.includes(item) && "✓ "} {item}
             </button>
           ))}
-          <ModalActions onCancel={() => setShowNeuro(false)} />
+          <ModalActions onConfirm={() => setShowNeuro(false)} onCancel={() => setShowNeuro(false)} />
         </Modal>
       )}
     </main>
   );
 }
 
-/* COMPONENTES AUXILIARES */
+/* COMPONENTES */
 
-function Modal({ children, title, onClose }) {
+function Modal({ children, title }) {
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
       <div className="bg-white p-6 rounded-xl w-[320px] shadow-xl">
@@ -174,7 +164,7 @@ function Modal({ children, title, onClose }) {
   );
 }
 
-function ModalActions({ onCancel }) {
+function ModalActions({ onCancel, onConfirm }) {
   return (
     <div className="flex justify-between mt-4">
       <button
@@ -183,7 +173,10 @@ function ModalActions({ onCancel }) {
       >
         Cancelar
       </button>
-      <button className="bg-green-500 text-white px-4 py-2 rounded-full">
+      <button
+        onClick={onConfirm}
+        className="bg-green-500 text-white px-4 py-2 rounded-full"
+      >
         Confirmar
       </button>
     </div>
