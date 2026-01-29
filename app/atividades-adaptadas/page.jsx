@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 
 export default function AtividadesAdaptadas() {
   const [showSupportModal, setShowSupportModal] = useState(false);
@@ -25,51 +24,51 @@ export default function AtividadesAdaptadas() {
 
   return (
     <main className="flex justify-center items-center min-h-screen bg-[#9DDEFC]">
-      <div className="relative w-[480px] h-[720px]">
-
-        {/* IMAGEM DO LAYOUT */}
-        <Image
-          src="/adaptada.jpeg"
-          alt="Atividades Adaptadas"
-          fill
-          priority
-          className="object-contain pointer-events-none"
-        />
-
-        {/* TEXTO - NÍVEL DE SUPORTE */}
+      <div
+        className="relative w-[480px] h-[720px]"
+        style={{
+          backgroundImage: "url('/adaptada.jpeg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      >
+        {/* TEXTO - SUPORTE */}
         <div
-          className="absolute flex items-center justify-center text-blue-800 font-bold text-center pointer-events-none"
+          className="absolute flex items-center justify-center text-blue-800 font-bold text-center"
           style={{
-            top: "342px",
+            top: "340px",
             left: "215px",
             width: "160px",
-            height: "38px"
+            height: "38px",
+            pointerEvents: "none",
           }}
         >
           {supportLevel}
         </div>
 
-        {/* TEXTO - TIPO DE ATIVIDADE */}
+        {/* TEXTO - TIPO */}
         <div
-          className="absolute flex items-center justify-center text-blue-800 font-bold text-center pointer-events-none"
+          className="absolute flex items-center justify-center text-blue-800 font-bold text-center"
           style={{
-            top: "402px",
+            top: "400px",
             left: "215px",
             width: "160px",
-            minHeight: "38px"
+            minHeight: "38px",
+            pointerEvents: "none",
           }}
         >
           {activityType}
         </div>
 
-        {/* ÁREA CLICÁVEL - SUPORTE */}
+        {/* ÁREA CLICÁVEL SUPORTE */}
         <div
           className="absolute cursor-pointer"
           style={{ top: "330px", left: "60px", width: "360px", height: "70px" }}
           onClick={() => setShowSupportModal(true)}
         />
 
-        {/* ÁREA CLICÁVEL - TIPO */}
+        {/* ÁREA CLICÁVEL TIPO */}
         <div
           className="absolute cursor-pointer"
           style={{ top: "395px", left: "60px", width: "360px", height: "70px" }}
@@ -88,8 +87,7 @@ export default function AtividadesAdaptadas() {
                 <button
                   key={level}
                   onClick={() => setSupportLevel(level)}
-                  className="w-full py-3 rounded-full mb-3 font-bold text-white
-                    bg-orange-400"
+                  className="w-full py-3 rounded-full mb-3 font-bold text-white bg-orange-400"
                 >
                   {supportLevel === level ? "✓ " : ""}
                   {level}
@@ -152,7 +150,6 @@ export default function AtividadesAdaptadas() {
             </div>
           </div>
         )}
-
       </div>
     </main>
   );
