@@ -87,9 +87,9 @@ export default function AtividadesAdaptadas() {
             {supportLevel}
           </div>
 
-          {/* TEXTO TIPO DE ATIVIDADE (CONFIGURAÇÃO ANTIGA) */}
+          {/* TEXTO TIPO DE ATIVIDADE (CORRIGIDO DE VERDADE) */}
           <div
-            className="absolute flex items-center justify-center font-bold text-blue-800 text-center pointer-events-none"
+            className="absolute flex flex-col items-center justify-center font-bold text-blue-800 text-center pointer-events-none"
             style={{ top: "415px", left: "210px", width: "170px", height: "40px" }}
           >
             {activityType}
