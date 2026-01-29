@@ -79,7 +79,7 @@ export default function AtividadesAdaptadas() {
             className="object-contain pointer-events-none"
           />
 
-          {/* TEXTO NÍVEL DE SUPORTE (fixo) */}
+          {/* TEXTO NÍVEL DE SUPORTE */}
           <div
             className="absolute flex items-center justify-center font-bold text-blue-800 text-center pointer-events-none"
             style={{ top: "345px", left: "210px", width: "170px", height: "40px" }}
@@ -87,14 +87,14 @@ export default function AtividadesAdaptadas() {
             {supportLevel}
           </div>
 
-          {/* TEXTO TIPO DE ATIVIDADE (AUTO ALTURA = igual ao layout antigo) */}
+          {/* TEXTO TIPO DE ATIVIDADE (ALINHADO COM A ARTE) */}
           <div
-            className="absolute flex flex-col items-center justify-center font-bold text-blue-800 text-center pointer-events-none"
+            className="absolute flex items-center justify-center font-bold text-blue-800 text-center pointer-events-none"
             style={{
-              top: "405px",
+              top: "392px",   // 👈 ajustado pra coincidir com o centro visual do botão
               left: "210px",
               width: "170px",
-              minHeight: "40px"   // 🔥 NÃO tem height fixa
+              minHeight: "40px"
             }}
           >
             {activityType}
