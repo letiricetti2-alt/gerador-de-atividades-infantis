@@ -87,10 +87,10 @@ export default function AtividadesAdaptadas() {
             {supportLevel && "✨ Pronto!"}
           </div>
 
-          {/* TEXTO TIPO DE ATIVIDADE (AJUSTADO) */}
+          {/* TEXTO TIPO DE ATIVIDADE (DESCIDO UM POUCO) */}
           <div
             className="absolute flex items-center justify-center font-bold text-blue-800 text-center"
-            style={{ top: "405px", left: "210px", width: "170px", height: "40px" }}
+            style={{ top: "412px", left: "210px", width: "170px", height: "40px" }}
           >
             {activityType && "✨ Pronto!"}
           </div>
@@ -207,8 +207,6 @@ export default function AtividadesAdaptadas() {
     </>
   );
 }
-
-/* COMPONENTES */
 
 function Modal({ title, children }) {
   return (
