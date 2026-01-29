@@ -27,7 +27,7 @@ export default function AtividadesAdaptadas() {
     <main className="flex justify-center items-center min-h-screen bg-[#9DDEFC]">
       <div className="relative w-[480px] h-[720px]">
 
-        {/* IMAGEM DE FUNDO */}
+        {/* IMAGEM */}
         <Image
           src="/adaptada.jpeg"
           alt="Atividades Adaptadas"
@@ -35,29 +35,28 @@ export default function AtividadesAdaptadas() {
           className="object-contain pointer-events-none"
         />
 
-        {/* CAIXA REAL - NÍVEL DE SUPORTE */}
+        {/* CAIXA NÍVEL DE SUPORTE */}
         <div
-          className="absolute flex items-center justify-center font-bold text-blue-800 text-center bg-yellow-100 rounded-full"
+          className="absolute flex items-center justify-center font-bold text-blue-800 text-center bg-yellow-100 rounded-full cursor-pointer"
           style={{
-            top: "330px",
-            left: "210px",
-            width: "170px",
-            height: "40px"
+            top: "338px",
+            left: "225px",
+            width: "155px",
+            height: "36px"
           }}
           onClick={() => setShowSupportModal(true)}
         >
           {supportLevel}
         </div>
 
-        {/* CAIXA REAL - TIPO DE ATIVIDADE */}
+        {/* CAIXA TIPO DE ATIVIDADE */}
         <div
-          className="absolute flex items-center justify-center font-bold text-blue-800 text-center bg-yellow-100 rounded-full"
+          className="absolute flex items-center justify-center font-bold text-blue-800 text-center bg-yellow-100 rounded-full cursor-pointer px-2"
           style={{
-            top: "400px",
-            left: "210px",
-            width: "170px",
-            minHeight: "40px",
-            padding: "4px"
+            top: "402px",
+            left: "225px",
+            width: "155px",
+            minHeight: "36px"
           }}
           onClick={() => setShowTypeModal(true)}
         >
