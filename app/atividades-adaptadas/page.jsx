@@ -67,7 +67,7 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          {/* TEXTO NÍVEL DE SUPORTE */}
+          {/* TEXTO SUPORTE */}
           <div
             className="absolute flex items-center justify-center font-bold text-blue-800 text-center"
             style={{ top: "345px", left: "210px", width: "170px", height: "40px" }}
@@ -75,7 +75,7 @@ export default function AtividadesAdaptadas() {
             {supportDefined && "✨ Pronto!"}
           </div>
 
-          {/* TEXTO TIPO DE ATIVIDADE */}
+          {/* TEXTO TIPO */}
           <div
             className="absolute flex items-center justify-center font-bold text-blue-800 text-center"
             style={{ top: "415px", left: "210px", width: "170px", height: "40px" }}
@@ -138,22 +138,37 @@ export default function AtividadesAdaptadas() {
             </Modal>
           )}
 
-          {/* MODAL NEURO */}
+          {/* MODAL NEURO (COLORIDO) */}
           {showNeuroModal && (
             <Modal title="Selecione as Neurodivergências">
-              {neuroOptions.map((item) => (
-                <button
-                  key={item}
-                  onClick={() => toggleNeuro(item)}
-                  className={`w-full py-2 mb-2 rounded-full font-semibold ${
-                    selectedNeuros.includes(item)
-                      ? "bg-green-400 text-white"
-                      : "bg-gray-200"
-                  }`}
-                >
-                  {selectedNeuros.includes(item) && "✓ "} {item}
-                </button>
-              ))}
+              <div className="grid grid-cols-2 gap-3">
+                {neuroOptions.map((item) => {
+                  const selected = selectedNeuros.includes(item);
+
+                  return (
+                    <button
+                      key={item}
+                      onClick={() => toggleNeuro(item)}
+                      className={`rounded-full py-2 px-3 font-bold text-white text-sm transition
+                        ${
+                          item === "TEA" ? "bg-indigo-500" :
+                          item === "TDAH" ? "bg-purple-500" :
+                          item === "Dislexia" ? "bg-green-500" :
+                          item === "Discalculia" ? "bg-yellow-400" :
+                          item === "Deficiência Intelectual Leve" ? "bg-orange-400 col-span-2" :
+                          item === "Hiperlexia" ? "bg-cyan-400" :
+                          "bg-pink-500 col-span-2"
+                        }
+                        ${selected ? "ring-4 ring-green-400" : ""}
+                      `}
+                    >
+                      {selected ? "✓ " : ""}
+                      {item}
+                    </button>
+                  );
+                })}
+              </div>
+
               <ModalActions onClose={() => setShowNeuroModal(false)} />
             </Modal>
           )}
@@ -169,7 +184,7 @@ export default function AtividadesAdaptadas() {
 function Modal({ title, children }) {
   return (
     <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-50">
-      <div className="bg-white p-6 rounded-3xl w-[330px] shadow-xl">
+      <div className="bg-white p-6 rounded-3xl w-[340px] shadow-xl">
         <h2 className="text-blue-600 font-bold mb-4 text-center">{title}</h2>
         {children}
       </div>
