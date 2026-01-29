@@ -8,10 +8,11 @@ export default function AtividadesAdaptadas() {
   const [showTypeModal, setShowTypeModal] = useState(false);
   const [showNeuroModal, setShowNeuroModal] = useState(false);
 
-  const [supportDefined, setSupportDefined] = useState(false);
-  const [typeDefined, setTypeDefined] = useState(false);
+  const [supportLevel, setSupportLevel] = useState("");
+  const [activityType, setActivityType] = useState("");
 
   const [selectedNeuros, setSelectedNeuros] = useState([]);
+  const [otherNeuro, setOtherNeuro] = useState("");
 
   const typeOptions = [
     { label: "Alfabetização", color: "bg-indigo-400" },
@@ -34,9 +35,20 @@ export default function AtividadesAdaptadas() {
     "Deficiência Intelectual Leve",
     "Hiperlexia",
     "Altas Habilidades / Superdotação",
+    "Outros",
   ];
 
   function toggleNeuro(item) {
+    if (item === "Outros") {
+      if (selectedNeuros.includes("Outros")) {
+        setSelectedNeuros(selectedNeuros.filter((n) => n !== "Outros"));
+        setOtherNeuro("");
+      } else {
+        setSelectedNeuros([...selectedNeuros, "Outros"]);
+      }
+      return;
+    }
+
     if (selectedNeuros.includes(item)) {
       setSelectedNeuros(selectedNeuros.filter((n) => n !== item));
     } else {
@@ -72,7 +84,7 @@ export default function AtividadesAdaptadas() {
             className="absolute flex items-center justify-center font-bold text-blue-800 text-center"
             style={{ top: "345px", left: "210px", width: "170px", height: "40px" }}
           >
-            {supportDefined && "✨ Pronto!"}
+            {supportLevel && "✨ Pronto!"}
           </div>
 
           {/* TEXTO TIPO */}
@@ -80,7 +92,7 @@ export default function AtividadesAdaptadas() {
             className="absolute flex items-center justify-center font-bold text-blue-800 text-center"
             style={{ top: "415px", left: "210px", width: "170px", height: "40px" }}
           >
-            {typeDefined && "✨ Pronto!"}
+            {activityType && "✨ Pronto!"}
           </div>
 
           {/* ÁREAS CLICÁVEIS */}
@@ -106,15 +118,18 @@ export default function AtividadesAdaptadas() {
               {["Baixo", "Moderado", "Alto"].map((level) => (
                 <button
                   key={level}
-                  onClick={() => setSupportDefined(true)}
-                  className={`w-full py-3 rounded-full mb-3 font-bold text-white ${
-                    level === "Baixo"
-                      ? "bg-teal-400"
-                      : level === "Moderado"
-                      ? "bg-yellow-400"
-                      : "bg-pink-400"
-                  }`}
+                  onClick={() => setSupportLevel(level)}
+                  className={`w-full py-3 rounded-full mb-3 font-bold text-white transition
+                    ${supportLevel === level ? "ring-4 ring-green-400" : ""}
+                    ${
+                      level === "Baixo"
+                        ? "bg-teal-400"
+                        : level === "Moderado"
+                        ? "bg-yellow-400"
+                        : "bg-pink-400"
+                    }`}
                 >
+                  {supportLevel === level ? "✓ " : ""}
                   {level}
                 </button>
               ))}
@@ -128,9 +143,12 @@ export default function AtividadesAdaptadas() {
               {typeOptions.map((opt) => (
                 <button
                   key={opt.label}
-                  onClick={() => setTypeDefined(true)}
-                  className={`${opt.color} w-full py-2 mb-2 rounded-full text-white font-semibold`}
+                  onClick={() => setActivityType(opt.label)}
+                  className={`${opt.color} w-full py-2 mb-2 rounded-full text-white font-semibold transition
+                    ${activityType === opt.label ? "ring-4 ring-green-400" : ""}
+                  `}
                 >
+                  {activityType === opt.label ? "✓ " : ""}
                   {opt.label}
                 </button>
               ))}
@@ -138,7 +156,7 @@ export default function AtividadesAdaptadas() {
             </Modal>
           )}
 
-          {/* MODAL NEURO (COLORIDO) */}
+          {/* MODAL NEURO */}
           {showNeuroModal && (
             <Modal title="Selecione as Neurodivergências">
               <div className="grid grid-cols-2 gap-3">
@@ -157,7 +175,8 @@ export default function AtividadesAdaptadas() {
                           item === "Discalculia" ? "bg-yellow-400" :
                           item === "Deficiência Intelectual Leve" ? "bg-orange-400 col-span-2" :
                           item === "Hiperlexia" ? "bg-cyan-400" :
-                          "bg-pink-500 col-span-2"
+                          item === "Altas Habilidades / Superdotação" ? "bg-pink-500 col-span-2" :
+                          "bg-gray-300 text-gray-700 col-span-2"
                         }
                         ${selected ? "ring-4 ring-green-400" : ""}
                       `}
@@ -168,6 +187,16 @@ export default function AtividadesAdaptadas() {
                   );
                 })}
               </div>
+
+              {selectedNeuros.includes("Outros") && (
+                <input
+                  type="text"
+                  placeholder="Descreva a neurodivergência..."
+                  value={otherNeuro}
+                  onChange={(e) => setOtherNeuro(e.target.value)}
+                  className="w-full mt-3 p-2 border rounded-xl"
+                />
+              )}
 
               <ModalActions onClose={() => setShowNeuroModal(false)} />
             </Modal>
