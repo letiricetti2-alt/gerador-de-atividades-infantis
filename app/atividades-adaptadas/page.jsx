@@ -4,15 +4,13 @@ import { useState } from "react";
 import Image from "next/image";
 
 export default function AtividadesAdaptadas() {
-  const [showNeuroModal, setShowNeuroModal] = useState(false);
-  const [showSupportModal, setShowSupportModal] = useState(false);
-  const [showTypeModal, setShowTypeModal] = useState(false);
+  const [showNeuro, setShowNeuro] = useState(false);
+  const [showSupport, setShowSupport] = useState(false);
+  const [showType, setShowType] = useState(false);
 
-  const [supportLevel, setSupportLevel] = useState("");
-  const [activityType, setActivityType] = useState("");
-
-  const [selectedNeuros, setSelectedNeuros] = useState([]);
-  const [otherNeuro, setOtherNeuro] = useState("");
+  const [support, setSupport] = useState("");
+  const [type, setType] = useState("");
+  const [neuros, setNeuros] = useState([]);
 
   const neuroOptions = [
     "TEA",
@@ -22,7 +20,6 @@ export default function AtividadesAdaptadas() {
     "Deficiência Intelectual Leve",
     "Hiperlexia",
     "Altas Habilidades / Superdotação",
-    "Outros",
   ];
 
   const typeOptions = [
@@ -38,14 +35,11 @@ export default function AtividadesAdaptadas() {
     { label: "Caligrafia Personalizada", color: "bg-blue-400" },
   ];
 
-  const toggleNeuro = (item) => {
-    if (item === "Outros") return;
-    setSelectedNeuros((prev) =>
-      prev.includes(item)
-        ? prev.filter((n) => n !== item)
-        : [...prev, item]
+  function toggleNeuro(n) {
+    setNeuros((prev) =>
+      prev.includes(n) ? prev.filter((x) => x !== n) : [...prev, n]
     );
-  };
+  }
 
   return (
     <>
@@ -55,14 +49,12 @@ export default function AtividadesAdaptadas() {
           background-color: #9ddeff !important;
           margin: 0;
           padding: 0;
-          height: 100%;
-          width: 100%;
           overflow: hidden;
         }
       `}</style>
 
       <main className="flex justify-center items-center w-screen h-screen bg-[#9ddeff]">
-        <div className="relative flex justify-center items-center w-[480px] h-[720px]">
+        <div className="relative w-[480px] h-[720px]">
           <Image
             src="/adaptada.jpeg"
             alt="Atividades Adaptadas"
@@ -71,59 +63,60 @@ export default function AtividadesAdaptadas() {
             className="object-contain"
           />
 
-          <div className="absolute inset-0 flex flex-col items-center justify-end gap-3 pb-20">
-            {/* Nivel de suporte */}
+          {/* BOTÕES INVISÍVEIS SOBRE A IMAGEM */}
+          <div className="absolute inset-0">
+
+            {/* Nível de suporte */}
             <button
-              onClick={() => setShowSupportModal(true)}
-              className="w-[320px] h-[56px]"
+              onClick={() => setShowSupport(true)}
+              className="absolute top-[350px] left-[80px] w-[320px] h-[55px]"
             />
 
             {/* Tipo de atividade */}
             <button
-              onClick={() => setShowTypeModal(true)}
-              className="w-[320px] h-[56px]"
+              onClick={() => setShowType(true)}
+              className="absolute top-[420px] left-[80px] w-[320px] h-[55px]"
             />
 
-            {/* Neurodivergencias */}
+            {/* Neurodivergências */}
             <button
-              onClick={() => setShowNeuroModal(true)}
-              className="w-[320px] h-[60px]"
+              onClick={() => setShowNeuro(true)}
+              className="absolute top-[490px] left-[80px] w-[320px] h-[60px]"
             />
+
           </div>
         </div>
 
         {/* MODAL SUPORTE */}
-        {showSupportModal && (
+        {showSupport && (
           <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-            <div className="bg-white rounded-3xl p-6 w-[340px] text-center shadow-xl">
-              <h2 className="text-blue-600 font-bold text-lg mb-4">
+            <div className="bg-white rounded-3xl p-6 w-[340px] text-center">
+              <h2 className="text-blue-600 font-bold mb-4">
                 Quanto apoio a criança precisa para realizar a atividade?
               </h2>
 
-              {["Baixo", "Moderado", "Alto"].map((item) => (
+              {["Baixo", "Moderado", "Alto"].map((item, i) => (
                 <button
-                  key={item}
-                  onClick={() => setSupportLevel(item)}
-                  className={`w-full py-3 rounded-full mb-3 flex justify-center items-center font-bold ${
-                    supportLevel === item
-                      ? "bg-teal-400 text-white"
-                      : "bg-gray-200"
+                  key={i}
+                  onClick={() => setSupport(item)}
+                  className={`w-full py-3 rounded-full mb-3 font-bold ${
+                    support === item ? "bg-teal-400 text-white" : "bg-gray-200"
                   }`}
                 >
-                  {supportLevel === item && "✓ "}
+                  {support === item && "✓ "}
                   {item}
                 </button>
               ))}
 
               <div className="flex justify-between mt-4">
                 <button
-                  onClick={() => setShowSupportModal(false)}
+                  onClick={() => setShowSupport(false)}
                   className="bg-gray-300 px-4 py-2 rounded-full"
                 >
                   Cancelar
                 </button>
                 <button
-                  onClick={() => setShowSupportModal(false)}
+                  onClick={() => setShowSupport(false)}
                   className="bg-green-500 text-white px-4 py-2 rounded-full"
                 >
                   Confirmar
@@ -134,39 +127,33 @@ export default function AtividadesAdaptadas() {
         )}
 
         {/* MODAL TIPO */}
-        {showTypeModal && (
+        {showType && (
           <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-            <div className="bg-white rounded-3xl p-6 w-[360px] shadow-xl">
-              <h2 className="text-blue-600 font-bold text-lg mb-4 text-center">
+            <div className="bg-white rounded-3xl p-6 w-[360px]">
+              <h2 className="text-blue-600 font-bold mb-4 text-center">
                 Qual o tipo de atividade?
               </h2>
 
-              <div className="flex flex-col gap-2">
-                {typeOptions.map((opt) => (
-                  <button
-                    key={opt.label}
-                    onClick={() => setActivityType(opt.label)}
-                    className={`${opt.color} text-white py-2 rounded-full flex justify-center items-center font-semibold ${
-                      activityType === opt.label
-                        ? "ring-4 ring-green-400"
-                        : ""
-                    }`}
-                  >
-                    {activityType === opt.label && "✓ "}
-                    {opt.label}
-                  </button>
-                ))}
-              </div>
+              {typeOptions.map((opt) => (
+                <button
+                  key={opt.label}
+                  onClick={() => setType(opt.label)}
+                  className={${opt.color} w-full py-2 mb-2 rounded-full text-white font-semibold}
+                >
+                  {type === opt.label && "✓ "}
+                  {opt.label}
+                </button>
+              ))}
 
               <div className="flex justify-between mt-4">
                 <button
-                  onClick={() => setShowTypeModal(false)}
+                  onClick={() => setShowType(false)}
                   className="bg-gray-300 px-4 py-2 rounded-full"
                 >
                   Cancelar
                 </button>
                 <button
-                  onClick={() => setShowTypeModal(false)}
+                  onClick={() => setShowType(false)}
                   className="bg-green-500 text-white px-4 py-2 rounded-full"
                 >
                   Confirmar
@@ -177,39 +164,39 @@ export default function AtividadesAdaptadas() {
         )}
 
         {/* MODAL NEURO */}
-        {showNeuroModal && (
+        {showNeuro && (
           <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50">
-            <div className="bg-white rounded-3xl p-6 w-[360px] shadow-xl">
-              <h2 className="text-blue-600 font-bold text-lg mb-4 text-center">
+            <div className="bg-white rounded-3xl p-6 w-[360px]">
+              <h2 className="text-blue-600 font-bold mb-4 text-center">
                 Selecione as Neurodivergências da Criança
               </h2>
 
               <div className="grid grid-cols-2 gap-2">
-                {neuroOptions.map((item) => (
+                {neuroOptions.map((n) => (
                   <button
-                    key={item}
-                    onClick={() => toggleNeuro(item)}
-                    className={`py-2 px-2 rounded-full text-sm font-semibold ${
-                      selectedNeuros.includes(item)
+                    key={n}
+                    onClick={() => toggleNeuro(n)}
+                    className={`py-2 rounded-full font-semibold ${
+                      neuros.includes(n)
                         ? "bg-green-400 text-white"
                         : "bg-gray-200"
                     }`}
                   >
-                    {selectedNeuros.includes(item) && "✓ "}
-                    {item}
+                    {neuros.includes(n) && "✓ "}
+                    {n}
                   </button>
                 ))}
               </div>
 
               <div className="flex justify-between mt-4">
                 <button
-                  onClick={() => setShowNeuroModal(false)}
+                  onClick={() => setShowNeuro(false)}
                   className="bg-gray-300 px-4 py-2 rounded-full"
                 >
                   Cancelar
                 </button>
                 <button
-                  onClick={() => setShowNeuroModal(false)}
+                  onClick={() => setShowNeuro(false)}
                   className="bg-green-500 text-white px-4 py-2 rounded-full"
                 >
                   Confirmar
