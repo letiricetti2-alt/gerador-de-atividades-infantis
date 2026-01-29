@@ -87,15 +87,14 @@ export default function AtividadesAdaptadas() {
             {supportLevel}
           </div>
 
-          {/* TEXTO TIPO DE ATIVIDADE (CAIXA MAIOR) */}
+          {/* TEXTO TIPO DE ATIVIDADE (CAIXA AJUSTADA DE VERDADE) */}
           <div
             className="absolute flex items-center justify-center font-bold text-blue-800 text-center pointer-events-none"
             style={{
-              top: "415px",
+              top: "405px",   // sobe a caixa
               left: "210px",
               width: "170px",
-              height: "60px",
-              lineHeight: "1.1"
+              height: "70px"  // deixa a caixa maior
             }}
           >
             {activityType}
