@@ -4,15 +4,27 @@ import { useState } from "react";
 import Image from "next/image";
 
 export default function AtividadesAdaptadas() {
-  const [showNeuroModal, setShowNeuroModal] = useState(false);
   const [showSupportModal, setShowSupportModal] = useState(false);
   const [showTypeModal, setShowTypeModal] = useState(false);
+  const [showNeuroModal, setShowNeuroModal] = useState(false);
 
-  const [supportLevel, setSupportLevel] = useState("");
-  const [activityType, setActivityType] = useState("");
+  const [supportDefined, setSupportDefined] = useState(false);
+  const [typeDefined, setTypeDefined] = useState(false);
 
   const [selectedNeuros, setSelectedNeuros] = useState([]);
-  const [otherNeuro, setOtherNeuro] = useState("");
+
+  const typeOptions = [
+    { label: "Alfabetização", color: "bg-indigo-400" },
+    { label: "Matemática", color: "bg-purple-400" },
+    { label: "Coordenação Motora", color: "bg-green-400" },
+    { label: "Atenção e Concentração", color: "bg-yellow-400" },
+    { label: "Socioemocional", color: "bg-pink-400" },
+    { label: "Linguagem", color: "bg-cyan-400" },
+    { label: "Raciocínio Lógico", color: "bg-orange-400" },
+    { label: "Artes", color: "bg-rose-400" },
+    { label: "Atividades Temáticas", color: "bg-emerald-400" },
+    { label: "Caligrafia Personalizada", color: "bg-blue-400" },
+  ];
 
   const neuroOptions = [
     "TEA",
@@ -22,53 +34,29 @@ export default function AtividadesAdaptadas() {
     "Deficiência Intelectual Leve",
     "Hiperlexia",
     "Altas Habilidades / Superdotação",
-    "Outros",
   ];
 
-  const typeOptions = [
-    "Alfabetização",
-    "Matemática",
-    "Coordenação Motora",
-    "Atenção e Concentração",
-    "Socioemocional",
-    "Linguagem",
-    "Raciocínio Lógico",
-    "Artes",
-    "Atividades Temáticas",
-    "Caligrafia Personalizada",
-  ];
-
-  const toggleNeuro = (item) => {
-    if (item === "Outros") {
-      if (selectedNeuros.includes("Outros")) {
-        setSelectedNeuros(selectedNeuros.filter((n) => n !== "Outros"));
-        setOtherNeuro("");
-      } else {
-        setSelectedNeuros([...selectedNeuros, "Outros"]);
-      }
-      return;
-    }
-
+  function toggleNeuro(item) {
     if (selectedNeuros.includes(item)) {
       setSelectedNeuros(selectedNeuros.filter((n) => n !== item));
     } else {
       setSelectedNeuros([...selectedNeuros, item]);
     }
-  };
+  }
 
   return (
     <>
       <style jsx global>{`
-        html, body {
-          background-color: #9DDEFC !important;
+        html,
+        body {
+          background-color: #9ddeff;
           margin: 0;
           padding: 0;
           height: 100%;
-          width: 100%;
         }
       `}</style>
 
-      <main className="flex justify-center items-center w-screen h-screen bg-[#9DDEFC]">
+      <main className="flex justify-center items-center w-screen h-screen">
         <div className="relative w-[480px] h-[720px]">
 
           {/* IMAGEM */}
@@ -82,182 +70,134 @@ export default function AtividadesAdaptadas() {
 
           {/* TEXTO NÍVEL DE SUPORTE */}
           <div
-            className="absolute flex items-center justify-center"
-            style={{ top: "345px", left: "210px", width: "170px", height: "40px", cursor: "pointer" }}
+            className="absolute flex items-center justify-center font-bold text-blue-800 text-center cursor-pointer"
+            style={{ top: "345px", left: "210px", width: "170px", height: "40px" }}
             onClick={() => setShowSupportModal(true)}
           >
-            {supportLevel && (
-              <span className="bg-white/80 text-blue-700 px-4 py-1 rounded-full text-sm font-bold shadow">
-                ✨ Pronto!
-              </span>
-            )}
+            {supportDefined && "✨ Pronto!"}
           </div>
 
           {/* TEXTO TIPO DE ATIVIDADE */}
           <div
-            className="absolute flex items-center justify-center"
-            style={{ top: "415px", left: "210px", width: "170px", height: "40px", cursor: "pointer" }}
+            className="absolute flex items-center justify-center font-bold text-blue-800 text-center cursor-pointer"
+            style={{ top: "415px", left: "210px", width: "170px", height: "40px" }}
             onClick={() => setShowTypeModal(true)}
           >
-            {activityType && (
-              <span className="bg-white/80 text-blue-700 px-4 py-1 rounded-full text-sm font-bold shadow">
-                ✨ Pronto!
-              </span>
-            )}
+            {typeDefined && "✨ Pronto!"}
           </div>
 
-          {/* ÁREAS CLICÁVEIS */}
+          {/* ÁREA CLICÁVEL SUPORTE */}
           <div
             className="absolute"
-            style={{ top: "330px", left: "60px", width: "360px", height: "70px", cursor: "pointer" }}
+            style={{ top: "330px", left: "60px", width: "360px", height: "70px" }}
             onClick={() => setShowSupportModal(true)}
           />
+
+          {/* ÁREA CLICÁVEL TIPO */}
           <div
             className="absolute"
-            style={{ top: "400px", left: "60px", width: "360px", height: "70px", cursor: "pointer" }}
+            style={{ top: "400px", left: "60px", width: "360px", height: "70px" }}
             onClick={() => setShowTypeModal(true)}
           />
+
+          {/* ÁREA CLICÁVEL NEURO */}
           <div
             className="absolute"
-            style={{ top: "470px", left: "60px", width: "360px", height: "70px", cursor: "pointer" }}
+            style={{ top: "470px", left: "60px", width: "360px", height: "70px" }}
             onClick={() => setShowNeuroModal(true)}
           />
 
           {/* MODAL SUPORTE */}
           {showSupportModal && (
-            <div className="absolute inset-0 bg-black/40 flex justify-center items-center z-50">
-              <div className="bg-white rounded-3xl p-6 w-[320px] text-center shadow-xl">
-                <h2 className="text-blue-600 font-bold mb-4">
-                  Quanto apoio a criança precisa para realizar a atividade?
-                </h2>
+            <Modal title="Quanto apoio a criança precisa?">
+              {["Baixo", "Moderado", "Alto"].map((level) => (
+                <button
+                  key={level}
+                  onClick={() => setSupportDefined(true)}
+                  className="w-full py-3 rounded-full mb-3 font-bold bg-orange-400 text-white"
+                >
+                  {level}
+                </button>
+              ))}
 
-                {["Baixo", "Moderado", "Alto"].map((level) => (
-                  <button
-                    key={level}
-                    onClick={() => setSupportLevel(level)}
-                    className={`w-full py-3 rounded-full mb-3 font-bold
-                      ${supportLevel === level ? "ring-4 ring-green-400" : ""}
-                      ${
-                        level === "Baixo"
-                          ? "bg-teal-400 text-white"
-                          : level === "Moderado"
-                          ? "bg-yellow-400 text-white"
-                          : "bg-pink-400 text-white"
-                      }`}
-                  >
-                    {supportLevel === level ? "✓ " : ""}
-                    {level}
-                  </button>
-                ))}
-
-                <div className="flex justify-between mt-4">
-                  <button onClick={() => setShowSupportModal(false)} className="bg-gray-300 px-4 py-2 rounded-full">
-                    Cancelar
-                  </button>
-                  <button onClick={() => setShowSupportModal(false)} className="bg-green-500 text-white px-4 py-2 rounded-full">
-                    Confirmar
-                  </button>
-                </div>
-              </div>
-            </div>
+              <ModalActions onClose={() => setShowSupportModal(false)} />
+            </Modal>
           )}
 
           {/* MODAL TIPO */}
           {showTypeModal && (
-            <div className="absolute inset-0 bg-black/40 flex justify-center items-center z-50">
-              <div className="bg-white rounded-3xl p-6 w-[340px] shadow-xl">
-                <h2 className="text-blue-600 font-bold text-center mb-4">
-                  Qual o tipo de atividade?
-                </h2>
+            <Modal title="Qual o tipo de atividade?">
+              {typeOptions.map((opt) => (
+                <button
+                  key={opt.label}
+                  onClick={() => setTypeDefined(true)}
+                  className={`${opt.color} w-full py-2 mb-2 rounded-full text-white font-semibold`}
+                >
+                  {opt.label}
+                </button>
+              ))}
 
-                <div className="grid grid-cols-1 gap-3">
-                  {typeOptions.map((item) => (
-                    <button
-                      key={item}
-                      onClick={() => setActivityType(item)}
-                      className={`rounded-full py-2 px-3 font-bold text-white
-                        ${activityType === item ? "ring-4 ring-green-400 bg-blue-500" : "bg-blue-400"}
-                      `}
-                    >
-                      {activityType === item ? "✓ " : ""}
-                      {item}
-                    </button>
-                  ))}
-                </div>
-
-                <div className="flex justify-between mt-4">
-                  <button onClick={() => setShowTypeModal(false)} className="bg-gray-300 px-4 py-2 rounded-full">
-                    Cancelar
-                  </button>
-                  <button onClick={() => setShowTypeModal(false)} className="bg-green-500 text-white px-4 py-2 rounded-full">
-                    Confirmar
-                  </button>
-                </div>
-              </div>
-            </div>
+              <ModalActions onClose={() => setShowTypeModal(false)} />
+            </Modal>
           )}
 
           {/* MODAL NEURO */}
           {showNeuroModal && (
-            <div className="absolute inset-0 bg-black/40 flex justify-center items-center z-50">
-              <div className="bg-white rounded-3xl p-6 w-[340px] shadow-xl">
-                <h2 className="text-blue-600 font-bold text-center mb-4">
-                  Selecione as Neurodivergências da Criança
-                </h2>
+            <Modal title="Selecione as Neurodivergências">
+              {neuroOptions.map((item) => (
+                <button
+                  key={item}
+                  onClick={() => toggleNeuro(item)}
+                  className={`w-full py-2 mb-2 rounded-full font-semibold ${
+                    selectedNeuros.includes(item)
+                      ? "bg-green-400 text-white"
+                      : "bg-gray-200"
+                  }`}
+                >
+                  {selectedNeuros.includes(item) && "✓ "} {item}
+                </button>
+              ))}
 
-                <div className="grid grid-cols-2 gap-3">
-                  {neuroOptions.map((item) => {
-                    const selected = selectedNeuros.includes(item);
-
-                    return (
-                      <button
-                        key={item}
-                        onClick={() => toggleNeuro(item)}
-                        className={`rounded-full py-2 px-3 font-bold text-white text-sm
-                          ${
-                            item === "TEA" ? "bg-indigo-500" :
-                            item === "TDAH" ? "bg-purple-500" :
-                            item === "Dislexia" ? "bg-green-500" :
-                            item === "Discalculia" ? "bg-yellow-400" :
-                            item === "Deficiência Intelectual Leve" ? "bg-orange-400 col-span-2" :
-                            item === "Hiperlexia" ? "bg-cyan-400" :
-                            item === "Altas Habilidades / Superdotação" ? "bg-pink-500 col-span-2" :
-                            "bg-gray-300 text-gray-700 col-span-2"
-                          }
-                          ${selected ? "ring-4 ring-green-400" : ""}
-                        `}
-                      >
-                        {selected ? "✓ " : ""}
-                        {item}
-                      </button>
-                    );
-                  })}
-                </div>
-
-                {selectedNeuros.includes("Outros") && (
-                  <input
-                    type="text"
-                    placeholder="Descreva a neurodivergência..."
-                    value={otherNeuro}
-                    onChange={(e) => setOtherNeuro(e.target.value)}
-                    className="w-full mt-3 p-2 border rounded-xl"
-                  />
-                )}
-
-                <div className="flex justify-between mt-4">
-                  <button onClick={() => setShowNeuroModal(false)} className="bg-gray-300 px-4 py-2 rounded-full">
-                    Cancelar
-                  </button>
-                  <button onClick={() => setShowNeuroModal(false)} className="bg-green-500 text-white px-4 py-2 rounded-full">
-                    Confirmar
-                  </button>
-                </div>
-              </div>
-            </div>
+              <ModalActions onClose={() => setShowNeuroModal(false)} />
+            </Modal>
           )}
 
         </div>
       </main>
     </>
+  );
+}
+
+/* COMPONENTES AUXILIARES */
+
+function Modal({ title, children }) {
+  return (
+    <div className="absolute inset-0 bg-black/40 flex items-center justify-center z-50">
+      <div className="bg-white p-6 rounded-3xl w-[330px] shadow-xl">
+        <h2 className="text-blue-600 font-bold mb-4 text-center">
+          {title}
+        </h2>
+        {children}
+      </div>
+    </div>
+  );
+}
+
+function ModalActions({ onClose }) {
+  return (
+    <div className="flex justify-between mt-4">
+      <button
+        onClick={onClose}
+        className="bg-gray-300 px-4 py-2 rounded-full"
+      >
+        Cancelar
+      </button>
+      <button
+        onClick={onClose}
+        className="bg-green-500 text-white px-4 py-2 rounded-full"
+      >
+        Confirmar
+      </button>
+    </div>
   );
 }
