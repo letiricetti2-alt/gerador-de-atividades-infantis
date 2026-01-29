@@ -79,7 +79,7 @@ export default function AtividadesAdaptadas() {
             className="object-contain pointer-events-none"
           />
 
-          {/* TEXTO NÍVEL DE SUPORTE */}
+          {/* TEXTO NÍVEL DE SUPORTE (fixo) */}
           <div
             className="absolute flex items-center justify-center font-bold text-blue-800 text-center pointer-events-none"
             style={{ top: "345px", left: "210px", width: "170px", height: "40px" }}
@@ -87,14 +87,14 @@ export default function AtividadesAdaptadas() {
             {supportLevel}
           </div>
 
-          {/* TEXTO TIPO DE ATIVIDADE (CAIXA AJUSTADA DE VERDADE) */}
+          {/* TEXTO TIPO DE ATIVIDADE (AUTO ALTURA = igual ao layout antigo) */}
           <div
-            className="absolute flex items-center justify-center font-bold text-blue-800 text-center pointer-events-none"
+            className="absolute flex flex-col items-center justify-center font-bold text-blue-800 text-center pointer-events-none"
             style={{
-              top: "405px",   // sobe a caixa
+              top: "405px",
               left: "210px",
               width: "170px",
-              height: "70px"  // deixa a caixa maior
+              minHeight: "40px"   // 🔥 NÃO tem height fixa
             }}
           >
             {activityType}
@@ -145,16 +145,10 @@ export default function AtividadesAdaptadas() {
                 ))}
 
                 <div className="flex justify-between mt-4">
-                  <button
-                    onClick={() => setShowSupportModal(false)}
-                    className="bg-gray-300 px-4 py-2 rounded-full"
-                  >
+                  <button onClick={() => setShowSupportModal(false)} className="bg-gray-300 px-4 py-2 rounded-full">
                     Cancelar
                   </button>
-                  <button
-                    onClick={() => setShowSupportModal(false)}
-                    className="bg-green-500 text-white px-4 py-2 rounded-full"
-                  >
+                  <button onClick={() => setShowSupportModal(false)} className="bg-green-500 text-white px-4 py-2 rounded-full">
                     Confirmar
                   </button>
                 </div>
@@ -187,16 +181,10 @@ export default function AtividadesAdaptadas() {
                 </div>
 
                 <div className="flex justify-between mt-4">
-                  <button
-                    onClick={() => setShowTypeModal(false)}
-                    className="bg-gray-300 px-4 py-2 rounded-full"
-                  >
+                  <button onClick={() => setShowTypeModal(false)} className="bg-gray-300 px-4 py-2 rounded-full">
                     Cancelar
                   </button>
-                  <button
-                    onClick={() => setShowTypeModal(false)}
-                    className="bg-green-500 text-white px-4 py-2 rounded-full"
-                  >
+                  <button onClick={() => setShowTypeModal(false)} className="bg-green-500 text-white px-4 py-2 rounded-full">
                     Confirmar
                   </button>
                 </div>
@@ -252,16 +240,10 @@ export default function AtividadesAdaptadas() {
                 )}
 
                 <div className="flex justify-between mt-4">
-                  <button
-                    onClick={() => setShowNeuroModal(false)}
-                    className="bg-gray-300 px-4 py-2 rounded-full"
-                  >
+                  <button onClick={() => setShowNeuroModal(false)} className="bg-gray-300 px-4 py-2 rounded-full">
                     Cancelar
                   </button>
-                  <button
-                    onClick={() => setShowNeuroModal(false)}
-                    className="bg-green-500 text-white px-4 py-2 rounded-full"
-                  >
+                  <button onClick={() => setShowNeuroModal(false)} className="bg-green-500 text-white px-4 py-2 rounded-full">
                     Confirmar
                   </button>
                 </div>
